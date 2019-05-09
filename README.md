@@ -1,9 +1,9 @@
 # Aineopintojen harjoitustyö: Tietorakenteet ja algoritmit (alkukesä)
+
 Eeva-Maria Laiho
 
 ## Aihe: Focus stacking -algoritmi
-Focus stacking -algoritmin toteutus ja vertailu kirjastototeutuksiin.
----
+
 Focus stacking -algoritmi on digitaalinen kuvankäsittelymenetelmä, minkä avulla useasta samasta kohteesta otetusta valokuvasta voidaan luoda yksi mahdollisimman tarkka kuva. Alkuperäisistä valokuvista erotetaan mahdollisimman tarkat kohdat ja kootaan ne uudeksi kuvaksi.
 
 Algoritmin toiminta on pääpiirteissään seuraava ([Sini Lehtosen gradun mukaan](https://helda.helsinki.fi/bitstream/handle/10138/154047/GraduSini.pdf?sequence=3)):
@@ -23,13 +23,17 @@ Algoritmin toiminta on pääpiirteissään seuraava ([Sini Lehtosen gradun mukaa
 
 
 ## Määrittely
+
 Sovelluksen määrittely [erillisessä dokumentissa](documentation/määrittely.md).
 
 ## Toteutus
+
 Sovelluksen toteutusdokumentaatio [erillisessä dokumentissa](documentation/toteutus.md).
 
 ## Testaus
+
 Sovelluksen toteutusdokumentaatio [erillisessä dokumentissa](documentation/testaus.md).
 
 ## Käyttöohje
+
 Sovelluksen toteutusdokumentaatio [erillisessä dokumentissa](documentation/käyttöohje.md).
