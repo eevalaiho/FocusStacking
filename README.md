@@ -6,7 +6,7 @@ Focus stacking -algoritmin toteutus ja vertailu kirjastototeutuksiin.
 ---
 Focus stacking -algoritmi on digitaalinen kuvankäsittelymenetelmä, minkä avulla useasta samasta kohteesta otetusta valokuvasta voidaan luoda yksi mahdollisimman tarkka kuva. Alkuperäisistä valokuvista erotetaan mahdollisimman tarkat kohdat ja kootaan ne uudeksi kuvaksi.
 
-Algoritmin toiminta on pääpiirteissään seuraava ([ideaa täältä](https://helda.helsinki.fi/bitstream/handle/10138/154047/GraduSini.pdf?sequence=3)):
+Algoritmin toiminta on pääpiirteissään seuraava ([Sini Lehtosen gradun mukaan](https://helda.helsinki.fi/bitstream/handle/10138/154047/GraduSini.pdf?sequence=3)):
 
 1. Esikäsittely: kuvien lataaminen ja kohdistus. Kuvan fokuksen säätäminen aiheuttaa sen, että samaa kohdetta esittävät pikselit eivät välttämättä ole samassa kohdassa. Kohdistus voidaan tehdä myös varsinaisen algoritmin ulkopuolella esim kuvankäsittelyohjelmalla ja tulee toteutukseen, jos aikaa jää.
 
