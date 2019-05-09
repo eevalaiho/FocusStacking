@@ -15,11 +15,7 @@ Algoritmin toiminta on pääpiirteissään seuraava ([ideaa täältä](https://h
     1. Fourier-muunnos,
 
     2. ylipäästösuodatus
-<<<<<<< HEAD
-    
-=======
 
->>>>>>> a4f08bcf6daffba99e429fa606ce78fd19ab03e9
     3. L^2-normi
 
 3. Luodaan uusi kuva kopioimalla siihen kuvapisteet siitä alkuperäisestä kuvista, jonka L^2-normi on suurin  
