@@ -2,7 +2,7 @@
 
 ## Java-kirjastoja
 
-### Fourier transform
+### Fourier -muunnos
 
 DTFDescriptor: The "DFT" operation computes the discrete Fourier transform of an image
 https://docs.oracle.com/cd/E17802_01/products/products/java-media/jai/forDevelopers/jai-apidocs/javax/media/jai/operator/DFTDescriptor.html
