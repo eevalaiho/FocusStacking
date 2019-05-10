@@ -24,16 +24,16 @@ Algoritmin toiminta on pääpiirteissään seuraava ([Sini Lehtosen gradun mukaa
 
 ## Määrittely
 
-Sovelluksen määrittely [erillisessä dokumentissa](documentation/määrittely.md).
+Sovelluksen määrittely [erillisessä dokumentissa](documentation/specification.md).
 
 ## Toteutus
 
-Sovelluksen toteutusdokumentaatio [erillisessä dokumentissa](documentation/toteutus.md).
+Sovelluksen toteutusdokumentaatio [erillisessä dokumentissa](documentation/implementation.md).
 
 ## Testaus
 
-Sovelluksen toteutusdokumentaatio [erillisessä dokumentissa](documentation/testaus.md).
+Sovelluksen toteutusdokumentaatio [erillisessä dokumentissa](documentation/testing.md).
 
 ## Käyttöohje
 
-Sovelluksen toteutusdokumentaatio [erillisessä dokumentissa](documentation/käyttöohje.md).
+Sovelluksen toteutusdokumentaatio [erillisessä dokumentissa](documentation/userguide.md).
