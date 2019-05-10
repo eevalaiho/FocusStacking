@@ -1,6 +1,6 @@
 # Määrittely
 
-## Java-kirjastoja
+## Java-kirjastoja vertailutoteutukseen
 
 ### Fourier -muunnos
 
