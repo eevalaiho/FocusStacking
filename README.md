@@ -20,9 +20,9 @@ Algoritmin toiminta on pääpiirteissään seuraava ([Sini Lehtosen gradun mukaa
 
 3. Luodaan uusi kuva kopioimalla siihen kuvapisteet:
     
-    1. ensimmäisestä kuvasta, jos minkään kuvan L^2-normi ei ylitä tiettyä raja-arvoa (näin ei-fokusoituneesta taustasta tulee tarkempi)
+    1. ensimmäisestä kuvasta, jos minkään kuvan L^2-normi ei ylitä tiettyä raja-arvoa: näin ei-fokusoituneesta taustasta tulee tarkempi
     
-    2. muutoin siitä alkuperäisestä kuvista, jonka L^2-normi on suurin (eli kuvan syvätervyys paras)
+    2. muutoin siitä alkuperäisestä kuvista, jonka L^2-normi on suurin eli syväterävyys paras
 
 
 
