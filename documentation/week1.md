@@ -30,4 +30,4 @@ Seuraavaksi aloitan ohjelman "benchmark"-version toteutuksen eli etsin sopivat v
 
 ## Kysymyksiä
 
-Voinko käyttää projektissa Complex-luokkaa nimiavaruudesta org.apache.commons.math3.complex?
+-
