@@ -14,10 +14,10 @@ Focus stacking -algoritmi on digitaalinen kuvankäsittelymenetelmä, minkä avul
 
 ## Dokumentaatio
 
-[Määrittely](documentation/specification.md).
+[Määrittely](documentation/specification.md)
 
-[Toteutus](documentation/implementation.md).
+[Toteutus](documentation/implementation.md)
 
-[Testaus](documentation/testing.md).
+[Testaus](documentation/testing.md)
 
-[Käyttöohje](documentation/userguide.md).
+[Käyttöohje](documentation/userguide.md)
