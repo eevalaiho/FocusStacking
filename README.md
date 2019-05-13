@@ -1,4 +1,4 @@
-# Aineopintojen harjoitustyö: Tietorakenteet ja algoritmit (alkukesä)
+# Aineopintojen harjoitustyö: Tietorakenteet ja algoritmit (alkukesä 2019)
 
 Eeva-Maria Laiho
 
