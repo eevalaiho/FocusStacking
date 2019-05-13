@@ -25,6 +25,9 @@ Algoritmin toiminta on pääpiirteissään seuraava ([Sini Lehtosen gradun mukaa
     2. muutoin siitä alkuperäisestä kuvista, jonka L^2-normi on suurin eli syväterävyys paras
 
 
+## Viikkoraportit
+
+Viikko 1
 
 ## Määrittely
 
