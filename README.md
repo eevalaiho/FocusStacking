@@ -28,6 +28,7 @@ Algoritmin toiminta on pääpiirteissään seuraava ([Sini Lehtosen gradun mukaa
 ## Viikkoraportit
 
 Viikko 1: [Viikkoraportti 1 (11.5.2019)](documentation/week1.md)
+Viikko 2: [Viikkoraportti 2 (17.5.2019) KESKEN](documentation/week2.md)
 
 ## Määrittely
 
