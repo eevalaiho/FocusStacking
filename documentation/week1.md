@@ -22,7 +22,7 @@ Lueskellessani läpi Sini Lehtosen gradua FocusStacking -algoritmista hahmotin F
 
 ## Mikä jäi epäselväksi tai tuottanut vaikeuksia? Vastaa tähän kohtaan rehellisesti, koska saat tarvittaessa apua tämän kohdan perusteella.
 
-FocusStacking -algoritmin yksityiskohdat ovat vielä vähän hämärän peitossa. 
+FocusStacking -algoritmin yksityiskohdat ovat vielä vähän hämärän peitossa. En oikein vielä hahmotta, mitä kaikkea pitääkään saada aikaiseksi. Tämä tietty korjaantu, kun saan ekan version toteutettua.
 
 ## Mitä teen seuraavaksi?
 
