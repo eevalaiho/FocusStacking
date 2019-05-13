@@ -1,0 +1,70 @@
+\documentclass[convert={density=300,size=1080x800,outext=.png}]{standalone}
+%
+% To convert to png use command:
+% pdftoppm program.pdf|pnmtopng > program.png
+%
+
+\usepackage[latin1]{inputenc}
+\usepackage{tikz}
+\usetikzlibrary{shapes,arrows}
+\begin{document}
+\pagestyle{empty}
+
+
+% Define block styles
+\tikzstyle{decision} = [diamond, draw, fill=blue!20,
+    text width=4.5em, text badly centered, node distance=1.5cm, inner sep=0pt]
+\tikzstyle{block} = [rectangle, draw, fill=blue!20, node distance=1.5cm,
+    text width=7.5em, text centered, rounded corners, minimum height=2em]
+\tikzstyle{line} = [draw, -latex']
+\tikzstyle{cloud} = [draw, ellipse,fill=red!20, minimum height=2em, node distance=1.5cm]
+
+\begin{tikzpicture}[node distance = 2cm, auto]
+    % Place nodes
+    \node [cloud]                       (start)         {start};
+    \node [block, below of=start]       (load)          {load images};
+    \node [block, below of=load]        (get-next-image)       {get next image};
+    \node [decision, yshift=-0.6cm, below of=get-next-image]  (exists1)   {exists?};
+    \node [block, yshift=-0.6cm, below of=exists1] (get-layer)     {get green layer};
+    \node [block, below of=get-layer] (get-convolution)     {get next convolution};
+    \node [decision, yshift=-0.6cm, below of=get-convolution] (exists2)     {exists?};
+    \node [block, yshift=-0.6cm, below of=exists2]  (fft)   {compute FFT};
+    \node [block, yshift=-0.2cm, below of=fft]  (filter)   {apply high-pass filter};
+    \node [block, yshift=-0.4cm, below of=filter]  (l2norm)   {compute L2 norm, store in temp matrix};
+    \node [block, yshift=-0.6cm, below of=l2norm] (get-pixel)     {get next pixel from temp matrix};
+    \node [decision, yshift=-0.75cm, below of=get-pixel] (exists3)   {exixts?};
+    \node [block, yshift=-0.75cm, below of=exists3]                (find-max)     {get max L2 and argmax L2};
+    \node [decision, yshift=-0.75cm, below of=find-max] (is-above-thresh)   {is max L2 $\geq$ thresh?};
+    \node [block, yshift=-0.75cm, below of=is-above-thresh] (get-max-pixel)     {get pixel from argmax L2};
+    \node [block, right of=get-max-pixel, xshift=2cm] (get-default-pixel)     {get pixel from image 1};
+    \node [block, below of=get-max-pixel]  (set-pixel)     {set pixel};
+    \node [block, below of=set-pixel]  (save-image)     {save image};
+    \node [cloud, below of=save-image] (end)         {end};
+    % Draw edges
+    \path [line] (start) -- (load);
+    \path [line] (load) -- (get-next-image);
+    \path [line] (get-next-image) -- (exists1);
+    \path [line] (exists1) -- node[anchor=east] {yes} (get-layer);
+    \path [line] (exists1) -- node {no} ++(3.5cm,0) |- (get-pixel);
+    \path [line] (get-layer) -- (get-convolution);
+    \path [line] (get-convolution) -- (exists2);
+    \path [line] (exists2) -- node[anchor=east] {yes} (fft);
+    \path [line] (exists2) -- node {no} ++(-2.5cm,0) |- (get-next-image);
+    \path [line] (fft) -- (filter);
+    \path [line] (filter) -- (l2norm);
+    \path [line] (l2norm) -- node ++(2.5cm,0) |- (get-convolution);
+    \path [line] (get-pixel) -- (exists3);
+    \path [line] (exists3) -- node[anchor=east] {yes} (find-max);
+    \path [line] (exists3) -- node {no} ++(5.5cm,0) |- (save-image);
+    \path [line] (find-max) -- (is-above-thresh);
+    \path [line] (is-above-thresh) -- node[anchor=east] {yes} (get-max-pixel);
+    \path [line] (is-above-thresh) -| node[anchor=south] {no} (get-default-pixel);
+    \path [line] (get-max-pixel) -- (set-pixel);
+    \path [line] (get-default-pixel) |- (set-pixel);
+    \path [line] (set-pixel) -- node ++(-2.5cm,0) |- (get-pixel);
+    \path [line] (save-image) -- (end);
+
+\end{tikzpicture}
+
+
+\end{document}
