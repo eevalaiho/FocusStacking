@@ -7,7 +7,7 @@ Olen:
 * Etsinyt lisää matskua aiheesta
 * Toteuttanut ensimmäisen version algoritmista
      * Hyödyntää valmista DoubleFFT_2D kirjastoa ja isoa määrää luuppeja
-* Testannut algoritmia lukuisilla eri parametriyhdistelmillä (löytämättä sopivaa)
+* Testannut algoritmia lukuisilla eri parametriyhdistelmillä (löytämättä sopivaa) ja parilla eri kuvasetillä
      * konvoluution koko 4x4, 8x8, 16x16, 32x32, 64x64
      * ylipäästösuodattinen kynnysarvo
      * L2-normin kynnysarvo
