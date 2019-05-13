@@ -28,7 +28,7 @@ Algoritmi ei valitse tarkimpia kohtia kuvista. Osa (ei-oletuskuvasta) valikoituv
 
 ## Mitä teen seuraavaksi?
 
-Seuraavaksi yritän hahmottaa algoritmin toiminta paremmin ja fiksata toteutusta niin, että saan algon toimimaan kunnolla. 
+Seuraavaksi yritän hahmottaa algoritmin toimintaa paremmin ja fiksata toteutusta niin, että se toimisi kunnolla. 
 
 ## Kysymyksiä
 
