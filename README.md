@@ -12,18 +12,12 @@ Focus stacking -algoritmi on digitaalinen kuvankäsittelymenetelmä, minkä avul
 
 * Viikko 2: [Viikkoraportti 2 (17.5.2019) KESKEN](documentation/week2.md)
 
-## Määrittely
+## Dokumentaatio
 
-Sovelluksen määrittely [erillisessä dokumentissa](documentation/specification.md).
+[Määrittely](documentation/specification.md).
 
-## Toteutus
+[Toteutus](documentation/implementation.md).
 
-Sovelluksen toteutusdokumentaatio [erillisessä dokumentissa](documentation/implementation.md).
+[Testaus](documentation/testing.md).
 
-## Testaus
-
-Sovelluksen toteutusdokumentaatio [erillisessä dokumentissa](documentation/testing.md).
-
-## Käyttöohje
-
-Sovelluksen toteutusdokumentaatio [erillisessä dokumentissa](documentation/userguide.md).
+[Käyttöohje](documentation/userguide.md).
