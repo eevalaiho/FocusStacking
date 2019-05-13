@@ -32,6 +32,7 @@ Seuraavaksi yritän hahmottaa algoritmin toiminta paremmin ja fiksata toteutusta
 
 ## Kysymyksiä
 
+* Voinko käyttää projektissa Complex-luokkaa nimiavaruudesta org.apache.commons.math3.complex vai toteutanko luokan itse? [Kun esim täällä: https://algs4.cs.princeton.edu/...](https://algs4.cs.princeton.edu/code/edu/princeton/cs/algs4/Complex.java.html) on valmis Complex.java -toteutus, tuntuisi hiukkasen pöhköltä "toteuttaa" luokka itse.
 * Miten voisin tehokkaammin kuvapistematriisin konvoluutiot Java:lla? Välittämällä koko matriisin, indeksit i, j ja ikkunan koko omalle FFT-metodille?
 
 
