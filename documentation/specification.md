@@ -8,13 +8,13 @@ Algoritmin toiminta on pääpiirteissään seuraava ([Sini Lehtosen gradun mukaa
 
 2. <a href="#tarkimpien-kuvapisteiden-valinta">Tarkimpien kuvapisteiden valinta</a>: liu'utetaan jokaisen kuvan tietyn värikanavan (esim vihreä) yli 16x16 (tai 32x32) kuvapisteen ikkunaa ja lasketaan jokaiselle ikkunalle:
 
-    1. <a href="fourier-muunnos">Fourier-muunnos</a>,
+    1. <a href="#fourier-muunnos">Fourier-muunnos</a>,
 
-    2. <a href="ylipaastosuodatus">ylipäästösuodatus</a>,
+    2. <a href="#ylipaastosuodatus">ylipäästösuodatus</a>,
 
-    3. <a href="l2-normi">L^2-normi</a>.
+    3. <a href="#l2-normi">L^2-normi</a>.
 
-3. <a href="uuden-kuvan-luonti">Luodaan uusi kuva</a> kopioimalla siihen kuvapisteet:
+3. <a href="#uuden-kuvan-luonti">Luodaan uusi kuva</a> kopioimalla siihen kuvapisteet:
     
     1. ensimmäisestä kuvasta, jos minkään kuvan L^2-normi ei ylitä tiettyä raja-arvoa: näin ei-fokusoituneesta taustasta tulee tarkempi
     
