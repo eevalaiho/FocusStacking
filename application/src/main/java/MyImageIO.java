@@ -6,16 +6,18 @@ import java.awt.image.BufferedImage;
 import java.awt.image.DataBufferInt;
 import java.io.File;
 
-public final class MyRGBImage {
+public final class MyImageIO {
 
     private int width;
     public int getWidth() {
         return this.width;
     }
+
     private int height;
     public int getHeight() {
         return this.height;
     }
+
     private int[] pixels;
     public int[] getPixels() {
         return this.pixels;
@@ -35,7 +37,7 @@ public final class MyRGBImage {
 
     public MyRGBImage(String path) throws Exception {
 
-        this.image = ImageIO.read(MyRGBImage.class.getResourceAsStream(path));
+        this.image = ImageIO.read(old_MyRGBImage.class.getResourceAsStream(path));
         this.width = this.image.getWidth();
         this.height = this.image.getHeight();
 
