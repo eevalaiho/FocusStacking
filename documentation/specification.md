@@ -23,7 +23,7 @@ Algoritmin toiminta on pääpiirteissään seuraava ([Sini Lehtosen gradun mukaa
 
 ## Esikäsittely
 
-Kuvien lataaminen toteutetaan erilliseen IO-luokkaan, jotta kuvatiedoston tallentamiseen voidan käyttää XX valmiskirjastoa. Kuvien vihreät värikanavat tallennetaan k x w x h -taulukkoon, missä k = kuvien määrä, w = kuvan leveys, h = kuvan korkeus.
+Kuvien lataaminen toteutetaan erilliseen IO-luokkaan, jotta kuvatiedoston tallentamiseen voidan käyttää XX valmiskirjastoa. Kuvien vihreät värikanavat tallennetaan k * w * h -taulukkoon, missä k = kuvien määrä, w = kuvan leveys, h = kuvan korkeus.
 
 ### Aikavaativuus
 
@@ -31,7 +31,7 @@ O(1)
 
 ### Tilavaativuus
 
-O(n), missä n = w x h = kuvapisteiden määrä
+O(n), missä n = w * h = kuvapisteiden määrä
 
 
 
