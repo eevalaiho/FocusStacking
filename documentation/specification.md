@@ -44,9 +44,9 @@ Algoritmi ylläpitää w * h -kokoista apumatriisia (2D -taulukko tai harva matr
 
 ### Aikavaativuus
 
-O(n^2) = k * n * (Fourier-muunnos + ylipäästösuodatus + L^2-normi) = k * n * 3k
+O(n^2) = O(k * n * (Fourier-muunnoksen, ylipäästösuodatuksen ja L^2-normin aikavaativuus)) = O(k * n * 3n)
 
-, missä n = kuvapisteiden määrä, k = alkuperäisten kuvien määrä << n.
+, missä n = kuvapisteiden määrä, k = alkuperäisten kuvien määrä ja k << n.
 
 ### Tilavaativuus
 
