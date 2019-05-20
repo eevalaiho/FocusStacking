@@ -36,7 +36,7 @@ O(n), missä n = w * h = kuvapisteiden määrä
 
 ## Tarkimpien kuvapisteiden valinta
 
-Saa parametrikseen esikäsittelyvaiheessa luodun k * w * h -taulukkoon, missä k = kuvien määrä, w = kuvan leveys, h = kuvan korkeus. Taulukkoon on tallennettu alkuperäisten kuvien vihreät värikanavat.
+Saa parametrikseen esikäsittelyvaiheessa luodun k * w * h -taulukon, missä k = kuvien määrä, w = kuvan leveys, h = kuvan korkeus. Taulukkoon on tallennettu alkuperäisten kuvien vihreät värikanavat.
 
 Kuvapisteiden valinta toteutetaan kahdella sisäkkäisellä silmukalla, missä käydään läpi jokainen kuvapiste jokaisesta kuvasta. Silmukassa lasketaan ikkunan Fourier-muunnos, ylipäästösuodatus ja L^2 -normi.
 
@@ -54,22 +54,48 @@ O(n), missä n = kuvapisteiden määrä
 
 ### Tietorakenteet
 
-Konvoluutioikkuna: käytetään alkuperäisiä värikanavamatriiseja ja indeksiosoituksia, ei tarvita eirllisiä tietorakenteita
-
 Apumatriisi: 2D -taulukko, mihin tallennetaan tarkimman alkuperäisen kuvan tunniste
+
+Konvoluutioikkuna: (ks konvoluutioikkunan laskeminen)
 
 Kompleksiluku: jos tarpeen, mallia esim [https://algs4.cs.princeton.edu/.../Complex.java.html](https://algs4.cs.princeton.edu/code/edu/princeton/cs/algs4/Complex.java.html)
 
-### Fourier-muunnos
+## Konvoluutioikkunan laskeminen
 
 
+### Tietorakenteet
 
+Konvoluutioikkuna: 4 * m^2 taulukko, missä m on konvoluutioikkunan sivun pituus, esimerkiksi 16 tai 32
 
-### Ylipäästösuodatus
+## Fourier-muunnos
 
-### L^2-normi
+Saa parametrikseen 2D kuvapistetaulukon, rivi- ja sarakeindeksin ja ikkunan koon. Laskee ikkunan Fourier-muunnoksen ja palauttaa ikkunan. 
 
+### Aikavaativuus
 
+O(m^2), missä m on konvoluutioikkunan sivun pituus
+
+### Tilavaativuus
+
+O(m^2), missä m on konvoluutioikkunan sivun pituus
+
+## Ylipäästösuodatus
+
+Saa parametrikseen 
+
+### Aikavaativuus
+
+### Tilavaativuus
+
+### Tietorakenteet
+
+## L^2-normi
+
+### Aikavaativuus
+
+### Tilavaativuus
+
+### Tietorakenteet
 
 
 ## Uuden kuvan luonti
