@@ -20,3 +20,21 @@ Algoritmin toiminta on pääpiirteissään seuraava ([Sini Lehtosen gradun mukaa
     
     2. muutoin siitä alkuperäisestä kuvista, jonka L^2-normi on suurin eli syväterävyys paras
 
+
+## Esikäsittely
+
+
+## Tarkimpien kuvapisteiden valinta
+
+
+## Uuden kuvan luonti
+
+Uuden kuvan luominen ja tallentaminen toteutetaan IO-luokkaan, jotta voidan käyttää valmiskirjaston XX luokkia. Uuden kuvan luomisen ja tallentamisen aikavaativuus on O(n) = O(1) + O(n) + O(1) = kuvaobjektin instantiointi + pikselien kopiointi + kuvatiedoston tallennus, missä n = kuvan pikselien määrä, sillä kuvapistematriisi käydään läpi yhden kerran. 
+
+
+
+
+
+
+
+
