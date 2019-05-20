@@ -1,75 +1,75 @@
 import org.apache.commons.math3.complex.Complex;
 
 import javax.imageio.ImageIO;
-import java.awt.*;
 import java.awt.image.BufferedImage;
-import java.awt.image.DataBufferInt;
 import java.io.File;
+import java.io.IOException;
+import java.util.ArrayList;
 
-public final class MyImageIO {
+/**
+ * @author      Eeva-Maria Laiho <eeva-maria.laiho@helsinki.fi>
+ * @version     0.3
+ * @since       0.3
+ */
+public class MyImageIO {
 
-    private int width;
-    public int getWidth() {
-        return this.width;
-    }
+    private ArrayList<int[]> pixels;
 
-    private int height;
-    public int getHeight() {
-        return this.height;
-    }
+    private int[][] greenChannels;
+    /**
+     * Green channels of the images
+     * @return Green channels as 2D array (image id x pixel count)
+     */
+    public int[][] getGreenChannels() { return greenChannels; }
 
-    private int[] pixels;
-    public int[] getPixels() {
-        return this.pixels;
-    }
-    public void setPixels(int[] value) {
-        this.pixels = value;
-    }
+    /**
+     * Construct the class
+     */
+    public MyImageIO() {}
 
-    private double[][] green;
-    public double[][] getGreen() {
-        return this.green;
-    }
+    /**
+     * Load a bunch of images as MyImage objects
+     * @param paths Paths to the images
+     * @throws IOException When image cannot be loaded
+     */
+    public void LoadImages(String[] paths) throws IOException {
 
-    private BufferedImage image;
-
-    private void MyRGBImage() {}
-
-    public MyRGBImage(String path) throws Exception {
-
-        this.image = ImageIO.read(old_MyRGBImage.class.getResourceAsStream(path));
-        this.width = this.image.getWidth();
-        this.height = this.image.getHeight();
-
-        // Get pixels
-        this.pixels = new int[this.width * this.height];
-        this.image.getRGB(0, 0, this.width, this.height, this.pixels, 0, this.width);
-
-        // Get color channels
-        this.green = new double[this.width][this.height];
-        for (int i = 0; i < this.width; i++) {
-            for (int j = 0; j < this.height; j++) {
-                Color c = new Color(this.pixels[i + this.width*j]);
-                this.green[i][j] = (double) c.getGreen();
+        pixels = new ArrayList<int[]>(paths.length);
+        for (int i = 0; i < paths.length; i++) {
+            // Construct an image object
+            MyImage image = new MyImage(paths[0]);
+            // Store pixel values - we need them later
+            pixels.add(image.getPixels());
+            // Extract green channels
+            for (int x = 0; x < image.getWidth(); x++) {
+                for (int y = 0; y < image.getHeight(); y++) {
+                    int idx = x + image.getWidth()*y;
+                    int rgb = pixels.get(i)[idx];
+                    this.greenChannels[idx][i] = rgb >> 8 & 0xff;  // https://stackoverflow.com/questions/16698372/isolating-red-green-blue-channel-in-java-bufferedimage
+                }
             }
         }
-
-        Complex num = new Complex(1, 2);
     }
 
-    public MyRGBImage (int width, int height, int[] pixels) {
-
-        this.width = width;
-        this.height = height;
-        this.image = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);
-
-        final int[] a = ((DataBufferInt) this.image.getRaster().getDataBuffer() ).getData();
-        System.arraycopy(pixels, 0, a, 0, pixels.length);
-    }
-
-    public void SaveAs(String path) throws Exception {
+    /**
+     * Create and image object from pixel values and save to disk
+     * @param pixels Pixels in integer format
+     * @param width Width of the image
+     * @param height Height of the image
+     * @param path PAth to save the image to
+     * @throws IOException
+     */
+    public static void SaveImage(int[] pixels, int width, int height, String path) throws IOException {
+        // Create the image object
+        BufferedImage image = new BufferedImage(width, height, java.awt.image.BufferedImage.TYPE_INT_ARGB);
+        for (int x = 0; x < width; x++) {
+            for (int y = 0; y < height; y++) {
+                image.setRGB(x, y, pixels[y*width + x]);
+            }
+        }
+        // Create and write the file
         File outputfile = new File(path);
-        ImageIO.write(this.image, "jpg", outputfile);
-        System.out.println("Wrote " + path);
+        String extension = path.substring(path.lastIndexOf(".") + 1);
+        ImageIO.write(image, extension, outputfile);
     }
 }
