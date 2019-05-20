@@ -4,7 +4,7 @@ Focus stacking -algoritmi on digitaalinen kuvankäsittelymenetelmä, minkä avul
 
 Algoritmin toiminta on pääpiirteissään seuraava ([Sini Lehtosen gradun mukaan](https://helda.helsinki.fi/bitstream/handle/10138/154047/GraduSini.pdf?sequence=3)):
 
-1. Esikäsittely: kuvien lataaminen 
+1. <a href="esikasittely">Esikäsittely</a>: kuvien lataaminen 
 
 2. Tarkimpien kuvapisteiden valinta: liu'utetaan jokaisen kuvan tietyn värikanavan (esim vihreä) yli 16x16 (tai 32x32) kuvapisteen ikkunaa ja lasketaan jokaiselle ikkunalle:
 
@@ -21,6 +21,7 @@ Algoritmin toiminta on pääpiirteissään seuraava ([Sini Lehtosen gradun mukaa
     2. muutoin siitä alkuperäisestä kuvista, jonka L^2-normi on suurin eli syväterävyys paras
 
 
+<a name="esikasittely"></a>
 ## Esikäsittely
 
 Kuvien lataaminen toteutetaan erilliseen IO-luokkaan, jotta kuvatiedoston tallentamiseen voidan käyttää XX valmiskirjastoa. Kuvien vihreät värikanavat tallennetaan k * w * h -taulukkoon, missä k = kuvien määrä, w = kuvan leveys, h = kuvan korkeus.
@@ -130,7 +131,7 @@ missä n = kuvapisteiden määrä, apumatriisi käydään läpi pikseli kerralla
 
 ### Aikavaativuus (harva matriisi) 
 
-\lambda * perustapaus, missä 0 <= \lambda <= 1
+$\lambda$ * perustapaus, missä 0 <= $\lambda$ <= 1
 
 kaikkia kuvapisteitä ei tarvitse käydä läpi, koska apumatriisi on harva.
 
