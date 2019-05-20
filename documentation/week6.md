@@ -1,5 +1,5 @@
 
-# Viikkoraportti 6 (10.6.2019)
+# Viikkoraportti 6 (14.6.2019)
 
 ## Mitä olen tehnyt tällä viikolla?
 
