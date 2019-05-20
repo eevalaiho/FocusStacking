@@ -1,3 +1,4 @@
+import org.apache.commons.math3.stat.Frequency;
 import org.jtransforms.fft.DoubleFFT_2D;
 
 import java.util.HashMap;
@@ -18,7 +19,7 @@ public class Main {
         //String[] paths = new String[] {"fly1_256.jpg", "fly2_256.jpg"};
         //String[] paths = new String[] {"bark-1.jpg", "bark-2.jpg", "bark-3.jpg", "bark-4.jpg", "bark-5.jpg", "bark-6.jpg", "bark-7.jpg", "bark-8.jpg", "bark-9.jpg", "bark-10.jpg", "bark-11.jpg", "bark-12.jpg"};
         String[] paths = new String[] {"bark-1.jpg", "bark-5.jpg", "bark-11.jpg"};
-        MyImageIO[] rgbs = new MyImageIO[paths.length];
+        MyRGBImage[] rgbs = new MyRGBImage[paths.length];
 
         int n = paths.length;
         double highpass_threshold = 1.0;
@@ -35,7 +36,7 @@ public class Main {
         for (int k = 0; k < n; k++) {
             /* Load image */
             try {
-                rgbs[k] = new MyImageIO(paths[k]);
+                rgbs[k] = new MyRGBImage(paths[k]);
             } catch (Exception e) {
                 System.out.println("Exception: " + e.getMessage());
             }
@@ -124,7 +125,7 @@ public class Main {
         }
         System.out.println();
 
-        MyImageIO newImage = new MyImageIO(width, height, newPixels);
+        MyRGBImage newImage = new MyRGBImage(width, height, newPixels);
         try {
             newImage.SaveAs(String.format("%sx%sx%s_%s_%s", n, m, m, threshold, paths[0]));
         }

@@ -6,7 +6,7 @@ import java.awt.image.BufferedImage;
 import java.awt.image.DataBufferInt;
 import java.io.File;
 
-public final class MyImageIO {
+public final class MyRGBImage {
 
     private int width;
     public int getWidth() {
@@ -33,9 +33,9 @@ public final class MyImageIO {
 
     private void MyRGBImage() {}
 
-    public MyImageIO(String path) throws Exception {
+    public MyRGBImage(String path) throws Exception {
 
-        this.image = ImageIO.read(MyImageIO.class.getResourceAsStream(path));
+        this.image = ImageIO.read(MyRGBImage.class.getResourceAsStream(path));
         this.width = this.image.getWidth();
         this.height = this.image.getHeight();
 
@@ -55,7 +55,7 @@ public final class MyImageIO {
         Complex num = new Complex(1, 2);
     }
 
-    public MyImageIO(int width, int height, int[] pixels) {
+    public MyRGBImage (int width, int height, int[] pixels) {
 
         this.width = width;
         this.height = height;
