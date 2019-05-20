@@ -34,22 +34,49 @@ O(1)
 O(n), missä n = w * h = kuvapisteiden määrä
 
 
-
 ## Tarkimpien kuvapisteiden valinta
+
+Saa parametrikseen esikäsittelyvaiheessa luodun k * w * h -taulukkoon, missä k = kuvien määrä, w = kuvan leveys, h = kuvan korkeus. Taulukkoon on tallennettu alkuperäisten kuvien vihreät värikanavat.
+
+Kuvapisteiden valinta toteutetaan kahdella sisäkkäisellä silmukalla, missä käydään läpi jokainen kuvapiste jokaisesta kuvasta. Silmukassa lasketaan ikkunan Fourier-muunnos, ylipäästösuodatus ja L^2 -normi.
+
+Algoritmi ylläpitää w * h -kokoista apumatriisia (2D -taulukko tai harva matriisi), mihin on tallennettu kunkin kuvapisteen tarkin kuva.
+
+### Aikavaativuus
+
+O(n^2) = k * n * (Fourier-muunnos + ylipäästösuodatus + L^2-normi) = k * n * 3k
+
+, missä n = kuvapisteiden määrä, k = alkuperäisten kuvien määrä << n.
+
+### Tilavaativuus
+
+O(n), missä n = kuvapisteiden määrä
+
+### Tietorakenteet
+
+Apumatriisi = 2D -taulukko, mihin tallennetaan tarkimman alkuperäisen kuvan tunniste
+
+Kompleksiluku?
 
 ### Fourier-muunnos
 
-### ylipäästösuodatus
+
+
+
+### Ylipäästösuodatus
 
 ### L^2-normi
 
+
+
+
 ## Uuden kuvan luonti
 
-Uusi kuva luodaan instantioimalla kuvaobjekti, kopioimalla kuvapisteet oikeasta kuvasta ja tallentamalla kuvatiedosto levylle. Metodi saa parametrikseen kuvapistematriisin, mikä sisältää tarkimman kuvan tunnisteen. 
+Uusi kuva luodaan instantioimalla kuvaobjekti, kopioimalla kuvapisteet oikeasta kuvasta ja tallentamalla kuvatiedosto levylle. Metodi saa parametrikseen tarkimpien kuvapisteiden valinnassa luodun apumatriisin, mikä sisältää tarkimman kuvan tunnisteen jokaiselle kuvapisteelle. 
 
-Perustapauksessa kuvapistematriisi on alkuperäisten kuvien kokoinen kokonaislukutaulukko. 
+Perustapauksessa apumatriisi on alkuperäisten kuvien kokoinen kokonaislukutaulukko. 
 
-Ajan niin salliessa voidaan toteuttaa harvan matriisin implementaatio, missä kuvapistematriisiin tallennetaan vain ne kuvapisteet mitkä eivät ole oletuskuvasta. Tällöin tietorakenteena on esimerkiksi kaksiulotteinen taulukko, missä rivinumero-, sarakenumero- ja arvorivit. 
+Ajan niin salliessa voidaan toteuttaa harvan matriisin implementaatio, missä apumatriisiin tallennetaan vain ne kuvapisteet mitkä eivät ole oletuskuvasta. Tällöin tietorakenteena on esimerkiksi kaksiulotteinen taulukko, missä rivinumero-, sarakenumero- ja arvorivit. 
 
 Uuden kuvan luominen ja tallentaminen toteutetaan erilliseen IO-luokkaan, jotta kuvatiedoston tallentamiseen voidan käyttää XX valmiskirjastoa. 
 
@@ -57,13 +84,13 @@ Uuden kuvan luominen ja tallentaminen toteutetaan erilliseen IO-luokkaan, jotta 
 
 O(n) = O(1) + O(n) + O(1) = kuvaobjektin instantiointi + pikselien kopiointi + kuvatiedoston tallennus, 
 
-missä n = kuvapisteiden määrä, kuvapistematriisi käydään läpi pikseli kerrallaan.
+missä n = kuvapisteiden määrä, apumatriisi käydään läpi pikseli kerrallaan.
 
 ### Aikavaativuus (harva matriisi) 
 
 lambda * perustapaus, missä 0 < lambda < 1
 
-kaikkia kuvapisteitä ei tarvitse käydä läpi, koska kuvapistematriisi on harva.
+kaikkia kuvapisteitä ei tarvitse käydä läpi, koska apumatriisi on harva.
 
 ### Tilavaativuus: 
 
