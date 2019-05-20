@@ -23,9 +23,25 @@ Algoritmin toiminta on pääpiirteissään seuraava ([Sini Lehtosen gradun mukaa
 
 ## Esikäsittely
 
+Kuvien lataaminen toteutetaan erilliseen IO-luokkaan, jotta kuvatiedoston tallentamiseen voidan käyttää XX valmiskirjastoa. Kuvien vihreät värikanavat tallennetaan k x w x h -taulukkoon, missä k = kuvien määrä, w = kuvan leveys, h = kuvan korkeus.
+
+### Aikavaativuus
+
+O(1)
+
+### Tilavaativuus
+
+O(n), missä n = w x h = kuvapisteiden määrä
+
+
 
 ## Tarkimpien kuvapisteiden valinta
 
+### Fourier-muunnos
+
+### ylipäästösuodatus
+
+### L^2-normi
 
 ## Uuden kuvan luonti
 
@@ -41,7 +57,7 @@ Uuden kuvan luominen ja tallentaminen toteutetaan erilliseen IO-luokkaan, jotta 
 
 O(n) = O(1) + O(n) + O(1) = kuvaobjektin instantiointi + pikselien kopiointi + kuvatiedoston tallennus, 
 
-missä n = kuvan pikselien määrä, kuvapistematriisi käydään läpi pikseli kerrallaan.
+missä n = kuvapisteiden määrä, kuvapistematriisi käydään läpi pikseli kerrallaan.
 
 ### Aikavaativuus (harva matriisi) 
 
