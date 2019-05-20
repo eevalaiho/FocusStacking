@@ -4,7 +4,7 @@
 ## Mitä olen tehnyt tällä viikolla?
 
 Olen:
-* Päivittänyt määrittelydokumenttia (aika- ja tilavaativuudet)
+* Päivittänyt määrittelydokumenttia: aika- ja tilavaativuudet, tietorakenteet ja algoritmit ohjelman osille
 
 Ajankäyttö: xh
 
