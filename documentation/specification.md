@@ -29,7 +29,14 @@ Algoritmin toiminta on pääpiirteissään seuraava ([Sini Lehtosen gradun mukaa
 
 ## Uuden kuvan luonti
 
-Uuden kuvan luominen ja tallentaminen toteutetaan IO-luokkaan, jotta voidan käyttää valmiskirjaston XX luokkia. Uuden kuvan luomisen ja tallentamisen aikavaativuus on O(n) = O(1) + O(n) + O(1) = kuvaobjektin instantiointi + pikselien kopiointi + kuvatiedoston tallennus, missä n = kuvan pikselien määrä, sillä kuvapistematriisi käydään läpi yhden kerran. 
+Uuden kuvan luominen ja tallentaminen toteutetaan erilliseen IO-luokkaan, jotta kuvatiedoston tallentamiseen voidan käyttää XX valmiskirjastoa. 
+
+* Aikavaativuus (perustapaus): O(n) = O(1) + O(n) + O(1) = kuvaobjektin instantiointi + pikselien kopiointi + kuvatiedoston tallennus, missä n = kuvan pikselien määrä, kuvapistematriisi käydään läpi pikseli kerrallaan
+
+* Aikavaativuus (harva matriisi): lambda * O(n), missä 0 < lambda < 1, kuvapistematriisi on harva
+
+* Tilavaativuus: 
+    O(n)
 
 
 
