@@ -130,7 +130,7 @@ missä n = kuvapisteiden määrä, apumatriisi käydään läpi pikseli kerralla
 
 ### Aikavaativuus (harva matriisi) 
 
-lambda * perustapaus, missä 0 < lambda < 1
+\lambda * perustapaus, missä 0 <= \lambda <= 1
 
 kaikkia kuvapisteitä ei tarvitse käydä läpi, koska apumatriisi on harva.
 
