@@ -29,6 +29,12 @@ Algoritmin toiminta on pääpiirteissään seuraava ([Sini Lehtosen gradun mukaa
 
 ## Uuden kuvan luonti
 
+Uusi kuva luodaan instantioimalla kuvaobjekti, kopioimalla kuvapisteet oikeasta kuvasta ja tallentamalla kuvatiedosto levylle. Metodi saa parametrikseen kuvapistematriisin, mikä sisältää tarkimman kuvan tunnisteen. 
+
+Perustapauksessa kuvapistematriisi on alkuperäisten kuvien kokoinen kokonaislukutaulukko. 
+
+Ajan niin salliessa voidaan toteuttaa harvan matriisin implementaatio, missä kuvapistematriisiin tallennetaan vain ne kuvapisteet mitkä eivät ole oletuskuvasta. Tällöin tietorakenteena on esimerkiksi kaksiulotteinen taulukko, missä rivinumero-, sarakenumero- ja arvorivit. 
+
 Uuden kuvan luominen ja tallentaminen toteutetaan erilliseen IO-luokkaan, jotta kuvatiedoston tallentamiseen voidan käyttää XX valmiskirjastoa. 
 
 ### Aikavaativuus (perustapaus)
