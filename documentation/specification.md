@@ -56,46 +56,60 @@ O(n), missä n = kuvapisteiden määrä
 
 Apumatriisi: 2D -taulukko, mihin tallennetaan tarkimman alkuperäisen kuvan tunniste
 
-Konvoluutioikkuna: (ks konvoluutioikkunan laskeminen)
+Konvoluutioikkuna: (ks Fourier-muunnos)
 
 Kompleksiluku: jos tarpeen, mallia esim [https://algs4.cs.princeton.edu/.../Complex.java.html](https://algs4.cs.princeton.edu/code/edu/princeton/cs/algs4/Complex.java.html)
 
-## Konvoluutioikkunan laskeminen
-
-
-### Tietorakenteet
-
-Konvoluutioikkuna: 4 * m^2 taulukko, missä m on konvoluutioikkunan sivun pituus, esimerkiksi 16 tai 32
 
 ## Fourier-muunnos
 
-Saa parametrikseen 2D kuvapistetaulukon, rivi- ja sarakeindeksin ja ikkunan koon. Laskee ikkunan Fourier-muunnoksen ja palauttaa ikkunan. 
+Saa parametrikseen alkuperäisen 2D kuvapistetaulukon, rivi- ja sarakeindeksin ja ikkunan koon. Laskee ikkunalle Fourier-muunnoksen ja palauttaa ikkunan. 
 
 ### Aikavaativuus
 
-O(m^2), missä m on konvoluutioikkunan sivun pituus
+O(n), missä n konvoluutioikkunan pikselien määrä
 
 ### Tilavaativuus
 
-O(m^2), missä m on konvoluutioikkunan sivun pituus
+O(n), missä n on konvoluutioikkunan pikselien määrä
+
+### Tietorakenteet
+
+Konvoluutioikkuna kahteen suuntaan peilattuna: 4 * m^2 taulukko, missä m on konvoluutioikkunan sivun pituus, esimerkiksi 16 tai 32
+
 
 ## Ylipäästösuodatus
 
-Saa parametrikseen 
+Saa parametrikseen Fourier-muunnos-metodissa lasketun konvoluutioikkunan ja suodattimen arvon. Palauttaa suodatetun konvoluutioikkunan. 
 
 ### Aikavaativuus
 
+O(n), missä n konvoluutioikkunan pikselien määrä
+
 ### Tilavaativuus
 
+O(1)
+
 ### Tietorakenteet
+
+Konvoluutioikkuna: (ks Fourier-muunnos)
+
 
 ## L^2-normi
 
+Saa parametrikseen Fourier-muunnos-metodissa lasketun konvoluutioikkunan palauttaa ikkunan L^2 normin (reaaliluku).
+
 ### Aikavaativuus
+
+O(n), missä n konvoluutioikkunan pikselien määrä
 
 ### Tilavaativuus
 
+O(1)
+
 ### Tietorakenteet
+
+Konvoluutioikkuna: (ks Fourier-muunnos)
 
 
 ## Uuden kuvan luonti
