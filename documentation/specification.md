@@ -4,17 +4,17 @@ Focus stacking -algoritmi on digitaalinen kuvankäsittelymenetelmä, minkä avul
 
 Algoritmin toiminta on pääpiirteissään seuraava ([Sini Lehtosen gradun mukaan](https://helda.helsinki.fi/bitstream/handle/10138/154047/GraduSini.pdf?sequence=3)):
 
-1. <a href="esikasittely">Esikäsittely</a>: kuvien lataaminen 
+1. <a href="#esikasittely">Esikäsittely</a>: kuvien lataaminen 
 
-2. Tarkimpien kuvapisteiden valinta: liu'utetaan jokaisen kuvan tietyn värikanavan (esim vihreä) yli 16x16 (tai 32x32) kuvapisteen ikkunaa ja lasketaan jokaiselle ikkunalle:
+2. <a href="#tarkimpien-kuvapisteiden-valinta">Tarkimpien kuvapisteiden valinta</a>: liu'utetaan jokaisen kuvan tietyn värikanavan (esim vihreä) yli 16x16 (tai 32x32) kuvapisteen ikkunaa ja lasketaan jokaiselle ikkunalle:
 
-    1. Fourier-muunnos,
+    1. <a href="fourier-muunnos">Fourier-muunnos</a>,
 
-    2. ylipäästösuodatus
+    2. <a href="ylipaastosuodatus">ylipäästösuodatus</a>,
 
-    3. L^2-normi
+    3. <a href="l2-normi">L^2-normi</a>.
 
-3. Luodaan uusi kuva kopioimalla siihen kuvapisteet:
+3. <a href="uuden-kuvan-luonti">Luodaan uusi kuva</a> kopioimalla siihen kuvapisteet:
     
     1. ensimmäisestä kuvasta, jos minkään kuvan L^2-normi ei ylitä tiettyä raja-arvoa: näin ei-fokusoituneesta taustasta tulee tarkempi
     
@@ -35,6 +35,7 @@ O(1)
 O(n), missä n = w * h = kuvapisteiden määrä
 
 
+<a name="tarkimpien-kuvapisteiden-valinta"></a>
 ## Tarkimpien kuvapisteiden valinta
 
 Saa parametrikseen esikäsittelyvaiheessa luodun k * w * h -taulukon, missä k = kuvien määrä, w = kuvan leveys, h = kuvan korkeus. Taulukkoon on tallennettu alkuperäisten kuvien vihreät värikanavat.
@@ -61,7 +62,7 @@ Konvoluutioikkuna: (ks Fourier-muunnos)
 
 Kompleksiluku: jos tarpeen, mallia esim [https://algs4.cs.princeton.edu/.../Complex.java.html](https://algs4.cs.princeton.edu/code/edu/princeton/cs/algs4/Complex.java.html)
 
-
+<a name="fourier-muunnos"></a>
 ## Fourier-muunnos
 
 Saa parametrikseen alkuperäisen 2D kuvapistetaulukon, rivi- ja sarakeindeksin ja ikkunan koon. Laskee ikkunalle Fourier-muunnoksen ja palauttaa ikkunan. 
@@ -78,7 +79,7 @@ O(n), missä n on konvoluutioikkunan pikselien määrä
 
 Konvoluutioikkuna: 4 * m^2 taulukko, missä m on konvoluutioikkunan sivun pituus, esimerkiksi 16 tai 32 (ikkuna peilataan kahteen suuntaan)
 
-
+<a name="ylipaastosuodatus"></a>
 ## Ylipäästösuodatus
 
 Saa parametrikseen Fourier-muunnos-metodissa lasketun konvoluutioikkunan ja suodattimen arvon. Palauttaa suodatetun konvoluutioikkunan. 
@@ -95,7 +96,7 @@ O(1)
 
 Konvoluutioikkuna: (ks Fourier-muunnos)
 
-
+<a name="l2-normi"></a>
 ## L^2-normi
 
 Saa parametrikseen Fourier-muunnos-metodissa lasketun konvoluutioikkunan palauttaa ikkunan L^2 normin (reaaliluku).
@@ -112,7 +113,7 @@ O(1)
 
 Konvoluutioikkuna: (ks Fourier-muunnos)
 
-
+<a name="uuden-kuvan-luonti"></a>
 ## Uuden kuvan luonti
 
 Uusi kuva luodaan instantioimalla kuvaobjekti, kopioimalla kuvapisteet oikeasta kuvasta ja tallentamalla kuvatiedosto levylle. Metodi saa parametrikseen tarkimpien kuvapisteiden valinnassa luodun apumatriisin, mikä sisältää tarkimman kuvan tunnisteen jokaiselle kuvapisteelle. 
