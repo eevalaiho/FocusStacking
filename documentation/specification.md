@@ -58,7 +58,7 @@ Konvoluutioikkuna: käytetään alkuperäisiä värikanavamatriiseja ja indeksio
 
 Apumatriisi: 2D -taulukko, mihin tallennetaan tarkimman alkuperäisen kuvan tunniste
 
-Kompleksiluku: jos tarpeen, mallia esim [https://algs4.cs.princeton.edu/...](https://algs4.cs.princeton.edu/code/edu/princeton/cs/algs4/Complex.java.html)
+Kompleksiluku: jos tarpeen, mallia esim [https://algs4.cs.princeton.edu/.../Complex.java.html](https://algs4.cs.princeton.edu/code/edu/princeton/cs/algs4/Complex.java.html)
 
 ### Fourier-muunnos
 
