@@ -6,7 +6,7 @@
 Olen:
 * Päivittänyt määrittelydokumenttia: aika- ja tilavaativuudet, tietorakenteet ja algoritmit ohjelman osille
 
-Ajankäyttö: xh
+Ajankäyttö: 2h
 
 ## Miten ohjelma on edistynyt?
 
