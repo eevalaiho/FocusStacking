@@ -75,7 +75,7 @@ O(n), missä n on konvoluutioikkunan pikselien määrä
 
 ### Tietorakenteet
 
-Konvoluutioikkuna kahteen suuntaan peilattuna: 4 * m^2 taulukko, missä m on konvoluutioikkunan sivun pituus, esimerkiksi 16 tai 32
+Konvoluutioikkuna: 4 * m^2 taulukko, missä m on konvoluutioikkunan sivun pituus, esimerkiksi 16 tai 32 (ikkuna peilataan kahteen suuntaan)
 
 
 ## Ylipäästösuodatus
