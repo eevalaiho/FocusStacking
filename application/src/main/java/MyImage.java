@@ -34,12 +34,6 @@ public final class MyImage {
      */
     public int[] getPixels() { return pixels; }
 
-    //private int[] greenChannel = null;
-    /**
-     * Green channel of the image as a 2D-array
-     */
-    //public int[] getGreenChannel() {return this.greenChannel;}
-
     /**
      * Load the image 
      * @param path
@@ -54,13 +48,11 @@ public final class MyImage {
 
         // Get pixels and green pixels
         this.pixels = new int[this.width*this.height];
-        //this.greenChannel = new int[this.pixels.length];        
         for (int x = 0; x < this.getWidth(); x++) {
             for (int y = 0; y < this.getHeight(); y++) {
                 int rgb = image.getRGB(x,y);
                 int idx = x + this.width*y;
                 this.pixels[idx] = rgb;
-                //this.greenChannel[idx] = rgb >> 8 & 0xff;  // https://stackoverflow.com/questions/16698372/isolating-red-green-blue-channel-in-java-bufferedimage
             }
         }
     }

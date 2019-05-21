@@ -13,14 +13,17 @@ import java.util.ArrayList;
  */
 public class MyImageIO {
 
-    private ArrayList<int[]> pixels;
-
-    private int[][] greenChannels;
+    private int[][][] pixels;
     /**
-     * Green channels of the images
-     * @return Green channels as 2D array (image id x pixel count)
+     * @return Pixels as 3D array (width x height x image id)
      */
-    public int[][] getGreenChannels() { return greenChannels; }
+    public int[][][] getPixels() { return pixels; }
+
+    private int[][][] greens;
+    /**
+     * @return Green channels as 3D array (width x height x image id)
+     */
+    public int[][][] getGreens() { return greens; }
 
     /**
      * Construct the class
@@ -28,24 +31,32 @@ public class MyImageIO {
     public MyImageIO() {}
 
     /**
-     * Load a bunch of images as MyImage objects
+     * Load the images and store them internally.
+     * The green channels can be accessed through accessor. 
      * @param paths Paths to the images
      * @throws IOException When image cannot be loaded
      */
-    public void LoadImages(String[] paths) throws IOException {
+    public void LoadImages(String[] paths) throws IOException, IllegalArgumentException {
 
-        pixels = new ArrayList<int[]>(paths.length);
         for (int i = 0; i < paths.length; i++) {
-            // Construct an image object
+
             MyImage image = new MyImage(paths[0]);
-            // Store pixel values - we need them later
-            pixels.add(image.getPixels());
-            // Extract green channels
-            for (int x = 0; x < image.getWidth(); x++) {
-                for (int y = 0; y < image.getHeight(); y++) {
-                    int idx = x + image.getWidth()*y;
-                    int rgb = pixels.get(i)[idx];
-                    this.greenChannels[idx][i] = rgb >> 8 & 0xff;  // https://stackoverflow.com/questions/16698372/isolating-red-green-blue-channel-in-java-bufferedimage
+            int width = image.getWidth();
+            int height = image.getHeight();
+
+            if (greens == null) 
+                greens = new int[width][height][paths.length];
+
+            if (width != greens.length || height != greens[0].length)
+                throw new IllegalArgumentException("The images need to be of same size");
+
+            // Loop through the pixels and store in pixels array, extract green channel
+            for (int x = 0; x < width; x++) {
+                for (int y = 0; y < height; y++) {
+                    int idx = x + y*width;
+                    int rgb = image.getPixels()[idx];
+                    pixels[x][y][i] = rgb;
+                    greens[x][y][i] = rgb >> 8 & 0xff;  // https://stackoverflow.com/questions/16698372/isolating-red-green-blue-channel-in-java-bufferedimage
                 }
             }
         }
@@ -60,14 +71,18 @@ public class MyImageIO {
      * @throws IOException
      */
     public static void SaveImage(int[] pixels, int width, int height, String path) throws IOException {
+        
         // Create the image object
         BufferedImage image = new BufferedImage(width, height, java.awt.image.BufferedImage.TYPE_INT_ARGB);
+
+        // Copy correct pixels to the image
         for (int x = 0; x < width; x++) {
             for (int y = 0; y < height; y++) {
                 image.setRGB(x, y, pixels[y*width + x]);
             }
         }
-        // Create and write the file
+
+        // Create and write image file
         File outputfile = new File(path);
         String extension = path.substring(path.lastIndexOf(".") + 1);
         ImageIO.write(image, extension, outputfile);
