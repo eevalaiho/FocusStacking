@@ -5,16 +5,23 @@
 
 Olen:
 * Päivittänyt määrittelydokumenttia: aika- ja tilavaativuudet, tietorakenteet ja algoritmit ohjelman osille
+* Refaktoroinut koodia
 
-Ajankäyttö: 2h
+Ajankäyttö: 6h
 
 ## Miten ohjelma on edistynyt?
+
+Olen refaktoroinut koodia erillisiin luokkiin. 
 
 ## Mitä opin tällä viikolla / tänään?
 
 ## Mikä jäi epäselväksi tai tuottanut vaikeuksia? Vastaa tähän kohtaan rehellisesti, koska saat tarvittaessa apua tämän kohdan perusteella.
 
+Tällä viikolla on ollut haasteita ajankäytössä. Täytyy ensi viikolla kiriä kiinni. 
+
 ## Mitä teen seuraavaksi?
+
+Viimeistelen refaktoroinnin. Kirjoitan testejä.  
 
 ## Kysymyksiä
 
