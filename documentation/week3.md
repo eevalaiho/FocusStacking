@@ -11,7 +11,7 @@ Ajankäyttö: 6h
 
 ## Miten ohjelma on edistynyt?
 
-Olen refaktoroinut koodia erillisiin luokkiin. 
+Olen refaktoroinut koodia erillisiin luokkiin. Refaktorointi on kesken ja ohjelma ei toimi.
 
 ## Mitä opin tällä viikolla / tänään?
 
@@ -21,7 +21,7 @@ Tällä viikolla on ollut haasteita ajankäytössä. Täytyy ensi viikolla kiri�
 
 ## Mitä teen seuraavaksi?
 
-Viimeistelen refaktoroinnin. Kirjoitan testejä.  
+Viimeistelen refaktoroinnin niin, että toteutus toimii. Kirjoitan testejä.
 
 ## Kysymyksiä
 
