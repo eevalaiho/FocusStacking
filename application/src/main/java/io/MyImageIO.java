@@ -1,10 +1,11 @@
-import org.apache.commons.math3.complex.Complex;
+package io;
+
+import util.ArrayList;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
 
 /**
  * @author      Eeva-Maria Laiho <eeva-maria.laiho@helsinki.fi>
@@ -13,18 +14,27 @@ import java.util.ArrayList;
  */
 public class MyImageIO {
 
-    private int[][][] pixels;
+    private ArrayList<int[][]> pixels;
+    private ArrayList<double[][]> greens;
+    private int width;
+    private int height;
+
+    /**
+     * Pixel width of the image
+     */
+    public int getWidth() { return width; }
+    /**
+     * Pixel height of the image
+     */
+    public int getHeight() { return this.height; }
     /**
      * @return Pixels as 3D array (width x height x image id)
      */
-    public int[][][] getPixels() { return pixels; }
-
-    private int[][][] greens;
+    public ArrayList<int[][]> getPixels() { return pixels; }
     /**
      * @return Green channels as 3D array (width x height x image id)
      */
-    public int[][][] getGreens() { return greens; }
-
+    public ArrayList<double[][]> getGreens() { return greens; }
     /**
      * Construct the class
      */
@@ -37,28 +47,31 @@ public class MyImageIO {
      * @throws IOException When image cannot be loaded
      */
     public void LoadImages(String[] paths) throws IOException, IllegalArgumentException {
+        int width = -1;
+        int height = -1;
 
-        for (int i = 0; i < paths.length; i++) {
-
-            MyImage image = new MyImage(paths[0]);
-            int width = image.getWidth();
-            int height = image.getHeight();
-
-            if (greens == null) 
-                greens = new int[width][height][paths.length];
-
-            if (width != greens.length || height != greens[0].length)
+        for (String path: paths) {
+            MyImage image = new MyImage(path);
+            if (width < 0) {
+                width = image.getWidth();
+                height = image.getHeight();
+            }
+            else if (width != image.getWidth() || height != image.getHeight())
                 throw new IllegalArgumentException("The images need to be of same size");
 
             // Loop through the pixels and store in pixels array, extract green channel
+            int[][] px = new int[width][height];
+            int[][] gr = new int[width][height];
             for (int x = 0; x < width; x++) {
                 for (int y = 0; y < height; y++) {
                     int idx = x + y*width;
                     int rgb = image.getPixels()[idx];
-                    pixels[x][y][i] = rgb;
-                    greens[x][y][i] = rgb >> 8 & 0xff;  // https://stackoverflow.com/questions/16698372/isolating-red-green-blue-channel-in-java-bufferedimage
+                    px[x][y] = rgb;
+                    gr[x][y] = rgb >> 8 & 0xff;  // https://stackoverflow.com/questions/16698372/isolating-red-green-blue-channel-in-java-bufferedimage
                 }
             }
+            pixels.add(px);
+            greens.add(gr);
         }
     }
 

@@ -1,4 +1,7 @@
+import java.io.IOException;
+
 public class Main {
+
     public static void main(String[] args) {
         System.out.println("Started");
 
@@ -6,7 +9,11 @@ public class Main {
         String[] paths = new String[] {"bark-1.jpg", "bark-5.jpg", "bark-11.jpg"};
 
         FocusStacking fstack = new FocusStacking();
-        fstack.Stack(paths, "./output.jpg");
+        try {
+            fstack.Stack(paths, "./output.jpg");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
         System.out.println("Finished");
     }

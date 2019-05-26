@@ -1,3 +1,5 @@
+package io;
+
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
@@ -10,30 +12,27 @@ import java.io.IOException;
 public final class MyImage {
 
     private int imageType;
+    private int[] pixels;
+    private int width;
+    private int height;
+
     /**
      * Image type
      */
     public int getImageType() { return imageType; }
-
-    private int width;
     /**
      * Pixel width of the image
      */
     public int getWidth() { return width; }
-
-    private int height;
     /**
      * Pixel height of the image
      */
     public int getHeight() { return this.height; }
-
-    private int[] pixels;
     /**
      * Get pixels of an image
      * @return Pixels as an integer array
      */
     public int[] getPixels() { return pixels; }
-
     /**
      * Load the image 
      * @param path
