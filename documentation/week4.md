@@ -7,7 +7,7 @@ Olen:
 * Kirjoitellut lisää testejä
 * Refaktoroinut koodia
 
-Ajankäyttö: xh
+Ajankäyttö: 2 h
 
 ## Miten ohjelma on edistynyt?
 
