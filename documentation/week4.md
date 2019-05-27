@@ -19,7 +19,7 @@ Java tulkitsee jpeg-bittikartan CMYK:ksi, ei RGB:ksi.
 
 ## Mitä teen seuraavaksi?
 
-Complex-luokan täydennys, oman ArrayList -luokan kirjoittaminen
+Complex-luokan täydennys, oman ArrayList -luokan kirjoittaminen ja näille testit. Varsinaisen toiminnallisuudne edistäminen.
 
 ## Kysymyksiä
 
