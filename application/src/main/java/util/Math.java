@@ -8,6 +8,9 @@ public final class Math {
      * @return Value as double
      */
     public static double sqrt(double number) {
+
+        if (number < 0) return Double.NaN;
+
         double epsilon = 1.0e-15;       // relative error tolerance
         double t = number;              // estimate of the square root of c
 
