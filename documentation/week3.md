@@ -6,8 +6,9 @@
 Olen:
 * Päivittänyt määrittelydokumenttia: aika- ja tilavaativuudet, tietorakenteet ja algoritmit ohjelman osille
 * Refaktoroinut koodia
+* Aloittanut testien kirjoittamisen
 
-Ajankäyttö: 6h
+Ajankäyttö: 7h
 
 ## Miten ohjelma on edistynyt?
 
