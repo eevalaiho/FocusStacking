@@ -13,9 +13,13 @@ Ajankäyttö: 5 h
 
 ## Mitä opin tällä viikolla / tänään?
 
+Java tulkitsee jpeg-bittikartan CMYK:ksi, ei RGB:ksi. 
+
 ## Mikä jäi epäselväksi tai tuottanut vaikeuksia? Vastaa tähän kohtaan rehellisesti, koska saat tarvittaessa apua tämän kohdan perusteella.
 
 ## Mitä teen seuraavaksi?
+
+Complex-luokan täydennys, oma ArrayList -luokan kirjoittaminen
 
 ## Kysymyksiä
 
