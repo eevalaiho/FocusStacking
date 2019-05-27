@@ -22,7 +22,7 @@ Tällä viikolla on ollut haasteita ajankäytössä. Täytyy ensi viikolla kiri�
 
 ## Mitä teen seuraavaksi?
 
-Viimeistelen refaktoroinnin niin, että toteutus toimii. Kirjoitan testejä.
+Viimeistelen refaktoroinnin niin, että toteutus toimii. Kirjoitan lisää testejä. Aloitan omien tietorakenteiden toteutusta. 
 
 ## Kysymyksiä
 
