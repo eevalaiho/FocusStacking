@@ -1,24 +1,27 @@
-package domain;
+package util;
 
-public class Utils {
+import static util.Math.abs;
 
+public class Util {
     /**
      * Normalize a 2-dimensional array to the range [0, 1]
      * @param array The array
-     * @return The normalized array
+     * @return Normalized array
      */
     public static double[][] normalize(double[][] array) {
         /* Normalize to [0,1] */
-        double max = maxValue(array)[0];
-        double min = minValue(array)[0];
+        double max = abs(maxValue(array)[0]);
+        double min = abs(minValue(array)[0]);
         for (int i = 0; i < array.length; i++) {
             for (int j = 0; j < array[0].length; j++) {
-                array[i][j] = (array[i][j] - min) / (max - min);
+                if (min > max)
+                    array[i][j] = (abs(array[i][j]) - max) / (min - max);
+                else
+                    array[i][j] = (array[i][j] - min) / (max - min);
             }
         }
         return array;
     }
-
     /**
      * Find out maximum value of a 2-dimensional array and it's position
      * @param numbers The array
@@ -104,7 +107,7 @@ public class Utils {
         int height = array[0].length;
         for (int i = 0; i < width; i++) {
             for (int j = 0; j < height; j++) {
-                if (Math.abs(array[i][j]) < threshold)
+                if (java.lang.Math.abs(array[i][j]) < threshold)
                     array[i][j] =0;
             }
         }

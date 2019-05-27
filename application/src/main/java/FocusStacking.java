@@ -1,11 +1,10 @@
+import java.io.IOException;
+
 import domain.FFT;
 import io.MyImageIO;
 import util.ArrayList;
 
-import java.io.IOException;
-
-import static domain.Utils.*;
-
+import static util.Util.*;
 
 public class FocusStacking {
 
