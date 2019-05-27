@@ -8,6 +8,7 @@ public class MyImageTest {
 
     @Test
     public void getImageType() {
+
     }
 
     @Test

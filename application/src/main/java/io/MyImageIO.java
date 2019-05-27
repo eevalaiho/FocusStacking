@@ -38,7 +38,10 @@ public class MyImageIO {
     /**
      * Construct the class
      */
-    public MyImageIO() {}
+    public MyImageIO() {
+        this.pixels = new ArrayList<>();
+        this.greens = new ArrayList<>();
+    }
 
     /**
      * Load the images and store them internally.
@@ -47,8 +50,8 @@ public class MyImageIO {
      * @throws IOException When image cannot be loaded
      */
     public void LoadImages(String[] paths) throws IOException, IllegalArgumentException {
-        int width = -1;
-        int height = -1;
+        width = -1;
+        height = -1;
 
         for (String path: paths) {
             MyImage image = new MyImage(path);
@@ -61,7 +64,7 @@ public class MyImageIO {
 
             // Loop through the pixels and store in pixels array, extract green channel
             int[][] px = new int[width][height];
-            int[][] gr = new int[width][height];
+            double[][] gr = new double[width][height];
             for (int x = 0; x < width; x++) {
                 for (int y = 0; y < height; y++) {
                     int idx = x + y*width;

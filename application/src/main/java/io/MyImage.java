@@ -2,6 +2,7 @@ package io;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
+import java.io.File;
 import java.io.IOException;
 
 /**
@@ -40,7 +41,8 @@ public final class MyImage {
      */
     public MyImage(String path) throws IOException {
         // Load the image
-        BufferedImage image = ImageIO.read(MyImage.class.getResourceAsStream(path));
+        //BufferedImage image = ImageIO.read(MyImage.class.getResourceAsStream(path));
+        BufferedImage image = ImageIO.read(new File(path));
         this.width = image.getWidth();
         this.height = image.getHeight();
         this.imageType = image.getType();
