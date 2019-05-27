@@ -4,7 +4,8 @@
 ## Mitä olen tehnyt tällä viikolla?
 
 Olen:
-* 
+* Kirjoitellut lisää testejä
+* Refaktoroinut koodia
 
 Ajankäyttö: xh
 
