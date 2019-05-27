@@ -1,26 +1,42 @@
 package util;
 
-import static java.lang.Math.hypot;
+import static util.Math.hypot;
 
 /**
- * Reference implementation: https://introcs.cs.princeton.edu/java/32class/Complex.java.html
+ * Class to represent a complex number
+ * For reference implementation see: https://introcs.cs.princeton.edu/java/32class/Complex.java.html
  */
 public class Complex {
 
     private final double re;   // the real part
     private final double im;   // the imaginary part
 
-    // return the real or imaginary part
+    /**
+     * Real part
+     * @return a double
+     */
     public double re() { return re; }
+
+    /**
+     * Imaginary part
+     * @return a double
+     */
     public double im() { return im; }
 
-    // create a new object with the given real and imaginary parts
+    /**
+     * Create a new complex number object with the given real and imaginary parts
+     * @param real Real part
+     * @param imag Imaginary part
+     */
     public Complex(double real, double imag) {
         this.re = real;
         this.im = imag;
     }
 
-    // return abs/modulus/magnitude
+    /**
+     * Get the absolute value of the complex number
+     * @return a double
+     */
     public double abs() {
         return hypot(re, im);
     }

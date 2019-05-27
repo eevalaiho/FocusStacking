@@ -26,7 +26,7 @@ public class UtilTest {
     }
 
     @Test
-    protected void maxValue() {
+    public void maxValue() {
         double[] actual = Util.maxValue(new double[][]{{0, 1},{2, 3}});
         assertArrayEquals(new double[]{3, 1, 1}, actual, DELTA);
 

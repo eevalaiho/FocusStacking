@@ -1,5 +1,8 @@
 package util;
 
+/**
+ * Class for math utility methods
+ */
 public final class Math {
 
     /**

@@ -2,6 +2,9 @@ package util;
 
 import static util.Math.abs;
 
+/**
+ * Class for general utility methods
+ */
 public class Util {
     /**
      * Normalize a 2-dimensional array to the range [0, 1]
@@ -85,15 +88,7 @@ public class Util {
      * @return A 2-dimensional array containing the L2-norm
      */
     public static double l2norm(double[][] table) {
-        /*int columns = table[0].length;
-        int rows = table.length;
-        double[][] value = new double[rows][columns];
-        for (int i = 0; i < rows; i++) {
-            for (int j = 0; j < columns; j = j+2) {
-                double sum = Math.pow(table[i][j],2)+Math.pow(table[i][j+1],2);
-                value[i][j] = Math.sqrt(sum);
-            }
-        }*/
+
         return 0;
     }
     /**
