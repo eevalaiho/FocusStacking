@@ -1,3 +1,3 @@
 # Testaus
 
-Testauksen [koodinkattavuusraportti](coverage/index.html)
+Testauksen [koodinkattavuusraportti](coverage/index.html).
