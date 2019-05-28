@@ -23,5 +23,5 @@ Complex-luokan täydennys, oman ArrayList -luokan kirjoittaminen ja näille test
 
 ## Kysymyksiä
 
-
+Testaustyökalujen konffaus: käytän IDE:nö IntelliJ IDEA:a, missä on testaustyökaluja integroituna, mm koodinkattavuus. Latasin repo:on IDEA:lla generoidun koodinkattavuusraportin [/documentation/coverage/index.html](/documentation/coverage). 
 
