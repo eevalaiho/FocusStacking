@@ -13,7 +13,7 @@ Ajankäyttö: 7 h
 
 ## Miten ohjelma on edistynyt?
 
-Olen kirjoittanut lisää testejä ja refaktoroinut koodia niin, että ohjelma toimii nyt vastaavasti kuin ekalla viikolla. 
+Olen kirjoittanut lisää testejä ja refaktoroinut koodia niin, että ohjelma toimii kohta vastaavasti kuin ekalla viikolla. 
 
 ## Mitä opin tällä viikolla / tänään?
 
