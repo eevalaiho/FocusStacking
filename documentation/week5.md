@@ -5,6 +5,7 @@
 
 Olen:
 * Kirjoittanut oman ArrayList -luokan ja sille testejä
+
 (* Täydentänyt Complex-luokkaa täydennys, * Kirjoittanut edellisille testejä, * Edistänyt päätoiminnallisuutta)
 
 
