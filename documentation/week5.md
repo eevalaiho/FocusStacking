@@ -4,11 +4,16 @@
 ## Mitä olen tehnyt tällä viikolla?
 
 Olen:
-* 
+* Kirjoittanut oman ArrayList -luokan ja sille testejä
 
-Ajankäyttö: xh
+(* Täydentänyt Complex-luokkaa täydennys, * Kirjoittanut edellisille testejä, * Edistänyt päätoiminnallisuutta)
+
+
+Ajankäyttö: 1h
 
 ## Miten ohjelma on edistynyt?
+
+Olen edistänyt päätoiminnallisuutta. 
 
 ## Mitä opin tällä viikolla / tänään?
 
@@ -16,7 +21,10 @@ Ajankäyttö: xh
 
 ## Mitä teen seuraavaksi?
 
+Päätoiminnallisuutta. Valmistaudun ensi viikon demoon (ehkä ostamalla karkkia tms, ettei tule liikaa palautetta laiskottelusta...) 
+
 ## Kysymyksiä
 
+Voiko käyttää System.arraycopy -metodia?
 
 
