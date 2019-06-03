@@ -10,7 +10,7 @@ Olen:
 (* Täydentänyt Complex-luokkaa )
 
 
-Ajankäyttö: 5h
+Ajankäyttö: 6h
 
 ## Miten ohjelma on edistynyt?
 
@@ -28,6 +28,6 @@ Valmistaudun ensi viikon demoon (ehkä ostamalla karkkia tms, ettei tule liikaa 
 
 ## Kysymyksiä
 
-Voiko käyttää System.arraycopy -metodia (MyArrayList, ensureCapacity -metodi)?
+Voiko käyttää System.arraycopy -metodia (projektissa MyArrayList-luokan, ensureCapacity-metodi)?
 
 
