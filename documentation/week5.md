@@ -24,5 +24,6 @@ Päätoiminnallisuutta. Valmistaudun ensi viikon demoon.
 
 ## Kysymyksiä
 
+Voiko käyttää System.arraycopy -metodia?
 
 
