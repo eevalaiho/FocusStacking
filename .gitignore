@@ -1,10 +1,11 @@
 # Coverage
 documentation/coverage/**
 
-
 # Created by https://www.gitignore.io/api/java,gradle,intellij
 # Edit at https://www.gitignore.io/?templates=java,gradle,intellij
 
+application/src/main/resources/focus-stacking**.jpg
+application/src/main/resources/**
 application/src/main/resources/bark**.jpg
 application/src/main/resources/fly**.jpg
 imagestacks/

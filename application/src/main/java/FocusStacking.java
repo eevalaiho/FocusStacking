@@ -1,5 +1,5 @@
-import java.io.IOException;
 import domain.FFT;
+import io.MyIOException;
 import io.MyImageIO;
 import util.MyArrayList;
 
@@ -12,7 +12,7 @@ public class FocusStacking {
 
     public void FocusStacking() { }
 
-    public void Stack(String[] paths, String outputPath) throws IOException {
+    public void Stack(String[] paths, String outputPath) throws MyIOException {
 
         // Load and preprocess images
         MyImageIO imageIO = new MyImageIO();

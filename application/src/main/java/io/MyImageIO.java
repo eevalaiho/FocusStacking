@@ -38,8 +38,8 @@ public class MyImageIO {
     /**
      * Construct the class with default resources path
      */
-    public MyImageIO() throws IOException {
-        this(new File(".").getCanonicalPath() + "/src/main/resources/");
+    public MyImageIO() {
+        this(MyImageIO.getDefaultResourceRoot());
     }
     /**
      * Construct the class
@@ -54,20 +54,29 @@ public class MyImageIO {
      * Load the images and store them internally.
      * The green channels can be accessed through accessor. 
      * @param paths Paths to the images
-     * @throws IOException When image cannot be loaded
+     * @throws MyIOException If an image cannot be loaded
+     * @throws IllegalArgumentException If images are not of same size
      */
-    public void LoadImages(String[] paths) throws IOException, IllegalArgumentException {
+    public void LoadImages(String[] paths) throws MyIOException, IllegalArgumentException {
         width = -1;
         height = -1;
+        MyImage image = null;
 
         for (String path: paths) {
-            MyImage image = new MyImage(resourcesRoot + path);
+            try {
+                image = new MyImage(resourcesRoot + path);
+            }
+            catch(IOException e) {
+                throw (MyIOException) e;
+            }
+
             if (width < 0) {
                 width = image.getWidth();
                 height = image.getHeight();
             }
-            else if (width != image.getWidth() || height != image.getHeight())
+            else if (width != image.getWidth() || height != image.getHeight()) {
                 throw new IllegalArgumentException("The images need to be of same size");
+            }
 
             // Loop through the pixels and store in pixels array, extract green channel
             int[][] px = new int[width][height];
@@ -91,9 +100,9 @@ public class MyImageIO {
      * @param width Width of the image
      * @param height Height of the image
      * @param path PAth to save the image to
-     * @throws IOException
+     * @throws MyIOException
      */
-    public static void SaveImage(int[] pixels, int width, int height, String path) throws IOException {
+    public static void SaveImage(int[] pixels, int width, int height, String path) throws MyIOException {
         
         // Create the image object
         BufferedImage image = new BufferedImage(width, height, java.awt.image.BufferedImage.TYPE_INT_ARGB);
@@ -108,6 +117,21 @@ public class MyImageIO {
         // Create and write image file
         File outputfile = new File(path);
         String extension = path.substring(path.lastIndexOf(".") + 1);
-        ImageIO.write(image, extension, outputfile);
+        try {
+            ImageIO.write(image, extension, outputfile);
+        }
+        catch(IOException e) {
+            throw (MyIOException) e;
+        }
+    }
+    /**
+     * Get the default resource root
+     * @return The root path
+     */
+    private static String getDefaultResourceRoot() {
+        try {
+            return new File(".").getCanonicalPath() + "/src/main/resources/";
+        } catch (IOException e) {}
+        return "./src/main/resources/";
     }
 }

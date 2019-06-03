@@ -39,10 +39,15 @@ public final class MyImage {
      * @param path
      * @throws Exception
      */
-    public MyImage(String path) throws IOException {
+    public MyImage(String path) throws MyIOException {
         // Load the image
-        //BufferedImage image = ImageIO.read(MyImage.class.getResourceAsStream(path));
-        BufferedImage image = ImageIO.read(new File(path));
+        BufferedImage image = null;
+        try {
+            image = ImageIO.read(new File(path));
+        }
+        catch(IOException e) {
+            throw new MyIOException(e);
+        }
         this.width = image.getWidth();
         this.height = image.getHeight();
         this.imageType = image.getType();
