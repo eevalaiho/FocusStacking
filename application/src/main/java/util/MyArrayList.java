@@ -9,6 +9,14 @@ public class MyArrayList<E> {
     private static final int INITIAL_CAPACITY = 10;
     private int size = 0;
     private Object[] data = {};
+
+    /**
+     * Size of the list
+     * @return Size as int
+     */
+    public int getSize() {
+        return size;
+    }
     /**
      *
      * Constructor
@@ -37,6 +45,17 @@ public class MyArrayList<E> {
         if (index < 0 || index >= size)
             throw new IndexOutOfBoundsException("Index: " + index + ", Size " + size);
         return (E) data[index];
+    }
+    /**
+     * Return an element of the ArrayList
+     * @param index Index of the element to be returned
+     * @return The element
+     */
+    @SuppressWarnings("unchecked")
+    public void set(int index, E value) {
+        if (index < 0 || index >= size)
+            throw new IndexOutOfBoundsException("Index: " + index + ", Size " + size);
+        data[index] = value;
     }
     /**
      * Remove an element from the ArrayList

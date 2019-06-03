@@ -41,7 +41,7 @@ public class MyImageIOTest {
         assertTrue(imageIO.getPixels().get(0) instanceof int[][]);
 
         MyArrayList<int[][]> pixels = imageIO.getPixels();
-        assertEquals(1, pixels.size());
+        assertEquals(1, pixels.getSize());
         assertEquals(6, ((int[][]) pixels.get(0)).length);
         assertEquals(4, ((int[][]) pixels.get(0))[0].length);
 
@@ -58,7 +58,7 @@ public class MyImageIOTest {
         assertTrue(imageIO.getGreens().get(0) instanceof double[][]);
 
         MyArrayList<double[][]> greens = imageIO.getGreens();
-        assertEquals(1, greens.size());
+        assertEquals(1, greens.getSize());
         assertEquals(6, ((double[][]) greens.get(0)).length);
         assertEquals(4, ((double[][]) greens.get(0))[0].length);
         assertArrayEquals(new double[][]{{0, 255, 0, 255}, {0, 255, 0, 255}, {0, 255, 0, 255}, {0, 255, 0, 255}, {0, 255, 0, 255}, {0, 255, 0, 255}}, (double[][]) greens.get(0));
