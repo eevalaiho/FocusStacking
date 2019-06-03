@@ -28,6 +28,6 @@ Valmistaudun ensi viikon demoon (ehkä ostamalla karkkia tms, ettei tule liikaa 
 
 ## Kysymyksiä
 
-Voiko käyttää System.arraycopy -metodia?
+Voiko käyttää System.arraycopy -metodia (MyArrayList, ensureCapacity -metodi)?
 
 
