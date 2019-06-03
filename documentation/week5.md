@@ -9,7 +9,7 @@ Olen:
 (* Täydentänyt Complex-luokkaa täydennys, * Kirjoittanut edellisille testejä, * Edistänyt päätoiminnallisuutta)
 
 
-Ajankäyttö: 1h
+Ajankäyttö: 3h
 
 ## Miten ohjelma on edistynyt?
 
