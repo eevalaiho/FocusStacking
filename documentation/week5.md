@@ -5,11 +5,12 @@
 
 Olen:
 * Kirjoittanut oman ArrayList -luokan ja sille testejä
+* Edistänyt päätoiminnallisuutta
 
-(* Täydentänyt Complex-luokkaa täydennys, * Kirjoittanut edellisille testejä, * Edistänyt päätoiminnallisuutta)
+(* Täydentänyt Complex-luokkaa )
 
 
-Ajankäyttö: 3h
+Ajankäyttö: 5h
 
 ## Miten ohjelma on edistynyt?
 
