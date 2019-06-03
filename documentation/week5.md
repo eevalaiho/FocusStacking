@@ -5,11 +5,12 @@
 
 Olen:
 * Kirjoittanut oman ArrayList -luokan ja sille testejä
+* Edistänyt päätoiminnallisuutta
 
-(* Täydentänyt Complex-luokkaa täydennys, * Kirjoittanut edellisille testejä, * Edistänyt päätoiminnallisuutta)
+(* Täydentänyt Complex-luokkaa )
 
 
-Ajankäyttö: 3h
+Ajankäyttö: 5h
 
 ## Miten ohjelma on edistynyt?
 
@@ -21,10 +22,12 @@ Olen edistänyt päätoiminnallisuutta.
 
 ## Mitä teen seuraavaksi?
 
-Päätoiminnallisuutta. Valmistaudun ensi viikon demoon (ehkä ostamalla karkkia tms, ettei tule liikaa palautetta laiskottelusta...) 
+Päätoiminnallisuutta. 
+
+Valmistaudun ensi viikon demoon (ehkä ostamalla karkkia tms, ettei tule liikaa palautetta laiskottelusta...) 
 
 ## Kysymyksiä
 
-Voiko käyttää System.arraycopy -metodia?
+Voiko käyttää System.arraycopy -metodia (MyArrayList, ensureCapacity -metodi)?
 
 
