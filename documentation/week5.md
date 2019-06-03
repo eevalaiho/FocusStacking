@@ -12,9 +12,7 @@ Olen:
 
 Ajankäyttö: 6h
 
-## Miten ohjelma on edistynyt?
-
-Olen edistänyt päätoiminnallisuutta. 
+## Miten ohjelma on edistynyt? 
 
 ## Mitä opin tällä viikolla / tänään?
 
