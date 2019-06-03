@@ -1,7 +1,6 @@
 package io;
 
 import util.MyArrayList;
-
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 import java.io.File;
@@ -18,6 +17,7 @@ public class MyImageIO {
     private MyArrayList<double[][]> greens;
     private int width;
     private int height;
+    private String resourcesRoot;
 
     /**
      * Pixel width of the image
@@ -36,13 +36,20 @@ public class MyImageIO {
      */
     public MyArrayList<double[][]> getGreens() { return greens; }
     /**
-     * Construct the class
+     * Construct the class with default resources path
      */
-    public MyImageIO() {
+    public MyImageIO() throws IOException {
+        this(new File(".").getCanonicalPath() + "/src/main/resources/");
+    }
+    /**
+     * Construct the class
+     * @param resourcesRoot Path to resources folder (where the images are)
+     */
+    public MyImageIO(String resourcesRoot) {
+        this.resourcesRoot = resourcesRoot;
         this.pixels = new MyArrayList<>();
         this.greens = new MyArrayList<>();
     }
-
     /**
      * Load the images and store them internally.
      * The green channels can be accessed through accessor. 
@@ -54,7 +61,7 @@ public class MyImageIO {
         height = -1;
 
         for (String path: paths) {
-            MyImage image = new MyImage(path);
+            MyImage image = new MyImage(resourcesRoot + path);
             if (width < 0) {
                 width = image.getWidth();
                 height = image.getHeight();

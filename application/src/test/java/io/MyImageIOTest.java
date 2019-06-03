@@ -15,8 +15,8 @@ public class MyImageIOTest {
 
     @Before
     public void before() {
-        imageIO = new MyImageIO();
         try {
+            imageIO = new MyImageIO();
             imageIO.LoadImages(new String[]{new File("src/test/resources/rgb.png").getAbsolutePath()});
         } catch (Exception e) {
             fail(e.toString());

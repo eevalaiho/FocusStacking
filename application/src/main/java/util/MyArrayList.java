@@ -83,8 +83,8 @@ public class MyArrayList<E> {
      */
     public String toString() {
         String value = "";
-        for (int i = 0; i < size - 1; i++)
-            value += data[i + 1].toString();
-        return value;
+        for(int i = 0; i < size; i++)
+            value += "," + data[i];
+        return value.length() > 0 ? value.substring(1) : "";
     }
 }

@@ -6,8 +6,8 @@
 # Reference: https://intellij-support.jetbrains.com/hc/en-us/articles/206544839
 
 src/main/java/Tmp.java
-src/main/resources/bark**.jpg
-src/main/resources/fly**.jpg
+**/resources/bark**.jpg
+**/resources/fly**.jpg
 examples/
 
 # IDEA
