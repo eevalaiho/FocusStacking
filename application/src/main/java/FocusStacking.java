@@ -1,8 +1,7 @@
 import java.io.IOException;
-
 import domain.FFT;
 import io.MyImageIO;
-import util.ArrayList;
+import util.MyArrayList;
 
 import static util.Util.*;
 
@@ -20,7 +19,7 @@ public class FocusStacking {
         imageIO.LoadImages(paths);
 
         // Get the green channels as 3D array (width x height x image id)
-        ArrayList<double[][]> greens = imageIO.getGreens();
+        MyArrayList<double[][]> greens = imageIO.getGreens();
         int width = imageIO.getWidth();
         int height = imageIO.getHeight();
 

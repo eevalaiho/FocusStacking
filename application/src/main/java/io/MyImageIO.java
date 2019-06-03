@@ -1,6 +1,6 @@
 package io;
 
-import util.ArrayList;
+import util.MyArrayList;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
@@ -14,8 +14,8 @@ import java.io.IOException;
  */
 public class MyImageIO {
 
-    private ArrayList<int[][]> pixels;
-    private ArrayList<double[][]> greens;
+    private MyArrayList<int[][]> pixels;
+    private MyArrayList<double[][]> greens;
     private int width;
     private int height;
 
@@ -30,17 +30,17 @@ public class MyImageIO {
     /**
      * @return Pixels as 3D array (width x height x image id)
      */
-    public ArrayList<int[][]> getPixels() { return pixels; }
+    public MyArrayList<int[][]> getPixels() { return pixels; }
     /**
      * @return Green channels as 3D array (width x height x image id)
      */
-    public ArrayList<double[][]> getGreens() { return greens; }
+    public MyArrayList<double[][]> getGreens() { return greens; }
     /**
      * Construct the class
      */
     public MyImageIO() {
-        this.pixels = new ArrayList<>();
-        this.greens = new ArrayList<>();
+        this.pixels = new MyArrayList<>();
+        this.greens = new MyArrayList<>();
     }
 
     /**

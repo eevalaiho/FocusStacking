@@ -2,10 +2,9 @@ package io;
 
 import org.junit.Before;
 import org.junit.Test;
-import util.ArrayList;
+import util.MyArrayList;
 
 import java.io.File;
-import java.io.IOException;
 
 import static org.junit.Assert.*;
 
@@ -38,10 +37,10 @@ public class MyImageIOTest {
 
     @Test
     public void getPixels() {
-        assertTrue(imageIO.getPixels() instanceof ArrayList);
+        assertTrue(imageIO.getPixels() instanceof MyArrayList);
         assertTrue(imageIO.getPixels().get(0) instanceof int[][]);
 
-        ArrayList<int[][]> pixels = imageIO.getPixels();
+        MyArrayList<int[][]> pixels = imageIO.getPixels();
         assertEquals(1, pixels.size());
         assertEquals(6, ((int[][]) pixels.get(0)).length);
         assertEquals(4, ((int[][]) pixels.get(0))[0].length);
@@ -55,10 +54,10 @@ public class MyImageIOTest {
 
     @Test
     public void getGreens() {
-        assertTrue(imageIO.getGreens() instanceof ArrayList);
+        assertTrue(imageIO.getGreens() instanceof MyArrayList);
         assertTrue(imageIO.getGreens().get(0) instanceof double[][]);
 
-        ArrayList<double[][]> greens = imageIO.getGreens();
+        MyArrayList<double[][]> greens = imageIO.getGreens();
         assertEquals(1, greens.size());
         assertEquals(6, ((double[][]) greens.get(0)).length);
         assertEquals(4, ((double[][]) greens.get(0))[0].length);
