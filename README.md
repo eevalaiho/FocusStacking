@@ -16,7 +16,7 @@ Focus stacking -algoritmi on digitaalinen kuvankäsittelymenetelmä, minkä avul
 
 * Viikko 4: [Viikkoraportti 4 (31.5.2019)](documentation/week4.md)
 
-* Viikko 5: [Viikkoraportti 6 (7.6.2019)](documentation/week5.md)
+* Viikko 5: [Viikkoraportti 5 (7.6.2019)](documentation/week5.md)
 
 
 ## Dokumentaatio
