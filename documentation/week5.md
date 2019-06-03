@@ -4,10 +4,8 @@
 ## Mitä olen tehnyt tällä viikolla?
 
 Olen:
-(* Täydentänyt Complex-luokkaa täydennys
-* Kirjoittanut oman ArrayList -luokan
-* Kirjoittanut edellisille testejä)
-* Edistänyt myös päätoiminnallisuutta
+(* Täydentänyt Complex-luokkaa täydennys, * Kirjoittanut oman ArrayList -luokan, * Kirjoittanut edellisille testejä)
+* Edistänyt päätoiminnallisuutta
 
 Ajankäyttö: 1h
 
