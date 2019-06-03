@@ -20,7 +20,7 @@ Olen edistänyt päätoiminnallisuutta.
 
 ## Mitä teen seuraavaksi?
 
-Päätoiminnallisuutta. Valmistaudun ensi viikon demoon (ehkä ostamalla karkkia tms, ettei tule huonoa palautetta laiskottelusta...). 
+Päätoiminnallisuutta. Valmistaudun ensi viikon demoon (ehkä ostamalla karkkia tms, ettei tule liikaa palautetta laiskottelusta...) 
 
 ## Kysymyksiä
 
