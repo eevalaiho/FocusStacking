@@ -57,14 +57,14 @@ public class MyImageIO {
      * @throws MyIOException If an image cannot be loaded
      * @throws IllegalArgumentException If images are not of same size
      */
-    public void LoadImages(String[] paths) throws MyIOException, IllegalArgumentException {
+    public void LoadImages(String[] fileNames) throws MyIOException, IllegalArgumentException {
         width = -1;
         height = -1;
         MyImage image = null;
 
-        for (String path: paths) {
+        for (String fileName: fileNames) {
             try {
-                image = new MyImage(resourcesRoot + path);
+                image = new MyImage(resourcesRoot + fileName);
             }
             catch(IOException e) {
                 throw (MyIOException) e;
@@ -102,7 +102,7 @@ public class MyImageIO {
      * @param path Path to save the image to
      * @throws MyIOException
      */
-    public static void SaveImage(int[] pixels, int width, int height, String path) throws MyIOException {
+    public static void SaveImage(int[] pixels, int width, int height, String fileName) throws MyIOException {
         
         // Create the image object
         BufferedImage image = new BufferedImage(width, height, java.awt.image.BufferedImage.TYPE_INT_ARGB);
@@ -115,13 +115,15 @@ public class MyImageIO {
         }
 
         // Create and write image file
+        String path = MyImageIO.getDefaultResourceRoot() + fileName;
         File outputfile = new File(path);
         String extension = path.substring(path.lastIndexOf(".") + 1);
         try {
             ImageIO.write(image, extension, outputfile);
+            System.out.println("Wrote file to " + path);
         }
         catch(IOException e) {
-            throw (MyIOException) e;
+            throw new MyIOException(e);
         }
     }
     /**

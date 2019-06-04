@@ -1,6 +1,7 @@
 package util;
 
 import static util.Math.hypot;
+import static util.Math.sqrt;
 
 /**
  * Class to represent a complex number
@@ -62,7 +63,7 @@ public class Complex {
     }
 
     /**
-     * Miltiplies a Complex with this
+     * Multiplies a Complex with this
      * @param c The Complex to be multiplied with
      * @return A new Complex whose value is this * c
      */
@@ -71,5 +72,13 @@ public class Complex {
         double real = a.re * c.re - a.im * c.im;
         double imag = a.re * c.im + a.im * c.re;
         return new Complex(real, imag);
+    }
+
+    /**
+     * Compute L^2 norm of a Complex number
+     * @return The norm as double
+     */
+    public double l2norm() {
+        return sqrt(this.im*this.im + this.re*this.re);
     }
 }

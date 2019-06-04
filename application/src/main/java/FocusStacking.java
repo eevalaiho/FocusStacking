@@ -30,50 +30,45 @@ public class FocusStacking {
             greens.set(k, normalize((double[][]) greens.get(k)));
         }
 
-        // Compute the sharpest pixels
+        // Figure out the sharpest pixels
         double[][] maxL2Norms = new double[width][height];
+        int[][] maxL2Norm_indexes = new int[width][height];
         for (int k = 0; k < paths.length; k++) {
+
             // Sliding window
             SlidingWindow slidingWindow = new SlidingWindow(greens.get(k), windowSize);
             while(slidingWindow.hasNext()) {
+
                 // Get window
                 double[][] window = slidingWindow.getWindow();
-                // Compute FFT in-place
+                int i = slidingWindow.getX();
+                int j = slidingWindow.getY();
+
+                // Compute FFT
                 Complex[][] fft = FFT.fft2(window);
-                // Max L^2 norm
+
+                // Compute max L^2 norm
+                double maxL2Norm = maxL2Norm(fft);
+                if(maxL2Norm > (maxL2Norms[i][j])) {
+                    maxL2Norms[i][j] = maxL2Norm;
+                    maxL2Norm_indexes[i][j] = k;
+                }
 
                 // Next window
                 slidingWindow.moveNext();
             }
         }
 
-
-
-        /*
+        // Create an array of the sharpest pixels
+        int[] sharpestPixels = new int[(width+1)*(height+1)];
         for (int i = 0; i < width; i++) {
             for (int j = 0; j < height; j++) {
-
-                double[] norms = new double[paths.length];
-                for (int k = 0; k < paths.length; k++) {
-
-                    // Compute FFT
-                    double[][] window = FFT.ComputeFFT((double[][]) greens.get(k), i, j, windowSize);
-
-                    // High-pass-filter
-                    window = highPassFilter(window, highPassThreshold);
-
-                    // L^2 norm
-                    norms[k] = l2norm(window);
-                }
-
-                // Set the max L^2 norm pixel id
-                maxL2Norms[i][j] = maxValue(norms)[1];
+                sharpestPixels[i+j*width] = imageIO.getPixels().get(maxL2Norm_indexes[i][j])[i][j];
             }
         }
-        */
 
-        // Save pixels
-
-
+        // Save the image
+        // public static void SaveImage(int[] pixels, int width, int height, String path) throws MyIOException {
+        MyImageIO.SaveImage(sharpestPixels, width, height, outputPath);
     }
 }

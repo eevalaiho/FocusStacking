@@ -87,8 +87,17 @@ public class Util {
      * @param table The array
      * @return A 2-dimensional array containing the L2-norm
      */
-    public static double l2norm(double[][] table) {
-        return 0;
+    public static double maxL2Norm(Complex[][] table) {
+        double max = 0;
+        for (int i = 0; i < table.length; i++) {
+            for (int j = 0; j < table[0].length; j++) {
+                double norm = table[i][j].l2norm();
+                if (norm > max) {
+                    max = norm;
+                }
+            }
+        }
+        return max;
     }
     /**
      * Compute high-pass filter of a 2-dimensional array
