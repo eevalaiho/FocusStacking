@@ -5,16 +5,17 @@
 
 Olen:
 * Kirjoittanut oman ArrayList -luokan ja sille testejä
+* Viilaillut muita testejä
 * Edistänyt päätoiminnallisuutta
 
 (* Täydentänyt Complex-luokkaa )
 
 
-Ajankäyttö: 5h
+Ajankäyttö: 8h
 
-## Miten ohjelma on edistynyt?
+## Miten ohjelma on edistynyt? 
 
-Olen edistänyt päätoiminnallisuutta. 
+Kohtalaisesti. Nyt pitäisi kyllä jo pikkuhiljaa saada rutistettua päätoiminnallisuus kasaan niin jää aikaa viilailulle. 
 
 ## Mitä opin tällä viikolla / tänään?
 
@@ -22,12 +23,12 @@ Olen edistänyt päätoiminnallisuutta.
 
 ## Mitä teen seuraavaksi?
 
-Päätoiminnallisuutta. 
-
-Valmistaudun ensi viikon demoon (ehkä ostamalla karkkia tms, ettei tule liikaa palautetta laiskottelusta...) 
+Päätoiminnallisuutta. Valmistaudun ensi viikon demoon.
 
 ## Kysymyksiä
 
-Voiko käyttää System.arraycopy -metodia (MyArrayList, ensureCapacity -metodi)?
+Voiko käyttää Math.PI -vakiota ja Math.sin ja Math.cos -funktioita?
+
+Voiko käyttää System.arraycopy -metodia?
 
 
