@@ -40,4 +40,36 @@ public class Complex {
     public double abs() {
         return hypot(re, im);
     }
+
+    /**
+     * Add two Complex's
+     * @param c The Complex to be added
+     * @return A new Complex whose value is this + c
+     */
+    public Complex plus(Complex c) {
+        Complex a = this;
+        return new Complex(a.re + c.re, a.im + c.im);
+    }
+
+    /**
+     * Subtracts a Complex from this
+     * @param c The Complex to be subtracted
+     * @return A new Complex whose value is this - c
+     */
+    public Complex minus(Complex c) {
+        Complex a = this;
+        return new Complex(a.re - c.re, a.im - c.im);
+    }
+
+    /**
+     * Miltiplies a Complex with this
+     * @param c The Complex to be multiplied with
+     * @return A new Complex whose value is this * c
+     */
+    public Complex times(Complex c) {
+        Complex a = this;
+        double real = a.re * c.re - a.im * c.im;
+        double imag = a.re * c.im + a.im * c.re;
+        return new Complex(real, imag);
+    }
 }

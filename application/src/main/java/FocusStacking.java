@@ -1,6 +1,8 @@
 import domain.FFT;
+import domain.SlidingWindow;
 import io.MyIOException;
 import io.MyImageIO;
+import util.Complex;
 import util.MyArrayList;
 
 import static util.Util.*;
@@ -30,19 +32,37 @@ public class FocusStacking {
 
         // Compute the sharpest pixels
         double[][] maxL2Norms = new double[width][height];
+        for (int k = 0; k < paths.length; k++) {
+            // Sliding window
+            SlidingWindow slidingWindow = new SlidingWindow(greens.get(k), windowSize);
+            while(slidingWindow.hasNext()) {
+                // Get window
+                double[][] window = slidingWindow.getWindow();
+                // Compute FFT in-place
+                Complex[][] fft = FFT.fft2(window);
+                // Max L^2 norm
+
+                // Next window
+                slidingWindow.moveNext();
+            }
+        }
+
+
+
+        /*
         for (int i = 0; i < width; i++) {
             for (int j = 0; j < height; j++) {
 
                 double[] norms = new double[paths.length];
                 for (int k = 0; k < paths.length; k++) {
 
-                    /* Compute FFT */
+                    // Compute FFT
                     double[][] window = FFT.ComputeFFT((double[][]) greens.get(k), i, j, windowSize);
 
-                    /* High-pass-filter */
+                    // High-pass-filter
                     window = highPassFilter(window, highPassThreshold);
 
-                    /* L^2 norm */
+                    // L^2 norm
                     norms[k] = l2norm(window);
                 }
 
@@ -50,6 +70,7 @@ public class FocusStacking {
                 maxL2Norms[i][j] = maxValue(norms)[1];
             }
         }
+        */
 
         // Save pixels
 

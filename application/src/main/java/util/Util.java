@@ -88,7 +88,6 @@ public class Util {
      * @return A 2-dimensional array containing the L2-norm
      */
     public static double l2norm(double[][] table) {
-
         return 0;
     }
     /**
