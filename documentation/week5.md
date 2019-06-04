@@ -13,7 +13,7 @@ Ajankäyttö: 12h
 
 ## Miten ohjelma on edistynyt? 
 
-Paremmin. Ohjelma toimii. Tosin ei välttämättä oikein eikä tehokkaasti. 
+Paremmin. Ohjelma toimii (taas). Tosin ei välttämättä oikein eikä tehokkaasti. 
 
 ## Mitä opin tällä viikolla / tänään?
 
