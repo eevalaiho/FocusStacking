@@ -5,14 +5,17 @@
 
 Olen:
 * Kirjoittanut oman ArrayList -luokan ja sille testejä
+* Viilaillut muita testejä
 * Edistänyt päätoiminnallisuutta
 
 (* Täydentänyt Complex-luokkaa )
 
 
-Ajankäyttö: 6h
+Ajankäyttö: 8h
 
 ## Miten ohjelma on edistynyt? 
+
+Kohtalaisesti. Nyt pitäisi kyllä jo pikkuhiljaa saada rutistettua päätoiminnallisuus kasaan niin jää aikaa viilailulle. 
 
 ## Mitä opin tällä viikolla / tänään?
 
@@ -20,9 +23,7 @@ Ajankäyttö: 6h
 
 ## Mitä teen seuraavaksi?
 
-Päätoiminnallisuutta. 
-
-Valmistaudun ensi viikon demoon (ehkä ostamalla karkkia tms, ettei tule liikaa palautetta laiskottelusta...) 
+Päätoiminnallisuutta. Valmistaudun ensi viikon demoon.
 
 ## Kysymyksiä
 
