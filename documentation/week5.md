@@ -4,18 +4,16 @@
 ## Mitä olen tehnyt tällä viikolla?
 
 Olen:
-* Kirjoittanut oman ArrayList -luokan ja sille testejä
-* Viilaillut muita testejä
+* Toteuttanut oman ArrayList -luokan ja sille testejä
+* Toteuttanut oman Complex -luokan ja sille testejä
+* Viilaillut testejä muutenkin
 * Edistänyt päätoiminnallisuutta
 
-(* Täydentänyt Complex-luokkaa )
-
-
-Ajankäyttö: 8h
+Ajankäyttö: 12h
 
 ## Miten ohjelma on edistynyt? 
 
-Kohtalaisesti. Nyt pitäisi kyllä jo pikkuhiljaa saada rutistettua päätoiminnallisuus kasaan niin jää aikaa viilailulle. 
+Paremmin. Ohjelma toimii. Tosin ei välttämättä oikein eikä tehokkaasti. 
 
 ## Mitä opin tällä viikolla / tänään?
 
