@@ -99,7 +99,7 @@ public class MyImageIO {
      * @param pixels Pixels in integer format
      * @param width Width of the image
      * @param height Height of the image
-     * @param path PAth to save the image to
+     * @param path Path to save the image to
      * @throws MyIOException
      */
     public static void SaveImage(int[] pixels, int width, int height, String path) throws MyIOException {
@@ -130,6 +130,7 @@ public class MyImageIO {
      */
     private static String getDefaultResourceRoot() {
         try {
+            //new String[]{new File("rgb.png").getAbsolutePath()};
             return new File(".").getCanonicalPath() + "/src/main/resources/";
         } catch (IOException e) {}
         return "./src/main/resources/";

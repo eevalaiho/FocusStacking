@@ -16,13 +16,25 @@ public class MyImageIOTest {
     @Before
     public void before() {
         try {
-            imageIO = new MyImageIO();
-            imageIO.LoadImages(new String[]{new File("src/test/resources/rgb.png").getAbsolutePath()});
+            String path = new File(".").getCanonicalPath() + "/src/test/resources/";
+            imageIO = new MyImageIO(path);
+            imageIO.LoadImages(new String[]{"rgb.png"});
         } catch (Exception e) {
             fail(e.toString());
         }
     }
 
+    /**
+     * Get the default resource root
+     * @return The root path
+
+    private static String getDefaultResourceRoot() {
+        try {
+            return new File(".").getCanonicalPath() + "/src/main/resources/";
+        } catch (IOException e) {}
+        return "./src/main/resources/";
+    }
+     */
     @Test
     public void getWidth() {
         assertTrue(imageIO != null);
@@ -72,8 +84,9 @@ public class MyImageIOTest {
     @Test(expected = IllegalArgumentException.class)
     public void loadImages_IllegalArgumentException() throws IllegalArgumentException {
         try {
-            MyImageIO imageIO = new MyImageIO();
-            imageIO.LoadImages(new String[]{new File("src/test/resources/rgb.png").getAbsolutePath(), new File("src/test/resources/rgb2.png").getAbsolutePath()});
+            String path = new File(".").getCanonicalPath() + "/src/test/resources/";
+            MyImageIO imageIO = new MyImageIO(path);
+            imageIO.LoadImages(new String[]{"rgb.png","rgb2.png"});
         }
         catch (IllegalArgumentException e1) {
             throw e1;
