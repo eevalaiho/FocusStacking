@@ -27,6 +27,8 @@ Päätoiminnallisuutta. Valmistaudun ensi viikon demoon.
 
 ## Kysymyksiä
 
+Voiko käyttää exception-luokkia: IOException, IndexOutOfBoundsException, InvalidArgumentException? 
+
 Voiko käyttää Math.PI -vakiota ja Math.sin ja Math.cos -funktioita?
 
 Voiko käyttää System.arraycopy -metodia?
