@@ -17,6 +17,8 @@ Paremmin. Ohjelma toimii. Tosin ei välttämättä oikein eikä tehokkaasti.
 
 ## Mitä opin tällä viikolla / tänään?
 
+Että fft:n ja 2D fft:n testikeissit voi laskea kivasti R:llä. 
+
 ## Mikä jäi epäselväksi tai tuottanut vaikeuksia? Vastaa tähän kohtaan rehellisesti, koska saat tarvittaessa apua tämän kohdan perusteella.
 
 ## Mitä teen seuraavaksi?
