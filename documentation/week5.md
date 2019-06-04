@@ -29,6 +29,6 @@ Päätoiminnallisuutta. Valmistaudun ensi viikon demoon.
 
 Voiko käyttää Math.PI -vakiota ja Math.sin ja Math.cos -funktioita?
 
-Voiko käyttää System.arraycopy -metodia (projektissa MyArrayList-luokan, ensureCapacity-metodi)?
+Voiko käyttää System.arraycopy -metodia?
 
 
