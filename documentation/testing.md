@@ -13,7 +13,7 @@ Ohjelman järjestelmätestausta varten on [Apysinia fulva -merikorallia esittäv
 
 ![Tarkka](../application/src/main/resources/150x100-koralli-mirrored-sharp.png "Tarkka")
 
-Saadusta kuvasta on tehty versiot, joissa kuvankäsittelyohjelmalla on sumennettu joko vasen-, oikea- tai yläpuoli. 
+Näin saadusta kuvasta on muokattu kolme testikuvaa, joissa kuvankäsittelyohjelmalla on sumennettu joko vasen-, oikea- tai yläpuoli. 
 
 ![Vasemmalta blurri](../application/src/main/resources/150x100-koralli-mirrored-left-blur.png "Vasemmalta blurri")
 ![Oikealta blurri](../application/src/main/resources/150x100-koralli-mirrored-right-blur.png "Oikealta blurri")
