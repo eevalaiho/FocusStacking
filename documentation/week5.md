@@ -4,20 +4,20 @@
 ## Mitä olen tehnyt tällä viikolla?
 
 Olen:
-* Kirjoittanut oman ArrayList -luokan ja sille testejä
-* Viilaillut muita testejä
+* Toteuttanut oman ArrayList -luokan ja sille testejä
+* Toteuttanut oman Complex -luokan ja sille testejä
+* Viilaillut testejä muutenkin
 * Edistänyt päätoiminnallisuutta
 
-(* Täydentänyt Complex-luokkaa )
-
-
-Ajankäyttö: 8h
+Ajankäyttö: 12h
 
 ## Miten ohjelma on edistynyt? 
 
-Kohtalaisesti. Nyt pitäisi kyllä jo pikkuhiljaa saada rutistettua päätoiminnallisuus kasaan niin jää aikaa viilailulle. 
+Paremmin. Ohjelma toimii (taas). Tosin ei välttämättä oikein eikä tehokkaasti. 
 
 ## Mitä opin tällä viikolla / tänään?
+
+Että fft:n ja 2D fft:n testikeissit voi laskea kivasti R:llä. 
 
 ## Mikä jäi epäselväksi tai tuottanut vaikeuksia? Vastaa tähän kohtaan rehellisesti, koska saat tarvittaessa apua tämän kohdan perusteella.
 
@@ -26,6 +26,8 @@ Kohtalaisesti. Nyt pitäisi kyllä jo pikkuhiljaa saada rutistettua päätoiminn
 Päätoiminnallisuutta. Valmistaudun ensi viikon demoon.
 
 ## Kysymyksiä
+
+Voiko käyttää exception-luokkia: IOException, IndexOutOfBoundsException, InvalidArgumentException? 
 
 Voiko käyttää Math.PI -vakiota ja Math.sin ja Math.cos -funktioita?
 
