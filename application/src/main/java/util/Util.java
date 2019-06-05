@@ -12,7 +12,6 @@ public class Util {
      * @return Normalized array
      */
     public static double[][] normalize(double[][] array, double minBound, double maxBound) {
-        /* Normalize to [0,1] */
         double[] minMax = minMaxValue(array, minBound, maxBound);
         double min = abs(minMax[0]);
         double max = abs(minMax[1]);
@@ -53,12 +52,11 @@ public class Util {
     }
 
     /**
-     * Compute L2-norm of a 2-dimensional array
+     * Compute L2-norm of a 2-dimensional Complex array
      * @param table The array
-     * @return A 2-dimensional array containing the L2-norm
+     * @return L2-norm of the array
      */
     public static double L2Norm(Complex[][] table) {
-
         double sum = 0;
         for (int i = 0; i < table.length; i++) {
             for (int j = 0; j < table[0].length; j++) {
@@ -66,7 +64,14 @@ public class Util {
             }
         }
         return util.Math.sqrt(sum);
-        /*
+    }
+
+    /**
+     * Compute maximum L2 norm of a 2-dimensional Complex array
+     * @param table The array
+     * @return Maximum L2-norm of the array
+     */
+    public static double MaxL2Norm(Complex[][] table) {
         double max = 0;
         for (int i = 0; i < table.length; i++) {
             for (int j = 0; j < table[0].length; j++) {
@@ -77,24 +82,5 @@ public class Util {
             }
         }
         return max;
-        */
     }
-
-//    /**
-//     * Compute high-pass filter of a 2-dimensional array
-//     * @param array
-//     * @param threshold
-//     * @return
-//     */
-//    public static double[][] highPassFilter(double[][] array, double threshold) {
-//        int width = array.length;
-//        int height = array[0].length;
-//        for (int i = 0; i < width; i++) {
-//            for (int j = 0; j < height; j++) {
-//                if (java.lang.Math.abs(array[i][j]) < threshold)
-//                    array[i][j] =0;
-//            }
-//        }
-//        return array;
-//    }
 }

@@ -53,32 +53,23 @@ public class MyImageIO {
     /**
      * Load the images and store them internally.
      * The green channels can be accessed through accessor. 
-     * @param paths Paths to the images
-     * @throws MyIOException If an image cannot be loaded
+     * @param fileNames Names of the images
      * @throws IllegalArgumentException If images are not of same size
+     * @throws IOException If image couldn't be loaded
      */
-    public void LoadImages(String[] fileNames) throws MyIOException, IllegalArgumentException {
-        width = -1;
-        height = -1;
-        MyImage image = null;
+    public void LoadImages(String[] fileNames) throws IllegalArgumentException, IOException {
 
-        for (String fileName: fileNames) {
-            try {
-                image = new MyImage(resourcesRoot + fileName);
-            }
-            catch(IOException e) {
-                throw (MyIOException) e;
-            }
+        if (fileNames.length == 0)
+            return;
 
-            if (width < 0) {
-                width = image.getWidth();
-                height = image.getHeight();
-            }
-            else if (width != image.getWidth() || height != image.getHeight()) {
-                throw new IllegalArgumentException("The images need to be of same size");
-            }
+        int i = 0;
+        MyImage image = new MyImage(resourcesRoot + fileNames[i]);
+        width = image.getWidth();
+        height = image.getHeight();
 
-            // Loop through the pixels and store in pixels array, extract green channel
+        while (image != null) {
+
+            // Loop through the pixels, extract green channel
             int[][] px = new int[width][height];
             double[][] gr = new double[width][height];
             for (int x = 0; x < width; x++) {
@@ -91,6 +82,15 @@ public class MyImageIO {
             }
             pixels.add(px);
             greens.add(gr);
+
+            i++;
+            if (i >= fileNames.length) break;
+
+            // Load next image
+            image = new MyImage(resourcesRoot + fileNames[i]);
+            if (width != image.getWidth() || height != image.getHeight()) {
+                throw new IllegalArgumentException("The images need to be of same size");
+            }
         }
     }
 
@@ -99,10 +99,9 @@ public class MyImageIO {
      * @param pixels Pixels in integer format
      * @param width Width of the image
      * @param height Height of the image
-     * @param path Path to save the image to
-     * @throws MyIOException
+     * @param fileName Name of the output image
      */
-    public static void SaveImage(int[] pixels, int width, int height, String fileName) throws MyIOException {
+    public static void SaveImage(int[] pixels, int width, int height, String fileName) throws IOException {
         
         // Create the image object
         BufferedImage image = new BufferedImage(width, height, java.awt.image.BufferedImage.TYPE_INT_ARGB);
@@ -118,13 +117,8 @@ public class MyImageIO {
         String path = MyImageIO.getDefaultResourceRoot() + fileName;
         File outputfile = new File(path);
         String extension = path.substring(path.lastIndexOf(".") + 1);
-        try {
-            ImageIO.write(image, extension, outputfile);
-            System.out.println("Wrote file to " + path);
-        }
-        catch(IOException e) {
-            throw new MyIOException(e);
-        }
+        ImageIO.write(image, extension, outputfile);
+        System.out.println("Wrote file to " + path);
     }
     /**
      * Get the default resource root
@@ -132,7 +126,6 @@ public class MyImageIO {
      */
     private static String getDefaultResourceRoot() {
         try {
-            //new String[]{new File("rgb.png").getAbsolutePath()};
             return new File(".").getCanonicalPath() + "/src/main/resources/";
         } catch (IOException e) {}
         return "./src/main/resources/";

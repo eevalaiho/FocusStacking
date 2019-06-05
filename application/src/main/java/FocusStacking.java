@@ -1,10 +1,10 @@
+import java.io.IOException;
+
 import domain.FFT;
 import domain.SlidingWindow;
-import io.MyIOException;
 import io.MyImageIO;
 import util.Complex;
 import util.MyArrayList;
-
 import static util.Util.*;
 
 public class FocusStacking {
@@ -15,26 +15,27 @@ public class FocusStacking {
         this.windowSize = windowSize;
     }
 
-    public void Stack(String[] paths, String outputPath) throws MyIOException {
+    public void Stack(String[] paths, String outputPath) throws IOException {
 
         // Load and preprocess images
         MyImageIO imageIO = new MyImageIO();
         imageIO.LoadImages(paths);
-
-        // Get the green channels as 3D array (width x height x image id)
-        MyArrayList<double[][]> greens = imageIO.getGreens();
         int width = imageIO.getWidth();
         int height = imageIO.getHeight();
 
+        // Get the green channels
+        MyArrayList<double[][]> greens = imageIO.getGreens();
+
         // Normalize the channels
-        for (int k = 0; k < paths.length; k++) {
+        for (int k = 0; k < paths.length; k++)
             greens.set(k, normalize(greens.get(k), 0, 255));
-        }
 
         // Figure out the sharpest pixels
 
-        // Create a sliding window
+        // Array to store image indexes
         int[][] maxL2Norm_indexes = new int[width][height];
+
+        // Create a sliding window
         SlidingWindow slidingWindow = new SlidingWindow(windowSize, width, height);
         while(slidingWindow.hasNext()) {
 
@@ -51,6 +52,7 @@ public class FocusStacking {
 
                 // Compute L^2 norm of this window and compare
                 double l2Norm = L2Norm(fft);
+                //double l2Norm = MaxL2Norm(fft);
                 if (l2Norm > maxL2Norm) {
                     maxL2Norm = l2Norm;
                     maxL2Norm_indexes[i][j] = k;

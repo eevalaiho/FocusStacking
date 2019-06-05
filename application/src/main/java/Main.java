@@ -1,5 +1,4 @@
-import io.MyIOException;
-
+import java.io.IOException;
 import java.time.LocalDateTime;
 
 public class Main {
@@ -7,16 +6,17 @@ public class Main {
     public static void main(String[] args) {
         System.out.println("Started");
 
-        int windowSize = 32;
-        //String[] paths = new String[]{ "focus-stacking-5.png", "focus-stacking-9.png", "focus-stacking-12.png"};
-        String[] paths = new String[] {"150x100-Humming-bird-top-blur.png", "150x100-Humming-bird-left-blur.png", "150x100-Humming-bird-right-blur.png"};
+        //String[] paths = new String[] {"150x100-Humming-bird-top-blur.png", "150x100-Humming-bird-left-blur.png", "150x100-Humming-bird-right-blur.png"};
+        String[] paths = new String[] {"90x60-Humming-bird-top-blur.png", "90x60-Humming-bird-left-blur.png", "90x60-Humming-bird-right-blur.png"};
+        //String[] paths = new String[] {"150x100-double-mirrored-humming-bird-top-blur.png", "150x100-double-mirrored-humming-bird-left-blur.png", "150x100-double-mirrored-humming-bird-right-blur.png"};
+        int windowSize = 16;
+
         FocusStacking fstack = new FocusStacking(windowSize);
         try {
             fstack.Stack(paths, "output_"+windowSize+"_"+LocalDateTime.now().toString()+".png");
-        } catch (MyIOException e) {
+        } catch (IOException e) {
             e.printStackTrace();
         }
-
         System.out.println("Finished");
     }
 }
