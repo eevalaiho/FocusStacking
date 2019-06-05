@@ -23,17 +23,17 @@ Että fft:n ja 2D fft:n testikeissit voi laskea kivasti R:llä.
 
 Olen epävarma siitä, miten maksimi L^2 normi pitää laskea. Kaksi lähestymistapaa:
 
-```
 [1]
 
+```
 summa = 0
 Jokaiselle Fourier-muunnosmatriisin alkiolle:
    summa += Abs(alkio)^2              # Tässä Abs koska alkio on kompleksiluku
 Palauta Sqrt(summa)
 ```
-```
 [2]
 
+```
 maksimi = 0
 Jokaiselle Fourier-muunnosmatriisin alkiolle:
    normi = L2Normi(alkio)             # Tässä L2Normi laksetaan Sqrt(alkio.re^2 + alkio.im^2)
