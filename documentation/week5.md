@@ -1,4 +1,3 @@
-§
 # Viikkoraportti 5 (7.6.2019)
 
 ## Mitä olen tehnyt tällä viikolla?
