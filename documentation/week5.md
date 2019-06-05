@@ -10,7 +10,7 @@ Olen:
 * Edistänyt päätoiminnallisuutta
 * Testikattavuus (ei vielä toimi oikein) [https://eevalaiho.github.io/index.html](https://eevalaiho.github.io/index.html)
 
-Ajankäyttö: 16h
+Ajankäyttö: 15h
 
 ## Miten ohjelma on edistynyt? 
 
