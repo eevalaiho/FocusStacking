@@ -9,7 +9,7 @@ public class UtilTest {
     private static final double DELTA = 1e-15;
 
     @Test
-    public void test_normalize() {
+    public void normalize() {
         double[][] actual = Util.normalize(new double[][]{{0, 10.0}, {2.0, 3.0}}, 0, 10);
         assertArrayEquals(new double[][]{{0, 1}, {0.2, 0.3}}, actual);
 
@@ -18,7 +18,7 @@ public class UtilTest {
     }
 
     @Test
-    public void test_minMaxValue() {
+    public void minMaxValue() {
         double[] actual = Util.minMaxValue(new double[][]{{0, 1},{2, 3}}, 0, 3);
         assertArrayEquals(new double[]{0, 3}, actual, DELTA);
 
@@ -31,14 +31,15 @@ public class UtilTest {
     }
 
     @Test
-    public void test_maxL2Norm() {
+    public void l2Norm() {
         Complex[][] array = new Complex[][] {{new Complex(3, 4)}};
-        assertEquals(5.0, Util.maxL2Norm(array), DELTA);
+        assertEquals(5.0, Util.l2Norm(array), DELTA);
 
         Complex[][] array2 = new Complex[][] {{new Complex(-3, 4)}};
-        assertEquals(5.0, Util.maxL2Norm(array2), DELTA);
+        assertEquals(5.0, Util.l2Norm(array2), DELTA);
 
         Complex[][] array3 = new Complex[][] {{new Complex(1, 1)}};
-        assertEquals(1.414213562373095, Util.maxL2Norm(array3), DELTA);
+        assertEquals(1.414213562373095, Util.l2Norm(array3), DELTA);
     }
+
 }

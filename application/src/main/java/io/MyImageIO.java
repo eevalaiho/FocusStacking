@@ -99,9 +99,10 @@ public class MyImageIO {
      * @param pixels Pixels in integer format
      * @param width Width of the image
      * @param height Height of the image
+     * @param path Path to save the image to
      * @param fileName Name of the output image
      */
-    public static void SaveImage(int[] pixels, int width, int height, String fileName) throws IOException {
+    public static void SaveImage(int[] pixels, int width, int height, String path, String fileName) throws IOException {
         
         // Create the image object
         BufferedImage image = new BufferedImage(width, height, java.awt.image.BufferedImage.TYPE_INT_ARGB);
@@ -114,12 +115,25 @@ public class MyImageIO {
         }
 
         // Create and write image file
-        String path = MyImageIO.getDefaultResourceRoot() + fileName;
-        File outputfile = new File(path);
-        String extension = path.substring(path.lastIndexOf(".") + 1);
+        File outputfile = new File(path + fileName);
+        String extension = fileName.substring(fileName.lastIndexOf(".") + 1);
         ImageIO.write(image, extension, outputfile);
-        System.out.println("Wrote file to " + path);
+        System.out.println("Wrote file to " + path + fileName);
     }
+
+    /**
+     * Create and image object from pixel values and save to disk
+     * @param pixels Pixels in integer format
+     * @param width Width of the image
+     * @param height Height of the image
+     * @param fileName Name of the output image
+     * @throws IOException If saving the image does not succeed
+     */
+    public static void SaveImage(int[] pixels, int width, int height, String fileName) throws IOException {
+        String path = MyImageIO.getDefaultResourceRoot() + fileName;
+        SaveImage(pixels, width, height, path, fileName);
+    }
+
     /**
      * Get the default resource root
      * @return The root path

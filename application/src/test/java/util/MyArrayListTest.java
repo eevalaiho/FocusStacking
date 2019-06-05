@@ -8,13 +8,13 @@ public class MyArrayListTest {
     private static final double DELTA = 1e-15;
 
     @Test
-    public void test_construct() {
+    public void construct() {
         MyArrayList<Object> list2 = new MyArrayList<>();
         assertEquals(0, list2.getSize());
     }
 
     @Test
-    public void test_add() {
+    public void add() {
         MyArrayList<Integer> list = new MyArrayList<>();
         list.add(1);
 
@@ -27,7 +27,7 @@ public class MyArrayListTest {
     }
 
     @Test
-    public void test_add_doubleArrayArray() {
+    public void add_doubleArrayArray() {
         MyArrayList<double[][]> list = new MyArrayList<>();
         list.add(new double[][] {{1.0}});
 
@@ -40,7 +40,7 @@ public class MyArrayListTest {
     }
 
     @Test
-    public void test_get() {
+    public void get() {
 
         MyArrayList<Integer> list = new MyArrayList<>();
         list.add(1);
@@ -52,7 +52,7 @@ public class MyArrayListTest {
     }
 
     @Test
-    public void test_get_doubleArrayArray() {
+    public void get_doubleArrayArray() {
 
         MyArrayList<double[][]> list = new MyArrayList<>();
         list.add(new double[][] {{1.0}});
@@ -66,7 +66,7 @@ public class MyArrayListTest {
 
 
     @Test
-    public void test_set() {
+    public void set() {
         MyArrayList<Integer> list = new MyArrayList<>();
         list.add(1);
 
@@ -75,7 +75,7 @@ public class MyArrayListTest {
     }
 
     @Test
-    public void test_set_doubleArrayArray() {
+    public void set_doubleArrayArray() {
 
         MyArrayList<double[][]> list = new MyArrayList<>();
         list.add(new double[][] {{1.0}});
@@ -95,7 +95,7 @@ public class MyArrayListTest {
     }
 
     @Test
-    public void test_remove() {
+    public void remove() {
         MyArrayList<Integer> list = new MyArrayList<>();
         list.add(1);
         assertEquals(1, list.getSize());

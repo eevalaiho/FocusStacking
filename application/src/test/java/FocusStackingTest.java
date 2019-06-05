@@ -11,4 +11,8 @@ public class FocusStackingTest {
     @Test
     public void stack() {
     }
+
+    @Test
+    public void printArray() {
+    }
 }

@@ -24,17 +24,6 @@ public class MyImageIOTest {
         }
     }
 
-    /**
-     * Get the default resource root
-     * @return The root path
-
-    private static String getDefaultResourceRoot() {
-        try {
-            return new File(".").getCanonicalPath() + "/src/main/resources/";
-        } catch (IOException e) {}
-        return "./src/main/resources/";
-    }
-     */
     @Test
     public void getWidth() {
         assertTrue(imageIO != null);
@@ -98,8 +87,6 @@ public class MyImageIOTest {
 
     @Test
     public void saveImage() {
-        String path = "src/test/resources/rgb.png";
-
         int r = (255 << 24) | (255 << 16);
         int g = (255 << 24) | (255 << 8);
         int b = (255 << 24) | 255;
@@ -107,12 +94,12 @@ public class MyImageIOTest {
         int[] pixels = new int[]{r, r, r, r, r, r, g, g, g, g, g, g, b, b, b, b, b, b, a, a, a, a, a, a};
 
         try {
-            MyImageIO.SaveImage(pixels, 6, 4, path);
+            MyImageIO.SaveImage(pixels, 6, 4, "./src/test/resources/", "rgb.png");
         } catch (Exception e) {
             fail(e.toString());
         }
 
-        assertTrue((new File(path)).exists());
+        assertTrue((new File("./src/test/resources/", "rgb.png")).exists());
     }
 
 }

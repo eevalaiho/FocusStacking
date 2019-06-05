@@ -24,7 +24,7 @@ public class FocusStacking {
         int height = imageIO.getHeight();
 
         // Get the green channels
-        MyArrayList<double[][]> greens = imageIO.getGreens();
+        MyArrayList<double[][]> greens = imageIO.getGreens();  // <-- make more effective ??
 
         // Normalize the channels
         for (int k = 0; k < paths.length; k++)
@@ -51,10 +51,10 @@ public class FocusStacking {
                 Complex[][] fft = FFT.fft2(window);
 
                 // Compute L^2 norm of this window and compare
-                double l2Norm = L2Norm(fft);
+                double norm = l2Norm(fft);
                 //double l2Norm = MaxL2Norm(fft);
-                if (l2Norm > maxL2Norm) {
-                    maxL2Norm = l2Norm;
+                if (norm > maxL2Norm) {
+                    maxL2Norm = norm;
                     maxL2Norm_indexes[i][j] = k;
                 }
             }

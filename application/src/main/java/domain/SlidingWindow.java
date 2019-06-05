@@ -87,11 +87,6 @@ public class SlidingWindow {
      * @return
      */
     private double getValue(double[][] array, int x, int y) {
-        try {
-            return array[x][y];
-        }
-        catch(IndexOutOfBoundsException e) { }
-
         if (x < 0)
             x = 0;
         else if (x > array.length - 1)
