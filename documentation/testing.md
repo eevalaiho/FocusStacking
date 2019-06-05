@@ -45,3 +45,6 @@ Kun ikkunan koko on 32, algoritmi tuottaa kuvan:
 
 ![Output, window size 32](../application/src/main/resources/150x100-koralli2-output-32.png "Output, window size 32")
 
+
+Kuvista huomataan, että
+
