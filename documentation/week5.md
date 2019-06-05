@@ -18,7 +18,7 @@ Paremmin. Ohjelma toimii ja isolla ikkunakoolla (32px) valitsee oikeita pikselei
 
 ## Mitä opin tällä viikolla / tänään?
 
-Että fft:n ja 2D fft:n testikeissit voi laskea kivasti R:llä. 
+Että fft:n ja 2D fft:n testikeissit voi laskea kivasti R:llä. Miten github.io konffataan näyttämään ., _ ja #-alkuisia tiedostoja ja hakemistoja. 
 
 ## Mikä jäi epäselväksi tai tuottanut vaikeuksia? Vastaa tähän kohtaan rehellisesti, koska saat tarvittaessa apua tämän kohdan perusteella.
 
