@@ -21,7 +21,7 @@ Että fft:n ja 2D fft:n testikeissit voi laskea kivasti R:llä.
 
 ## Mikä jäi epäselväksi tai tuottanut vaikeuksia? Vastaa tähän kohtaan rehellisesti, koska saat tarvittaessa apua tämän kohdan perusteella.
 
-Olen epävarma siitä, miten maksimi L^2 normi pitää laskea. Kaksi lähestymistapaa:
+Olen epävarma siitä, miten maksimi L^2 normi pitää laskea. Kaksi lähestymistapaa, joista [1] näyttäisi valitsevan paremmat pikselit (olikohan tässä sitten kysymystä ollenkaan):
 
 [1]
 
