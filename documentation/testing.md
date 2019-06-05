@@ -2,7 +2,7 @@
 
 ## Koodinkattavuus
 
-Koodinkattavuusraportti [https://eevalaiho.github.io/FocusStacking/coverage/index.html](https://eevalaiho.github.io/FocusStacking/coverage/index.html).
+Koodinkattavuusraportti [https://eevalaiho.github.io/index.html](https://eevalaiho.github.io/index.html).
 
 Selvityksen alla miten saan raportin näkymään kätevimmin oikein.
 
