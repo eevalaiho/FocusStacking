@@ -9,7 +9,7 @@ Olen:
 * Viilaillut testejä muutenkin
 * Edistänyt päätoiminnallisuutta
 
-Ajankäyttö: 15h
+Ajankäyttö: 16h
 
 ## Miten ohjelma on edistynyt? 
 
