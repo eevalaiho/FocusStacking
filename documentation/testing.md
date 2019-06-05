@@ -18,3 +18,9 @@ Näin saadusta kuvasta on muokattu kolme testikuvaa, joissa kuvankäsittelyohjel
 ![Vasemmalta blurri](../application/src/main/resources/150x100-koralli-mirrored-left-blur.png "Vasemmalta blurri")
 ![Oikealta blurri](../application/src/main/resources/150x100-koralli-mirrored-right-blur.png "Oikealta blurri")
 ![Ylhäältä blurri](../application/src/main/resources/150x100-koralli-mirrored-top-blur.png "Ylhäältä blurri")
+
+Kun ikkunan koko on 16, algoritmi tuottaa kuvan:
+![Output, window size 16](../application/src/main/resources/150x100-koralli-output-16.png "Output, window size 16")
+
+Kun ikkunan koko on 32, algoritmi tuottaa kuvan:
+![Output, window size 32](../application/src/main/resources/150x100-koralli-output-32.png "Output, window size 32")
