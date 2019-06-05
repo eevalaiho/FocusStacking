@@ -44,7 +44,7 @@ Palauta maksimi
 
 ## Mitä teen seuraavaksi?
 
-Päätoiminnallisuutta. Valmistaudun ensi viikon demoon.
+Viilaan päätoiminnallisuutta, kirjoitan puuttuvia testejä. Dokumentointia. Valmistaudun ensi viikon demoon.
 
 ## Kysymyksiä
 
