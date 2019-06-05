@@ -1,6 +1,6 @@
 # Käyttöohje
 
-Ohjelman JavaDoc -dokumentaatio [/documentation/javadoc/index.html](./javadoc/)
+Ohjelman JavaDoc -dokumentaatio [https://eevalaiho.github.io/FocusStacking/javadoc/](https://eevalaiho.github.io/FocusStacking/javadoc/)
 
 
 
