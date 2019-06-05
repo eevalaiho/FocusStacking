@@ -75,6 +75,16 @@ public class Complex {
     }
 
     /**
+     * Squares this Complex
+     * @return The value
+     */
+    public double squared() {
+        double c = this.abs();
+        return c*c;
+    }
+
+
+    /**
      * Compute L^2 norm of a Complex number
      * @return The norm as double
      */

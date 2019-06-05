@@ -9,10 +9,11 @@ import static util.Util.*;
 
 public class FocusStacking {
 
-    private final int windowSize = 16;
-    private final double highPassThreshold = 1.0;
+    private int windowSize = 16;
 
-    public void FocusStacking() { }
+    public FocusStacking(int windowSize) {
+        this.windowSize = windowSize;
+    }
 
     public void Stack(String[] paths, String outputPath) throws MyIOException {
 
@@ -27,37 +28,41 @@ public class FocusStacking {
 
         // Normalize the channels
         for (int k = 0; k < paths.length; k++) {
-            greens.set(k, normalize((double[][]) greens.get(k)));
+            greens.set(k, normalize(greens.get(k), 0, 255));
         }
 
         // Figure out the sharpest pixels
-        double[][] maxL2Norms = new double[width][height];
+
+        // Create a sliding window
         int[][] maxL2Norm_indexes = new int[width][height];
-        for (int k = 0; k < paths.length; k++) {
+        SlidingWindow slidingWindow = new SlidingWindow(windowSize, width, height);
+        while(slidingWindow.hasNext()) {
 
-            // Sliding window
-            SlidingWindow slidingWindow = new SlidingWindow(greens.get(k), windowSize);
-            while(slidingWindow.hasNext()) {
+            double maxL2Norm = 0;
+            for (int k = 0; k < paths.length; k++) {
 
-                // Get window
-                double[][] window = slidingWindow.getWindow();
+                // Get the double-mirrored window ()
+                double[][] window = slidingWindow.getDoubleMirroredWindow(greens.get(k));
                 int i = slidingWindow.getX();
                 int j = slidingWindow.getY();
 
                 // Compute FFT
                 Complex[][] fft = FFT.fft2(window);
 
-                // Compute max L^2 norm
-                double maxL2Norm = maxL2Norm(fft);
-                if(maxL2Norm > (maxL2Norms[i][j])) {
-                    maxL2Norms[i][j] = maxL2Norm;
+                // Compute L^2 norm of this window and compare
+                double l2Norm = L2Norm(fft);
+                if (l2Norm > maxL2Norm) {
+                    maxL2Norm = l2Norm;
                     maxL2Norm_indexes[i][j] = k;
                 }
-
-                // Next window
-                slidingWindow.moveNext();
             }
+
+            // Next window
+            slidingWindow.moveNext();
         }
+
+        // Print the array
+        printArray(maxL2Norm_indexes);
 
         // Create an array of the sharpest pixels
         int[] sharpestPixels = new int[(width+1)*(height+1)];
@@ -68,7 +73,22 @@ public class FocusStacking {
         }
 
         // Save the image
-        // public static void SaveImage(int[] pixels, int width, int height, String path) throws MyIOException {
         MyImageIO.SaveImage(sharpestPixels, width, height, outputPath);
+
+    }
+
+    /**
+     * Prints out a 2D int array
+     * Utility method for debugging
+     * @param array The array
+     */
+    public void printArray(int[][] array) {
+        for (int i = 0; i < array.length; i++) {
+            System.out.print(array[i][0]);
+            for (int j = 1; j < array[0].length; j++) {
+                System.out.print(","+array[i][j]);
+            }
+            System.out.println("");
+        }
     }
 }
