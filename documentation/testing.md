@@ -1,3 +1,6 @@
 # Testaus
 
-Testauksen koodinkattavuusraportti: [/documentation/coverage/index.html](./coverage/).
+## Raportit 
+
+Testikattavuus: [https://eevalaiho.github.io/FocusStacking/coverage/index.html](https://eevalaiho.github.io/FocusStacking/coverage/index.html)
+
