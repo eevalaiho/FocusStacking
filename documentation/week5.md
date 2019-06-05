@@ -8,6 +8,7 @@ Olen:
 * Toteuttanut oman Complex -luokan ja sille testejä
 * Viilaillut testejä muutenkin
 * Edistänyt päätoiminnallisuutta
+* Testikattavuus (ei vielä toimi oikein) [https://eevalaiho.github.io/index.html](https://eevalaiho.github.io/index.html)
 
 Ajankäyttö: 16h
 
