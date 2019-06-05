@@ -1,4 +1,4 @@
-
+§
 # Viikkoraportti 5 (7.6.2019)
 
 ## Mitä olen tehnyt tällä viikolla?
@@ -8,10 +8,10 @@ Olen:
 * Toteuttanut oman Complex -luokan ja sille testejä
 * Viilaillut testejä muutenkin
 * Edistänyt päätoiminnallisuutta
-* Testikattavuus (kaikki sivut, tyylit sun muut ei vielä toimi oikein) [https://eevalaiho.github.io/index.html](https://eevalaiho.github.io/index.html)
+* Testikattavuus [https://eevalaiho.github.io/FocusStacking/coverage/index.html](https://eevalaiho.github.io/FocusStacking/coverage/index.html)
 * Tehnyt toisen vertaisarvioinnin
 
-Ajankäyttö: 15h
+Ajankäyttö: 17h
 
 ## Miten ohjelma on edistynyt? 
 
