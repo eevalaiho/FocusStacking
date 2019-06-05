@@ -4,5 +4,4 @@ Ohjelman JavaDoc -dokumentaatio [/documentation/javadoc/index.html](./javadoc/)
 
 ## Kuvat
 
-Ohjelman toteutuksessa ja testauksessa on käytetty Brianna Shades:n kuvia: Shades, B. (2017). lotsasmilesphoto.com, "WC: My First Crack at Focus Stacking".  Url: [https://lotsasmilesphoto.com/2017/11/19/wc-my-first-crack-at-focus-stacking/](https://lotsasmilesphoto.com/2017/11/19/wc-my-first-crack-at-focus-stacking/).  
-
+Ohjelman toiminnallisuuden todentamista varten kansioon /application/src/main/resources on ladattu [Apysinia fulva -merikorallia esittävästä kuvasta](https://free-images.com/display/aplysina_fulva_png.html) tehdyt 150x100 pikselin kokoiset testikuvat.
