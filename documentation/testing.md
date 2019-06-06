@@ -31,8 +31,5 @@ Kuvista voi havaita silmämääräisesti, että eri värikanavaa käyttämällä
 ![Output 32](./images/150x100_koralli_output_BLUE_32.png "Output 32")
 ![Output 64](./images/150x100_koralli_output_BLUE_64.png "Output 64")
 
-
---
-
-Kuvista voidaan silmämäärisesti havaita, että algoritmi valitsee kuviin eniten tarkkoja pikseleitä, mutta myös paljon epätarkkoja. Huomataan myös, että ikkunan koon kasvattaminen näyttäisi parantavan algoritmin tarkkuutta.
+Kuvista huomataan, että ikkunan koon kasvattaminen näyttäisi silmämääräisesti parantavan algoritmin tarkkuutta.
 
