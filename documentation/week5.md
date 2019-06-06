@@ -15,7 +15,7 @@ Ajankäyttö: 25h
 
 ## Miten ohjelma on edistynyt? 
 
-Paremmin. Ohjelma toimii ja isolla ikkunakoolla (32px) valitsee oikeita pikseleitä.
+Paremmin, oikeastaan hyvin. Ohjelma toimii ja valitsee paljon oikeita pikseleitä. 
 
 ## Mitä opin tällä viikolla / tänään?
 
