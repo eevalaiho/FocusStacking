@@ -14,7 +14,7 @@ public class Main {
         //String[] fileNames = new String[] {"150x100-butterfly-mirrored-top-blur.png", "150x100-butterfly-mirrored-left-blur.png", "150x100-butterfly-mirrored-right-blur.png"};
 
         boolean debugChannels = false;
-        boolean debugWindowSize = true;
+        boolean debugWindowSize = false;
 
         if ( debugChannels ) {
             int windowSize = 32;
@@ -34,7 +34,7 @@ public class Main {
         }
         else {
             RGB channel = RGB.BLUE;
-            int windowSize = 16;
+            int windowSize = 8;
             String outputFileName = String.format("output_%s_%d_%s.png", channel.name(), windowSize, LocalDateTime.now().toString());
             System.out.println("Stacking " + channel.name());
             makeImageStack(channel, windowSize, fileNames, outputFileName);
