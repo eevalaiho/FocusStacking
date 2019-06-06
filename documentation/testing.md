@@ -9,11 +9,11 @@ Testikattavuus: [https://eevalaiho.github.io/FocusStacking/coverage/index.html](
 
 ## Järjestelmätestaus
 
-Ohjelman järjestelmätestausta varten on [Apysinia fulva -merikorallia esittävästä kuvasta](https://free-images.com/display/aplysina_fulva_png.html) tehty 150x100 pikselin kokoisia testikuvia (alla). Kuvat on tehty kuvankäsittelyohjelmalla siten, että ensin on tehty joka neljännekseltään yhtä tarkka kuva peilaamalla 75x50 pikselin kokoinen pala kahteen suuntaan. 
+Ohjelman järjestelmätestausta varten on [Apysinia fulva -merikorallia esittävästä kuvasta](https://free-images.com/display/aplysina_fulva_png.html) tehty 150x100 kuvapisteen kokoisia testikuvia (alla). Kuvat on tehty kuvankäsittelyohjelmalla siten, että kuvasta on ensin leikattu 75x50 kuvapisteen kokoinen pala. Tämä pala on peilattu ensin vertikaalisesti niin, jolloin on saatu 75x100 kuvapisteen kokoinen kuva, joka sitten on peilattu horisontaalisesti. Näin kuvasta on saatu joka neljännekseltään yhtä tarkka kuva (alla).  
 
 ![Tarkka](../application/src/main/resources/150x100-koralli-mirrored-sharp.png "Tarkka")
 
-Näin saadusta kuvasta on edelleen muokattu kolme testikuvaa, joissa on sumennettu joko vasen-, oikea- tai yläpuoli. 
+Tämän jälkeen kuvasta on edelleen muokattu kolme testikuvaa, joissa on sumennettu joko vasen-, oikea- tai yläpuoli (alla). 
 
 ![Vasemmalta blurri](../application/src/main/resources/150x100-koralli-mirrored-left-blur.png "Vasemmalta blurri")
 ![Oikealta blurri](../application/src/main/resources/150x100-koralli-mirrored-right-blur.png "Oikealta blurri")
