@@ -32,5 +32,5 @@ Kuvista voi havaita silmämääräisesti, että eri värikanavaa käyttämällä
 ![Output 32](./images/150x100_koralli_output_BLUE_32.png "Output 32")
 ![Output 64](./images/150x100_koralli_output_BLUE_64.png "Output 64")
 
-Kuvista huomataan, että ikkunan koon kasvattaminen näyttäisi silmämääräisesti parantavan algoritmin tarkkuutta.
+Kuvista huomataan, että ikkunan koon kasvattaminen näyttäisi silmämääräisesti parantavan algoritmin tarkkuutta ikkunakokoon 32px asti. 
 
