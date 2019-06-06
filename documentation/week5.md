@@ -46,7 +46,7 @@ Palauta maksimi
 
 ## Mitä teen seuraavaksi?
 
-Viilaan päätoiminnallisuutta, kirjoitan puuttuvia testejä. Dokumentointia. Valmistaudun ensi viikon demoon.
+Kirjoitan puuttuvia testejä ja dokumentaatiota. Parametrisoin main-metodin. Valmistaudun ensi viikon demoon.
 
 ## Kysymyksiä
 
