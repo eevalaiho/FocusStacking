@@ -25,8 +25,9 @@ Tarkkojen pikselien valinnassa käytetty värikanava vaikuttaa ohjelman tuottami
 ![Vihreä](./images/150x100_koralli_output_GREEN_32.png "Vihreä")
 ![Sininen](./images/150x100_koralli_output_BLUE_32.png "Sininen")
 
-Kuvista voi havaita silmämääräisesti, että eri värikanavaa käyttämällä kuvaan valikoituu pikseleitä eri kuvista. Tällä kuvalla sininen värikanava tuottaa silmämääräisesti parhaan tuloksen. Kun sinistä värikanavaa käytetän eri ikkunakoilla (16, 32, 64) ohjelma tuottaa seuraavat kuvat:
+Kuvista voi havaita silmämääräisesti, että eri värikanavaa käyttämällä kuvaan valikoituu pikseleitä eri kuvista. Tällä kuvalla sininen värikanava tuottaa silmämääräisesti parhaan tuloksen. Kun sinistä värikanavaa käytetän eri ikkunakoilla (8, 16, 32, 64) ohjelma tuottaa seuraavat kuvat:
 
+![Output 8](./images/150x100_koralli_output_BLUE_8.png "Output 8")
 ![Output 16](./images/150x100_koralli_output_BLUE_16.png "Output 16")
 ![Output 32](./images/150x100_koralli_output_BLUE_32.png "Output 32")
 ![Output 64](./images/150x100_koralli_output_BLUE_64.png "Output 64")
