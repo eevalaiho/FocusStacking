@@ -14,7 +14,7 @@ import java.io.IOException;
 public class MyImageIO {
 
     private MyArrayList<int[][]> pixels;
-    private MyArrayList<double[][]> greens;
+    private MyArrayList<double[][]> colorChannels;
     private int width;
     private int height;
     private String resourcesRoot;
@@ -32,9 +32,9 @@ public class MyImageIO {
      */
     public MyArrayList<int[][]> getPixels() { return pixels; }
     /**
-     * @return Green channels as 3D array (width x height x image id)
+     * @return Selected color channels as 3D array (width x height x image id)
      */
-    public MyArrayList<double[][]> getGreens() { return greens; }
+    public MyArrayList<double[][]> getChannels() { return colorChannels; }
     /**
      * Construct the class with default resources path
      */
@@ -48,16 +48,17 @@ public class MyImageIO {
     public MyImageIO(String resourcesRoot) {
         this.resourcesRoot = resourcesRoot;
         this.pixels = new MyArrayList<>();
-        this.greens = new MyArrayList<>();
+        this.colorChannels = new MyArrayList<>();
     }
     /**
      * Load the images and store them internally.
      * The green channels can be accessed through accessor. 
      * @param fileNames Names of the images
+     * @param channel Color channel RED = 16, GREEN = 8, BLUE = 0
      * @throws IllegalArgumentException If images are not of same size
      * @throws IOException If image couldn't be loaded
      */
-    public void LoadImages(String[] fileNames) throws IllegalArgumentException, IOException {
+    public void loadImages(String[] fileNames, RGB channel) throws IllegalArgumentException, IOException {
 
         if (fileNames.length == 0)
             return;
@@ -77,11 +78,11 @@ public class MyImageIO {
                     int idx = x + y*width;
                     int rgb = image.getPixels()[idx];
                     px[x][y] = rgb;
-                    gr[x][y] = rgb >> 8 & 0xff;  // https://stackoverflow.com/questions/16698372/isolating-red-green-blue-channel-in-java-bufferedimage
+                    gr[x][y] = RGB.getColorChannel(rgb, channel);
                 }
             }
             pixels.add(px);
-            greens.add(gr);
+            colorChannels.add(gr);
 
             i++;
             if (i >= fileNames.length) break;
@@ -102,8 +103,8 @@ public class MyImageIO {
      * @param path Path to save the image to
      * @param fileName Name of the output image
      */
-    public static void SaveImage(int[] pixels, int width, int height, String path, String fileName) throws IOException {
-        
+    public static void saveImage(int[] pixels, int width, int height, String path, String fileName) throws IOException {
+
         // Create the image object
         BufferedImage image = new BufferedImage(width, height, java.awt.image.BufferedImage.TYPE_INT_ARGB);
 
@@ -129,9 +130,9 @@ public class MyImageIO {
      * @param fileName Name of the output image
      * @throws IOException If saving the image does not succeed
      */
-    public static void SaveImage(int[] pixels, int width, int height, String fileName) throws IOException {
-        String path = MyImageIO.getDefaultResourceRoot() + fileName;
-        SaveImage(pixels, width, height, path, fileName);
+    public static void saveImage(int[] pixels, int width, int height, String fileName) throws IOException {
+        String path = MyImageIO.getDefaultResourceRoot();
+        saveImage(pixels, width, height, path, fileName);
     }
 
     /**

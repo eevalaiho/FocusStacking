@@ -18,7 +18,7 @@ public class MyImageIOTest {
         try {
             String path = new File(".").getCanonicalPath() + "/src/test/resources/";
             imageIO = new MyImageIO(path);
-            imageIO.LoadImages(new String[]{"rgb.png"});
+            imageIO.loadImages(new String[]{"rgb.png"});
         } catch (Exception e) {
             fail(e.toString());
         }
@@ -75,7 +75,7 @@ public class MyImageIOTest {
         try {
             String path = new File(".").getCanonicalPath() + "/src/test/resources/";
             MyImageIO imageIO = new MyImageIO(path);
-            imageIO.LoadImages(new String[]{"rgb.png","rgb2.png"});
+            imageIO.loadImages(new String[]{"rgb.png","rgb2.png"});
         }
         catch (IllegalArgumentException e1) {
             throw e1;
@@ -94,7 +94,7 @@ public class MyImageIOTest {
         int[] pixels = new int[]{r, r, r, r, r, r, g, g, g, g, g, g, b, b, b, b, b, b, a, a, a, a, a, a};
 
         try {
-            MyImageIO.SaveImage(pixels, 6, 4, "./src/test/resources/", "rgb.png");
+            MyImageIO.saveImage(pixels, 6, 4, "./src/test/resources/", "rgb.png");
         } catch (Exception e) {
             fail(e.toString());
         }
