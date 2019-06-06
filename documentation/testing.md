@@ -19,13 +19,19 @@ Tämän jälkeen kuvasta on edelleen muokattu kolme testikuvaa, joissa on sumenn
 ![Oikealta blurri](../application/src/main/resources/150x100-koralli-mirrored-right-blur.png "Oikealta blurri")
 ![Ylhäältä blurri](../application/src/main/resources/150x100-koralli-mirrored-top-blur.png "Ylhäältä blurri")
 
+### Eri värikanavien testaus
+
 Tarkkojen pikselien valinnassa käytetty värikanava vaikuttaa ohjelman tuottamiin kuviin. Seuraavat kuvat on tuotettu 32 pikselin ikkunakoolla (punainen, vihreä, sininen):
 
 ![Punainen](./images/150x100_koralli_output_RED_32.png "Punainen")
 ![Vihreä](./images/150x100_koralli_output_GREEN_32.png "Vihreä")
 ![Sininen](./images/150x100_koralli_output_BLUE_32.png "Sininen")
 
-Kuvista voi havaita silmämääräisesti, että eri värikanavaa käyttämällä kuvaan valikoituu pikseleitä eri kuvista. Tällä kuvalla sininen värikanava tuottaa silmämääräisesti parhaan tuloksen. Kun sinistä värikanavaa käytetän eri ikkunakoilla (8, 16, 32, 64) ohjelma tuottaa seuraavat kuvat:
+Kuvista voi havaita silmämääräisesti, että eri värikanavaa käyttämällä kuvaan valikoituu pikseleitä eri kuvista. Tällä kuvalla sininen värikanava tuottaa silmämääräisesti parhaan tuloksen. 
+
+### Eri ikkunakokojen testaus
+
+Kun sinistä värikanavaa käytetän eri ikkunakoilla (8, 16, 32, 64) ohjelma tuottaa seuraavat kuvat:
 
 ![Output 8](./images/150x100_koralli_output_BLUE_8.png "Output 8")
 ![Output 16](./images/150x100_koralli_output_BLUE_16.png "Output 16")
