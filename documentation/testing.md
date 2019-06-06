@@ -21,15 +21,15 @@ Näin saadusta kuvasta on muokattu kolme testikuvaa, joissa kuvankäsittelyohjel
 
 Eri värikanavaa käytettäessä ohjelma tuottaa seuraavat kuvat (punainen, vihreä, sininen):
 
-![Punainen](../application/src/main/resources/150x100_koralli_output_RED_32.png "Punainen")
-![Vihreä](../application/src/main/resources/150x100_koralli_output_GREEN_32.png "Vihreä")
-![Sininen](../application/src/main/resources/150x100_koralli_output_BLUE_32.png "Sininen")
+![Punainen](./images/150x100_koralli_output_RED_32.png "Punainen")
+![Vihreä](./images/150x100_koralli_output_GREEN_32.png "Vihreä")
+![Sininen](./images/150x100_koralli_output_BLUE_32.png "Sininen")
 
 Kuvista voidaan silmämääräisesti huomata, että värikanavan valinta vaikuttaa siihen mitä pikseleitä algoritmi valitsee. Käytetyllä kuvalla sininen värikanava näyttää silmämääräisesti tuottavan parhaan tuloksen. Sinistä värikanavaa käyttämällä eri ikkunakoilla (16, 32, 64) ohjelma tuottaa seuraavat kuvat:
 
-![Output 16](../application/src/main/resources/150x100_koralli_output_BLUE_16.png "Output 16")
-![Output 32](../application/src/main/resources/150x100_koralli_output_BLUE_32.png "Output 32")
-![Output 64](../application/src/main/resources/150x100_koralli_output_BLUE_64.png "Output 64")
+![Output 16](./images/150x100_koralli_output_BLUE_16.png "Output 16")
+![Output 32](./images/150x100_koralli_output_BLUE_32.png "Output 32")
+![Output 64](./images/150x100_koralli_output_BLUE_64.png "Output 64")
 
 
 --
