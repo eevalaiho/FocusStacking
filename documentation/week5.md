@@ -8,9 +8,10 @@ Olen:
 * Viilaillut testejä muutenkin
 * Edistänyt päätoiminnallisuutta
 * Testikattavuus [https://eevalaiho.github.io/FocusStacking/coverage/index.html](https://eevalaiho.github.io/FocusStacking/coverage/index.html)
+* Kuvia
 * Tehnyt toisen vertaisarvioinnin
 
-Ajankäyttö: 17h
+Ajankäyttö: 25h
 
 ## Miten ohjelma on edistynyt? 
 
