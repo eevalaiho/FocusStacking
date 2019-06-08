@@ -2,6 +2,9 @@ package domain;
 
 import org.junit.Before;
 import org.junit.Test;
+import testutilities.TestUtilities;
+
+import java.lang.reflect.InvocationTargetException;
 
 import static org.junit.Assert.*;
 
@@ -77,5 +80,16 @@ public class SlidingWindowTest {
         double[][] expected = new double[][]{{4, 5, 5, 4}, {5, 6, 6, 5}, {5, 6, 6, 5}, {4, 5, 5, 4}};
         double[][] actual = window.getDoubleMirroredWindow(array);
         assertArrayEquals(expected, actual);
+    }
+
+
+
+    @Test
+    public void getDoubleMirroredWindow_x_and_y_over() throws IllegalAccessException, NoSuchMethodException, InvocationTargetException {
+        SlidingWindow window = new SlidingWindow(2, 4, 3);
+        double[][] array = new double[][]{{1, 2, 3, 4}, {2, 3, 4, 5}, {3, 4, 5, 6}};
+        // private double getValue(double[][] array, int x, int y) {
+        Object value = TestUtilities.callPrivateMethod(window.getClass(), new Class[] { array.getClass(), int.class, int.class }, "getValue", window, new Object[] { array, 4, 3 });
+        assert 6.0 == (double) value;
     }
 }

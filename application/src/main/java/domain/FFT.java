@@ -5,6 +5,8 @@ import util.MyArrayList;
 
 public class FFT {
 
+    private FFT() {}
+
     /**
      * Computes 2D Fourier transform (FFT) in two steps.
      * First it computes the one-dimensional FFT along rows.

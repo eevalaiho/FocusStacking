@@ -1,13 +1,24 @@
 package domain;
 
 import org.junit.Test;
+import testutilities.TestUtilities;
 import util.Complex;
+
+import java.lang.reflect.Constructor;
+import java.lang.reflect.InvocationTargetException;
 
 import static org.junit.Assert.assertEquals;
 
 public class FFTTest {
 
     private static final double DELTA = 1e-15;
+
+    @Test
+    public void construct() throws IllegalAccessException, InvocationTargetException, InstantiationException {
+        Constructor ctor = FFT.class.getDeclaredConstructors()[0];
+        ctor.setAccessible(true);
+        FFT c = (FFT)ctor.newInstance();
+    }
 
     @Test
     public void fft2_1111() {

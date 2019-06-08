@@ -6,6 +6,9 @@ import static util.Math.abs;
  * Class for general utility methods
  */
 public class Util {
+
+    private Util() {}
+
     /**
      * Normalize a 2-dimensional array to the range [0, 1]
      * @param array The array

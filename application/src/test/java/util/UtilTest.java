@@ -2,11 +2,21 @@ package util;
 
 import org.junit.Test;
 
+import java.lang.reflect.Constructor;
+import java.lang.reflect.InvocationTargetException;
+
 import static org.junit.Assert.*;
 
 public class UtilTest {
 
     private static final double DELTA = 1e-15;
+
+    @Test
+    public void construct() throws IllegalAccessException, InvocationTargetException, InstantiationException {
+        Constructor ctor = Util.class.getDeclaredConstructors()[0];
+        ctor.setAccessible(true);
+        Util c = (Util)ctor.newInstance();
+    }
 
     @Test
     public void normalize() {

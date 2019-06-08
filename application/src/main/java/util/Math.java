@@ -5,6 +5,8 @@ package util;
  */
 public final class Math {
 
+    private Math() {}
+
     /**
      * Calculate square root of a number (double)
      * @param number The number

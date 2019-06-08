@@ -59,7 +59,7 @@ public class FocusStackingTest {
         System.setOut(new PrintStream(outContent));
 
         fs.printSharpestPixelIndexes();
-        assertEquals("0,0,0,0,0,0\n0,0,0,0,0,0\n0,0,0,0,0,0\n0,0,0,0,0,0\n", outContent.toString());
+        assertEquals("0,0,0,0\n0,0,0,0\n0,0,0,0\n0,0,0,0\n0,0,0,0\n0,0,0,0\n", outContent.toString());
 
         System.setOut(System.out);
     }
