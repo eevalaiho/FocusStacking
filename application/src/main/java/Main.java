@@ -10,9 +10,12 @@ import java.time.LocalDateTime;
 public class Main {
 
     static String[] fileNames = null;
-    static Integer[] windowSizes = null;
+    static int[] windowSizes = null;
     static RGB[] channels = null;
     static boolean debug = false;
+
+
+    private Main() {}
 
     /**
      * Driver program for image stacking implementation
@@ -22,12 +25,12 @@ public class Main {
      *             -c, --channels       Set color channel(s) to use for figuring out the sharpest pixels. Possible values RED, GREEN, BLUE. A separate output image will be created for each window size. Example -c BLUE
      *             -f, --fileNames      Set names of the files to use. The files should reside in application/src/main/resources folder. Example -f 150x100-koralli-mirrored-top-blur.png 150x100-koralli-mirrored-left-blur.png 150x100-koralli-mirrored-right-blur.png
      */
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IllegalAccessException, InstantiationException {
 
         // Default values - if command line arguments are passed these will be overritten
         //fileNames = new String[]{"150x100-koralli-mirrored-top-blur.png", "150x100-koralli-mirrored-left-blur.png", "150x100-koralli-mirrored-right-blur.png"};
         fileNames = new String[]{"300x200-kaunokki-top-blur.png", "300x200-kaunokki-left-blur.png", "300x200-kaunokki-right-blur.png"};
-        windowSizes = new Integer[]{16,32};
+        windowSizes = new int[]{16,32};
         channels = new RGB[]{RGB.BLUE, RGB.GREEN, RGB.RED};
 
         if (args != null && args.length > 0) {
@@ -73,7 +76,7 @@ public class Main {
      * Parse command line arguments
      * @param args The arguments
      */
-    private static void parseArguments(String[] args) {
+    private static void parseArguments(String[] args) throws InstantiationException, IllegalAccessException {
 
         MyArrayList<String> list_fileNames = new MyArrayList<>();
         MyArrayList<RGB> list_channels = new MyArrayList<>();
@@ -82,37 +85,52 @@ public class Main {
         for (int i = 0; i < args.length; i++) {
             if (args[i].startsWith("-")) {
                 switch (args[i]) {
-                    case "-d": case "--debug":
+                    case "-d":
+                    case "--debug":
                         debug = true;
-                    case "-c": case "--channels":
+                        break;
+                    case "-c":
+                    case "--channels":
                         for (int j = i+1; j < args.length; j++) {
-                            if (args[j].startsWith("-"))
+                            if (args[j].startsWith("-")) {
+                                i = j-1;
                                 break;
+                            }
                             list_channels.add(RGB.parse(args[j]));
                             i = j;
                         }
-                        channels = list_channels.toArray();
+                        channels = new RGB[list_channels.getSize()];
+                        for (int k = 0; k < list_channels.getSize(); k++)
+                            channels[k] = list_channels.get(k);
                         break;
-                    case "-w": case "--windowSize":
+                    case "-w":
+                    case "--windowSize":
                         for (int j = i+1; j < args.length; j++) {
-                            if (args[j].startsWith("-"))
+                            if (args[j].startsWith("-")) {
                                 break;
+                            }
                             list_windowSizes.add(Integer.parseInt(args[j]));
                             i = j;
                         }
-                        fileNames = list_fileNames.toArray();
+                        windowSizes = new int[list_windowSizes.getSize()];
+                        for (int k = 0; k < list_windowSizes.getSize(); k++)
+                            windowSizes[k] = list_windowSizes.get(k);
                         break;
-                    case "-f": case "--fileNames":
+                    case "-f":
+                    case "--fileNames":
                         for (int j = i+1; j < args.length; j++) {
-                            if (args[j].startsWith("-"))
+                            if (args[j].startsWith("-")) {
                                 break;
+                            }
                             list_fileNames.add(args[j]);
                             i = j;
                         }
-                        windowSizes = list_windowSizes.toArray();
+                        fileNames = new String[list_fileNames.getSize()];
+                        for (int k = 0; k < list_fileNames.getSize(); k++)
+                            fileNames[k] = list_fileNames.get(k);
                         break;
-                    default:
-                        throw new IllegalArgumentException("Illegal argument " + args[i]);
+                    //default:
+                    //   throw new IllegalArgumentException("Illegal argument " + args[i]);
                 }
             }
             else {

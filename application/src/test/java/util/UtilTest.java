@@ -35,7 +35,6 @@ public class UtilTest {
         actual = Util.minMaxValue(new double[][]{{1,1},{1,1}}, 1, 1);
         assertArrayEquals(new double[]{1, 1}, actual, DELTA);
 
-
         actual = Util.minMaxValue(new double[][]{{0, 0, 0, 0, 0, 0},{0, 0, 100, 0, -10, 0}}, 1, 1);
         assertArrayEquals(new double[]{-10, 100}, actual, DELTA);
     }

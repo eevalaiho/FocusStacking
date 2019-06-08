@@ -106,17 +106,6 @@ public class MyArrayList<E> {
      * Create a string representation of the ArrayList
      * @return The representation
      */
-    public E[] toArray() {
-        Object[] value = new Object[size];
-        for(int i = 0; i < size; i++)
-            value[i] = data[i];
-        return (E[]) value;
-    }
-
-    /**
-     * Create a string representation of the ArrayList
-     * @return The representation
-     */
     public String toString() {
         String value = "";
         for(int i = 0; i < size; i++)

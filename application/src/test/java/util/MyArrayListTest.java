@@ -144,11 +144,4 @@ public class MyArrayListTest {
         MyArrayList<Integer> list2 = new MyArrayList<>();
         assertEquals(0, list2.getSize());
     }
-
-    @Test
-    public void toArray() {
-        MyArrayList<Integer> list = new MyArrayList<>(new Integer[] {1, 2, 3});
-        assertArrayEquals(new Integer[] {1, 2, 3}, list.toArray());
-    }
-
 }
