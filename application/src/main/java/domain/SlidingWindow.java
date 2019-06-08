@@ -72,8 +72,8 @@ public class SlidingWindow {
         for (int i = 0; i < size; i++) {
             for (int j = 0; j < size; j++) {
                 value[i][j] = getValue(array,x-size/2+i, y-size/2+j);
-                // We need to double-mirror the window
-                value[size-1-i][j] = value[i][size-1-j] = value[size-1-i][size-1-j] = value[i][j];
+                value[2*size-1-i][j] = value[i][2*size-1-j] = value[2*size-1-i][2*size-1-j] = value[i][j];
+                //System.out.println("("+i+","+j+"), ("+(2*size-1-i)+","+j+"), ("+i+","+(2*size-1-j)+"), ("+(2*size-1-i)+","+(2*size-1-j)+") = " + value[i][j]);
             }
         }
         return value;
@@ -89,13 +89,14 @@ public class SlidingWindow {
     private double getValue(double[][] array, int x, int y) {
         if (x < 0)
             x = 0;
-        else if (x > array.length - 1)
-            x = array.length - 1;
+        else if (x > array[0].length - 1)
+            x = array[0].length - 1;
         if (y < 0)
             y = 0;
-        else if (y > array[0].length - 1)
-            y = array[0].length - 1;
+        else if (y > array.length - 1)
+            y = array.length - 1;
 
-        return array[x][y];
+        double value = array[y][x];
+        return value;
     }
 }

@@ -1,6 +1,8 @@
 package testutilities;
 
 import java.lang.reflect.Field;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 
 public class TestUtilities {
 
@@ -20,4 +22,21 @@ public class TestUtilities {
         return (F)field.get(obj);
     }
 
+    /**
+     * Method to invoke a private method of an object
+     * @param TargetClass Class of the object
+     * @param argClasses Classes of method arguments
+     * @param methodName Method name
+     * @param targetObject The object
+     * @param argObjects The arguments
+     * @return Method value
+     * @throws InvocationTargetException
+     * @throws IllegalAccessException
+     * @throws NoSuchMethodException
+     */
+    public static Object callPrivateMethod(Class TargetClass, Class[] argClasses, String methodName, Object targetObject, Object[] argObjects) throws InvocationTargetException, IllegalAccessException, NoSuchMethodException {
+        Method method = TargetClass.getDeclaredMethod(methodName, argClasses);
+        method.setAccessible(true);
+        return method.invoke(targetObject, argObjects);
+    }
 }

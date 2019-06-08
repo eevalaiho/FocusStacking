@@ -25,9 +25,10 @@ public class Main {
     public static void main(String[] args) {
 
         // Default values - if command line arguments are passed these will be overritten
-        fileNames = new String[]{"150x100-koralli-mirrored-top-blur.png", "150x100-koralli-mirrored-left-blur.png", "150x100-koralli-mirrored-right-blur.png"};
-        windowSizes = new Integer[]{32};
-        channels = new RGB[]{RGB.BLUE};
+        //fileNames = new String[]{"150x100-koralli-mirrored-top-blur.png", "150x100-koralli-mirrored-left-blur.png", "150x100-koralli-mirrored-right-blur.png"};
+        fileNames = new String[]{"300x200-kaunokki-top-blur.png", "300x200-kaunokki-left-blur.png", "300x200-kaunokki-right-blur.png"};
+        windowSizes = new Integer[]{16,32};
+        channels = new RGB[]{RGB.BLUE, RGB.GREEN, RGB.RED};
 
         if (args != null && args.length > 0) {
             parseArguments(args);

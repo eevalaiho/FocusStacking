@@ -10,8 +10,8 @@ import static util.Util.*;
 
 public class FocusStacking {
 
-    private int windowSize = 16;
-    private RGB color = RGB.GREEN;
+    private int windowSize;
+    private RGB color;
     private MyImageIO imageIO = null;
     MyArrayList<double[][]> channels = null;
     int[][] maxL2Norm_indexes = null;
@@ -93,10 +93,10 @@ public class FocusStacking {
      * Utility method for debugging
      */
     public void printSharpestPixelIndexes() {
-        for (int i = 0; i < maxL2Norm_indexes.length; i++) {
-            System.out.print(maxL2Norm_indexes[i][0]);
-            for (int j = 1; j < maxL2Norm_indexes[0].length; j++) {
-                System.out.print(","+maxL2Norm_indexes[i][j]);
+        for (int i = 0; i < maxL2Norm_indexes[0].length; i++) {
+            System.out.print(maxL2Norm_indexes[0][i]);
+            for (int j = 1; j < maxL2Norm_indexes.length; j++) {
+                System.out.print(","+maxL2Norm_indexes[j][i]);
             }
             System.out.println("");
         }

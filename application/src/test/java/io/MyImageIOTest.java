@@ -1,5 +1,6 @@
 package io;
 
+import org.apache.commons.math3.stat.inference.TestUtils;
 import org.junit.Before;
 import org.junit.Test;
 import testutilities.TestUtilities;
@@ -7,6 +8,7 @@ import util.MyArrayList;
 
 import java.io.File;
 import java.io.IOException;
+import java.lang.reflect.InvocationTargetException;
 
 import static org.junit.Assert.*;
 
@@ -86,8 +88,11 @@ public class MyImageIOTest {
     }
 
     @Test
-    public void loadImages() {
-        assertTrue(imageIO != null);
+    public void loadImages() throws IOException {
+        String path = new File(".").getCanonicalPath() + "/src/test/resources/";
+        MyImageIO imageIO = new MyImageIO(path);
+        imageIO.loadImages(new String[]{"rgb.png", "rgb.png"}, RGB.GREEN);
+        assertEquals(2, imageIO.getChannels().getSize());
     }
 
     @Test(expected = IllegalArgumentException.class)
@@ -115,6 +120,13 @@ public class MyImageIOTest {
         MyImageIO imageIO = new MyImageIO(path);
         MyImageIO.saveImage(pixels, 4, 6, "rgb.png");
         assertTrue((new File("./src/test/resources/", "rgb.png")).exists());
+    }
+
+    @Test
+    public void getDefaultResourceRoot() throws IllegalAccessException, NoSuchMethodException, InvocationTargetException {
+        MyImageIO imageIO = new MyImageIO();
+        Object value = TestUtilities.callPrivateMethod(MyImageIO.class, new Class[] { String.class }, "getDefaultResourceRoot", imageIO, new Object[] {"\u0000"});
+        assertEquals("./src/main/resources/", value);
     }
 
 }

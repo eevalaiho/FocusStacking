@@ -85,7 +85,7 @@ public class MyImageIO {
             colorChannels.add(gr);
 
             i++;
-            if (i >= fileNames.length) return;
+            if (i >= fileNames.length) break;
 
             // Load next image
             image = new MyImage(resourcesRoot + fileNames[i]);
@@ -137,11 +137,20 @@ public class MyImageIO {
 
     /**
      * Get the default resource root
-     * @return The root path
+     * @return Path to the root
      */
     private static String getDefaultResourceRoot() {
+        return getDefaultResourceRoot(".");
+    }
+
+    /**
+     * Get the default resource root
+     * @param root Starting point
+     * @return Path to the root
+     */
+    private static String getDefaultResourceRoot(String root) {
         try {
-            return new File(".").getCanonicalPath() + "/src/main/resources/";
+            return new File(root).getCanonicalPath() + "/src/main/resources/";
         } catch (IOException e) {}
         return "./src/main/resources/";
     }
