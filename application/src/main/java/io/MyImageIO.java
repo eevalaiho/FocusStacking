@@ -60,8 +60,8 @@ public class MyImageIO {
      */
     public void loadImages(String[] fileNames, RGB channel) throws IllegalArgumentException, IOException {
 
-        if (fileNames.length == 0)
-            return;
+        if (fileNames == null || fileNames.length == 0)
+            throw new IllegalArgumentException("No files to process");
 
         int i = 0;
         MyImage image = new MyImage(resourcesRoot + fileNames[i]);
@@ -78,14 +78,14 @@ public class MyImageIO {
                     int idx = x + y*width;
                     int rgb = image.getPixels()[idx];
                     px[x][y] = rgb;
-                    gr[x][y] = RGB.getColorChannel(rgb, channel);
+                    gr[x][y] = RGB.getChannelValue(rgb, channel);
                 }
             }
             pixels.add(px);
             colorChannels.add(gr);
 
             i++;
-            if (i >= fileNames.length) break;
+            if (i >= fileNames.length) return;
 
             // Load next image
             image = new MyImage(resourcesRoot + fileNames[i]);

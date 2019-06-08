@@ -2,9 +2,11 @@ package io;
 
 import org.junit.Before;
 import org.junit.Test;
+import testutilities.TestUtilities;
 import util.MyArrayList;
 
 import java.io.File;
+import java.io.IOException;
 
 import static org.junit.Assert.*;
 
@@ -18,7 +20,25 @@ public class MyImageIOTest {
         try {
             String path = new File(".").getCanonicalPath() + "/src/test/resources/";
             imageIO = new MyImageIO(path);
-            imageIO.loadImages(new String[]{"rgb.png"});
+            imageIO.loadImages(new String[]{"rgb.png"}, RGB.GREEN);
+        } catch (Exception e) {
+            fail(e.toString());
+        }
+    }
+
+    @Test
+    public void construct() {
+        try {
+            String path = new File(".").getCanonicalPath() + "/src/test/resources/";
+            MyImageIO imageIO = new MyImageIO(path);
+            assertTrue(imageIO != null);
+            assertEquals(path, TestUtilities.getPrivateField("resourcesRoot", imageIO));
+
+            String path2 = new File(".").getCanonicalPath() + "/src/main/resources/";
+            MyImageIO imageIO2 = new MyImageIO();
+            assertTrue(imageIO != null);
+            assertEquals(path2, TestUtilities.getPrivateField("resourcesRoot", imageIO2));
+
         } catch (Exception e) {
             fail(e.toString());
         }
@@ -55,10 +75,10 @@ public class MyImageIOTest {
 
     @Test
     public void getGreens() {
-        assertTrue(imageIO.getGreens() instanceof MyArrayList);
-        assertTrue(imageIO.getGreens().get(0) instanceof double[][]);
+        assertTrue(imageIO.getChannels() instanceof MyArrayList);
+        assertTrue(imageIO.getChannels().get(0) instanceof double[][]);
 
-        MyArrayList<double[][]> greens = imageIO.getGreens();
+        MyArrayList<double[][]> greens = imageIO.getChannels();
         assertEquals(1, greens.getSize());
         assertEquals(6, ((double[][]) greens.get(0)).length);
         assertEquals(4, ((double[][]) greens.get(0))[0].length);
@@ -71,34 +91,29 @@ public class MyImageIOTest {
     }
 
     @Test(expected = IllegalArgumentException.class)
-    public void loadImages_IllegalArgumentException() throws IllegalArgumentException {
-        try {
-            String path = new File(".").getCanonicalPath() + "/src/test/resources/";
-            MyImageIO imageIO = new MyImageIO(path);
-            imageIO.loadImages(new String[]{"rgb.png","rgb2.png"});
-        }
-        catch (IllegalArgumentException e1) {
-            throw e1;
-        }
-        catch (Exception e2) {
-            // Do nothing
-        }
+    public void loadImages_IllegalArgumentException() throws IllegalArgumentException, IOException {
+        String path = new File(".").getCanonicalPath() + "/src/test/resources/";
+        MyImageIO imageIO = new MyImageIO(path);
+        imageIO.loadImages(new String[]{"rgb.png", "rgb2.png"}, RGB.GREEN);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void loadImages_IllegalArgumentException2() throws IllegalArgumentException, IOException {
+        MyImageIO imageIO = new MyImageIO();
+        imageIO.loadImages(null, RGB.GREEN);
     }
 
     @Test
-    public void saveImage() {
+    public void saveImage() throws IOException {
         int r = (255 << 24) | (255 << 16);
         int g = (255 << 24) | (255 << 8);
         int b = (255 << 24) | 255;
         int a = (255 << 24) | (255 << 16) | (255 << 8) | 255;
         int[] pixels = new int[]{r, r, r, r, r, r, g, g, g, g, g, g, b, b, b, b, b, b, a, a, a, a, a, a};
 
-        try {
-            MyImageIO.saveImage(pixels, 6, 4, "./src/test/resources/", "rgb.png");
-        } catch (Exception e) {
-            fail(e.toString());
-        }
-
+        String path = new File(".").getCanonicalPath() + "/src/test/resources/";
+        MyImageIO imageIO = new MyImageIO(path);
+        MyImageIO.saveImage(pixels, 4, 6, "rgb.png");
         assertTrue((new File("./src/test/resources/", "rgb.png")).exists());
     }
 

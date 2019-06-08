@@ -12,13 +12,9 @@ public class FocusStacking {
 
     private int windowSize = 16;
     private RGB color = RGB.GREEN;
-    int count = 0;
-    int width = 0;
-    int height = 0;
     private MyImageIO imageIO = null;
     MyArrayList<double[][]> channels = null;
     int[][] maxL2Norm_indexes = null;
-
 
     public FocusStacking(RGB color, int windowSize) {
         this.windowSize = windowSize;
@@ -29,7 +25,7 @@ public class FocusStacking {
         this.imageIO = new MyImageIO();
         this.imageIO.loadImages(fileNames, this.color);
 
-        // Get the green chathis.imageIO.loadImages(fileNames, this.color);nnels
+        // Get the green channels
         this.channels = imageIO.getChannels();
 
         // Normalize the channels

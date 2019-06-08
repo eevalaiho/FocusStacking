@@ -18,10 +18,6 @@ public final class MyImage {
     private int height;
 
     /**
-     * Image type
-     */
-    public int getImageType() { return imageType; }
-    /**
      * Pixel width of the image
      */
     public int getWidth() { return width; }
@@ -56,15 +52,5 @@ public final class MyImage {
                 this.pixels[idx] = rgb;
             }
         }
-    }
-    /**
-     * Get single pixel from the image
-     * @param x x-coodrdinate
-     * @param y -coordinate
-     * @return Pixel value as int
-     */
-    public int GetPixel(int x, int y) {
-        int idx = x + this.width*y;
-        return this.pixels[idx];
     }
 }

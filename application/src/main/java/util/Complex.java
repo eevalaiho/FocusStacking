@@ -82,13 +82,4 @@ public class Complex {
         double c = this.abs();
         return c*c;
     }
-
-
-    /**
-     * Compute L^2 norm of a Complex number
-     * @return The norm as double
-     */
-    public double l2norm() {
-        return sqrt(this.im*this.im + this.re*this.re);
-    }
 }

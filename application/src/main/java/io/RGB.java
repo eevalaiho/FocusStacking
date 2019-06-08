@@ -26,8 +26,21 @@ public enum RGB {
      * @param channel Color channel as io.RGB
      * @return Color channel of the pixel as integer
      */
-    public static int getColorChannel(int rgb, RGB channel) {
+    public static int getChannelValue(int rgb, RGB channel) {
         return rgb >> channel.getNumVal() & 0xff;
     }
 
+
+    public static RGB parse(String name) {
+        switch (name) {
+            case "RED":
+                return RGB.RED;
+            case "GREEN":
+                return RGB.GREEN;
+            case "BLUE":
+                return RGB.BLUE;
+            default:
+                throw new IllegalArgumentException("Name couldn't be parsed " + name);
+        }
+    }
 }

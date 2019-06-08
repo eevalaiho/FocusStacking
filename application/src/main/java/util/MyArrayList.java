@@ -17,12 +17,33 @@ public class MyArrayList<E> {
     public int getSize() {
         return size;
     }
+
     /**
      *
      * Constructor
      */
     public MyArrayList() {
         data = new Object[INITIAL_CAPACITY];
+    }
+
+    /**
+     *
+     *  with initial size
+     */
+    public MyArrayList(int capacity) {
+        data = new Object[capacity];
+    }
+
+    /**
+     *
+     * Constructor with array
+     */
+    public MyArrayList(E[] array) {
+        data = new Object[array.length];
+        for (int i = 0; i < array.length; i++) {
+            data[i] = array[i];
+        }
+        this.size = array.length;
     }
 
     /**
@@ -46,6 +67,7 @@ public class MyArrayList<E> {
             throw new IndexOutOfBoundsException("Index: " + index + ", Size " + size);
         return (E) data[index];
     }
+
     /**
      * Return an element of the ArrayList
      * @param index Index of the element to be returned
@@ -57,6 +79,7 @@ public class MyArrayList<E> {
             throw new IndexOutOfBoundsException("Index: " + index + ", Size " + size);
         data[index] = value;
     }
+
     /**
      * Remove an element from the ArrayList
      * @param index Index of the element to be removed
@@ -69,6 +92,7 @@ public class MyArrayList<E> {
             data[i] = data[i + 1];
         size--;
     }
+
     /**
      * Double the capacity
      */
@@ -77,6 +101,18 @@ public class MyArrayList<E> {
         System.arraycopy(data, 0, newData, 0, data.length);
         this.data = newData;
     }
+
+    /**
+     * Create a string representation of the ArrayList
+     * @return The representation
+     */
+    public E[] toArray() {
+        Object[] value = new Object[size];
+        for(int i = 0; i < size; i++)
+            value[i] = data[i];
+        return (E[]) value;
+    }
+
     /**
      * Create a string representation of the ArrayList
      * @return The representation
