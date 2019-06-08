@@ -4,11 +4,18 @@
 ## Mitä olen tehnyt tällä viikolla?
 
 Olen:
-* 
+* Kirjoittanut puuttuvia testejä
+* Parametrisoinut main-metodin
 
-Ajankäyttö: xh
+* Kirjoittanut dokumentaatiota
+* Tehnyt vertaisarvioinnin
+* Osallistunut demoon
+
+Ajankäyttö: 5h
 
 ## Miten ohjelma on edistynyt?
+
+Ihan ok. Ei enää suuria muutoksia. 
 
 ## Mitä opin tällä viikolla / tänään?
 
@@ -16,6 +23,7 @@ Ajankäyttö: xh
 
 ## Mitä teen seuraavaksi?
 
+Dokumentaatiota, viimeistelyä
 ## Kysymyksiä
 
 
