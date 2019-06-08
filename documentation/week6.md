@@ -23,8 +23,7 @@ Ihan ok. Ei enää suuria muutoksia.
 
 ## Mitä teen seuraavaksi?
 
-Dokumentaatiota
-
+Dokumentaatiota, viimeistelyä
 ## Kysymyksiä
 
 
