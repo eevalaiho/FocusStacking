@@ -8,13 +8,13 @@ Olen:
 * Viilaillut testejä muutenkin
 * Edistänyt päätoiminnallisuutta
 * Testikattavuus [https://eevalaiho.github.io/FocusStacking/coverage/index.html](https://eevalaiho.github.io/FocusStacking/coverage/index.html)
-* Tehnyt toisen vertaisarvioinnin
+* Kuvia
 
-Ajankäyttö: 17h
+Ajankäyttö: 30h
 
 ## Miten ohjelma on edistynyt? 
 
-Paremmin. Ohjelma toimii ja isolla ikkunakoolla (32px) valitsee oikeita pikseleitä.
+Paremmin, oikeastaan hyvin. Ohjelma toimii ja valitsee paljon oikeita pikseleitä. 
 
 ## Mitä opin tällä viikolla / tänään?
 
@@ -45,7 +45,7 @@ Palauta maksimi
 
 ## Mitä teen seuraavaksi?
 
-Viilaan päätoiminnallisuutta, kirjoitan puuttuvia testejä. Dokumentointia. Valmistaudun ensi viikon demoon.
+Kirjoitan puuttuvia testejä ja dokumentaatiota. Parametrisoin main-metodin. Valmistaudun ensi viikon demoon.
 
 ## Kysymyksiä
 
