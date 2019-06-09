@@ -11,7 +11,7 @@ Olen:
 * Tehnyt vertaisarvioinnin
 * Osallistunut demoon
 
-Ajankäyttö: 5h
+Ajankäyttö: 15h
 
 ## Miten ohjelma on edistynyt?
 
