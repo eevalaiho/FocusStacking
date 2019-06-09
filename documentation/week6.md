@@ -4,14 +4,14 @@
 ## Mitä olen tehnyt tällä viikolla?
 
 Olen:
-* Kirjoittanut puuttuvia testejä
+* Kirjoittanut viimeisetkin puuttuvat testit
 * Parametrisoinut main-metodin
 
 * Kirjoittanut dokumentaatiota
 * Tehnyt vertaisarvioinnin
 * Osallistunut demoon
 
-Ajankäyttö: 5h
+Ajankäyttö: 15h
 
 ## Miten ohjelma on edistynyt?
 
