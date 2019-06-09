@@ -6,6 +6,8 @@ import org.junit.Test;
 import testutilities.TestUtilities;
 import util.MyArrayList;
 
+import javax.imageio.ImageIO;
+import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
@@ -18,28 +20,49 @@ public class MyImageIOTest {
     private static MyImageIO imageIO;
 
     @Before
-    public void before() {
-        try {
-            String path = new File(".").getCanonicalPath() + "/src/test/resources/";
-            imageIO = new MyImageIO(path);
-            imageIO.loadImages(new String[]{"rgb.png"}, RGB.GREEN);
-        } catch (Exception e) {
-            fail(e.toString());
+    public void before() throws IOException {
+
+        File outputfile = new File("./src/test/resources/rgb.png");
+        File outputfile2 = new File("./src/test/resources/rgb2.png");
+
+        int r = (255 << 24) | (255 << 16);
+        int g = (255 << 24) | (255 << 8);
+        int b = (255 << 24) | 255;
+        int a = (255 << 24) | (255 << 16) | (255 << 8) | 255;
+        int[] pixels = new int[]{r, r, r, r, r, r, g, g, g, g, g, g, b, b, b, b, b, b, a, a, a, a, a, a};
+
+        int width = 6;
+        int height = 4;
+        BufferedImage image = new BufferedImage(width, height, java.awt.image.BufferedImage.TYPE_INT_ARGB);
+        BufferedImage image2 = new BufferedImage(3, height, java.awt.image.BufferedImage.TYPE_INT_ARGB);
+
+        // Copy correct pixels to the image
+        for (int x = 0; x < width; x++) {
+            for (int y = 0; y < height; y++) {
+                image.setRGB(x, y, pixels[y * width + x]);
+                if (x <= 2)
+                    image2.setRGB(x, y, pixels[y * width + x]);
+            }
+            if (x == 2)
+                ImageIO.write(image2, "png", outputfile2);
         }
+
+        ImageIO.write(image, "png", outputfile);
+
+        imageIO = new MyImageIO("./src/test/resources/");
+        imageIO.loadImages(new String[]{"rgb.png"}, RGB.GREEN);
     }
 
     @Test
     public void construct() {
         try {
-            String path = new File(".").getCanonicalPath() + "/src/test/resources/";
-            MyImageIO imageIO = new MyImageIO(path);
+            MyImageIO imageIO = new MyImageIO("./src/test/resources/");
             assertTrue(imageIO != null);
-            assertEquals(path, TestUtilities.getPrivateField("resourcesRoot", imageIO));
+            assertEquals("./src/test/resources/", TestUtilities.getPrivateField("resourcesRoot", imageIO));
 
-            String path2 = new File(".").getCanonicalPath() + "/src/main/resources/";
             MyImageIO imageIO2 = new MyImageIO();
-            assertTrue(imageIO != null);
-            assertEquals(path2, TestUtilities.getPrivateField("resourcesRoot", imageIO2));
+            assertTrue(imageIO2 != null);
+            assertEquals(new File(".").getCanonicalPath() + "/src/main/resources/", TestUtilities.getPrivateField("resourcesRoot", imageIO2));
 
         } catch (Exception e) {
             fail(e.toString());
@@ -96,14 +119,14 @@ public class MyImageIOTest {
     }
 
     @Test(expected = IllegalArgumentException.class)
-    public void loadImages_IllegalArgumentException() throws IllegalArgumentException, IOException {
+    public void loadImages_NotSameSizeImages() throws IllegalArgumentException, IOException {
         String path = new File(".").getCanonicalPath() + "/src/test/resources/";
         MyImageIO imageIO = new MyImageIO(path);
         imageIO.loadImages(new String[]{"rgb.png", "rgb2.png"}, RGB.GREEN);
     }
 
     @Test(expected = IllegalArgumentException.class)
-    public void loadImages_IllegalArgumentException2() throws IllegalArgumentException, IOException {
+    public void loadImages_NoFiles() throws IllegalArgumentException, IOException {
         MyImageIO imageIO = new MyImageIO();
         imageIO.loadImages(null, RGB.GREEN);
     }
@@ -118,7 +141,7 @@ public class MyImageIOTest {
 
         String path = new File(".").getCanonicalPath() + "/src/test/resources/";
         MyImageIO imageIO = new MyImageIO(path);
-        MyImageIO.saveImage(pixels, 4, 6, "rgb.png");
+        MyImageIO.saveImage(pixels, 6, 4, "../../test/resources/rgb.png");
         assertTrue((new File("./src/test/resources/", "rgb.png")).exists());
     }
 

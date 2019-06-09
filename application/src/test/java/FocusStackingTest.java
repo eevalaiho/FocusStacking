@@ -23,7 +23,7 @@ public class FocusStackingTest {
     @Test
     public void loadImages() throws IOException {
         FocusStacking fs = new FocusStacking(RGB.RED, 2);
-        fs.loadImages(new String[] {"rgb.png"});
+        fs.loadImages(new String[] {"../../test/resources/rgb.png"});
         assertEquals(1, fs.channels.getSize());
     }
 
@@ -36,30 +36,33 @@ public class FocusStackingTest {
     @Test
     public void computeSharpestPixels() throws IOException {
         FocusStacking fs = new FocusStacking(RGB.RED, 2);
-        fs.loadImages(new String[] {"rgb.png"});
+        fs.loadImages(new String[] {"../../test/resources/rgb.png"});
         fs.computeSharpestPixels();
     }
 
     @Test
     public void saveImage() throws IOException {
         FocusStacking fs = new FocusStacking(RGB.RED, 2);
-        fs.loadImages(new String[] {"rgb.png"});
+        fs.loadImages(new String[] {"../../test/resources/rgb.png"});
         fs.computeSharpestPixels();
-        fs.saveImage("out_rgb.png");
-        assertTrue((new File("./src/main/resources/", "out_rgb.png")).exists());
+        fs.saveImage("../../test/resources/test_out_rgb.png");
+        assertTrue((new File("./src/test/resources/", "test_out_rgb.png")).exists());
     }
 
     @Test
     public void printSharpestPixelIndexes() throws IOException {
         FocusStacking fs = new FocusStacking(RGB.RED, 2);
-        fs.loadImages(new String[] {"rgb.png"});
+        fs.loadImages(new String[] {"../../test/resources/rgb.png"});
         fs.computeSharpestPixels();
 
         ByteArrayOutputStream outContent = new ByteArrayOutputStream();
         System.setOut(new PrintStream(outContent));
 
         fs.printSharpestPixelIndexes();
-        assertEquals("0,0,0,0\n0,0,0,0\n0,0,0,0\n0,0,0,0\n0,0,0,0\n0,0,0,0\n", outContent.toString());
+        assertEquals("0,0,0,0,0,0\n" +
+                "0,0,0,0,0,0\n" +
+                "0,0,0,0,0,0\n" +
+                "0,0,0,0,0,0\n", outContent.toString());
 
         System.setOut(System.out);
     }

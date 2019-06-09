@@ -23,6 +23,21 @@ public class TestUtilities {
     }
 
     /**
+     * Method to extract a private property value from an object
+     * using reflection
+     * @param fieldName Name of the field
+     * @param obj The object to query
+     * @param obj Value to set
+     * @throws NoSuchFieldException If the object doesn't contain the named field
+     * @throws IllegalAccessException If the field cannot be accessed
+     */
+    public static void setPrivateField(String fieldName, Object obj, Object value) throws NoSuchFieldException, IllegalAccessException {
+        Field field = obj.getClass().getDeclaredField(fieldName);
+        field.setAccessible(true);
+        field.set(obj, value);
+    }
+
+    /**
      * Method to invoke a private method of an object
      * @param TargetClass Class of the object
      * @param argClasses Classes of method arguments
