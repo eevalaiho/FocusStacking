@@ -4,7 +4,7 @@
 ## Mitä olen tehnyt tällä viikolla?
 
 Olen:
-* Kirjoittanut puuttuvia testejä
+* Kirjoittanut viimeisetkin puuttuvat testit
 * Parametrisoinut main-metodin
 
 * Kirjoittanut dokumentaatiota
