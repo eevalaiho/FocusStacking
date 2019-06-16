@@ -6,6 +6,7 @@ Ohjelman kulku on kuvattu pääpiirteittäin seuraavassa diagrammissa:
 
 ### Pääohjelma
 
+<img src="./diagrams/main.png" alt="drawing" width="200"/>
 ![main program](./diagrams/main.png "Main program" =250x)
 
 ### Tarkimman pikselin laskeminen
