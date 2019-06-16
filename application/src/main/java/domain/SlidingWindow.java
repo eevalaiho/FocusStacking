@@ -1,5 +1,8 @@
 package domain;
 
+/**
+ * A class for implementing a sliding window
+ */
 public class SlidingWindow {
 
     final double DEFAULT = 0.0;
@@ -59,11 +62,12 @@ public class SlidingWindow {
     /**
      * Get the window doubly mirrored
      *
+     * <pre>
      * ab    becomes    abba
      * cd               cddc
      *                  cddc
      *                  abba
-     *
+     * </pre>
      * @param array
      * @return A double[][] that is 4-times the size of the window
      */

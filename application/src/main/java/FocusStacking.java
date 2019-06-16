@@ -8,6 +8,9 @@ import util.Complex;
 import util.MyArrayList;
 import static util.Util.*;
 
+/**
+ * Focus stacking implementation
+ */
 public class FocusStacking {
 
     private int windowSize;
@@ -21,6 +24,13 @@ public class FocusStacking {
         this.color = color;
     }
 
+    /**
+     * Method to load images from disk
+     * @param fileNames A String array containing names of the files to load.
+     *                  The default directory for the files is /src/main/resources/.
+     *                  The images should be of same size.
+     * @throws IOException
+     */
     public void loadImages(String[] fileNames) throws IOException {
         this.imageIO = new MyImageIO();
         this.imageIO.loadImages(fileNames, this.color);
@@ -34,6 +44,11 @@ public class FocusStacking {
 
     }
 
+    /**
+     * Compute the shrarpest image for each pixel position.
+     * Constructs an integer matrix of the same size as the images that contains
+     * the index numbers of the sharpest images on each pixel position.
+     */
     public void computeSharpestPixels() {
 
         int width = this.imageIO.getWidth();
@@ -70,6 +85,11 @@ public class FocusStacking {
 
     }
 
+    /**
+     * Constructs and saves the stacked image.
+     * @param outputFileName Name of the output file
+     * @throws IOException
+     */
     public void saveImage(String outputFileName) throws IOException {
 
         int width = maxL2Norm_indexes.length;

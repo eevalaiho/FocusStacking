@@ -6,11 +6,9 @@ import java.io.File;
 import java.io.IOException;
 
 /**
- * @author      Eeva-Maria Laiho <eeva-maria.laiho@helsinki.fi>
- * @version     0.3
- * @since       0.3
+ * A class to represent an image
  */
-public final class MyImage {
+public class MyImage {
 
     private int imageType;
     private int[] pixels;

@@ -1,0 +1,61 @@
+\documentclass[convert={density=300,size=1080x800,outext=.png}]{standalone}
+%
+% To convert to png use command:
+% pdftoppm program.pdf|pnmtopng > program.png
+%
+
+\usepackage[latin1]{inputenc}
+\usepackage{tikz}
+\usetikzlibrary{shapes,arrows}
+\begin{document}
+\pagestyle{empty}
+
+
+% Define block styles
+\tikzstyle{decision} = [diamond, draw, fill=blue!20,
+    text width=4.5em, text badly centered, node distance=1.5cm, inner sep=0pt]
+\tikzstyle{block} = [rectangle, draw, fill=blue!20, node distance=1.5cm,
+    text width=10.5em, text centered, rounded corners, minimum height=2em]
+\tikzstyle{line} = [draw, -latex']
+\tikzstyle{cloud} = [draw, ellipse,fill=red!20, minimum height=2em, node distance=1.5cm]
+
+\begin{tikzpicture}[node distance = 2cm, auto]
+    \node [cloud]                       (start)         {start};
+    \node [block, below of=start]       (create-window) {create sliding window};
+    
+    % For each sliding window
+    \node [block, below of=create-window]        (get-next-window)       {get next window};
+    \node [decision, below of=get-next-window, yshift=-0.4cm]  (exists1)   {exists?};
+    \node [cloud, right of=exists1, xshift=2.5cm] (end1)         {end};
+    
+    % For each image
+    \node [block, below of=exists1, yshift=-0.5cm]        (init-max-L2)       {init argmax-L2, max-L2};
+    \node [block, below of=init-max-L2] (get-image-k)     {get green layer of image k};
+    \node [decision, yshift=-0.5cm, below of=get-image-k] (exists2)     {exists?};
+    \node [block, yshift=-0.5cm, below of=exists2]  (fft)   {compute FFT};
+    \node [block, below of=fft]  (l2norm)   {compute L2 norm for image k};
+    \node [decision, below of=l2norm, yshift=-1.2cm]  (is-max)   {is L2 norm $>$ max L2 norm?};
+    \node [block, below of=is-max, yshift=-1.0cm]  (set-max)   {set max L2, argmax L2};
+    \node [block, below of=set-max]  (inc-k)   {k++};
+    
+    % Draw edges
+    \path [line] (start) -- (create-window);
+    \path [line] (create-window) -- (get-next-window);
+    \path [line] (get-next-window) -- (exists1);
+    \path [line] (exists1) -- node[anchor=east] {yes} (init-max-L2);
+    \path [line] (exists1) -- node[anchor=north] {no} (end1);
+    \path [line] (init-max-L2) -- (get-image-k);
+    \path [line] (get-image-k) -- (exists2);
+    \path [line] (exists2) -- node[anchor=east] {yes} (fft);
+    \path [line] (exists2) -- node {no} ++(-3.0cm,0) |- (get-next-window);
+    \path [line] (fft) -- (l2norm);
+    \path [line] (l2norm) -- (is-max);
+    \path [line] (is-max) -- node {no} ++(-3.0cm,0) |- (inc-k);
+    \path [line] (is-max) -- node[anchor=east] {yes} (set-max);
+    \path [line] (set-max) -- (inc-k);
+    \path [line] (inc-k) -- node {} ++(3.0cm,0) |- (get-image-k);
+
+\end{tikzpicture}
+
+
+\end{document}

@@ -3,6 +3,9 @@ package domain;
 import util.Complex;
 import util.MyArrayList;
 
+/**
+ * Utility methods for computing Fourier transform
+ */
 public class FFT {
 
     private FFT() {}
@@ -11,8 +14,8 @@ public class FFT {
      * Computes 2D Fourier transform (FFT) in two steps.
      * First it computes the one-dimensional FFT along rows.
      * Then it computes the FFT of the output along columns.
-     * @param array
-     * @return
+     * @param array A matrix of doubles
+     * @return The result as a matrix of Complex numbers
      */
     public static Complex[][] fft2(double[][] array) throws IllegalArgumentException {
 
@@ -50,14 +53,12 @@ public class FFT {
         return value;
     }
 
-
     /**
-     * Computes Fourier transform (FFT).
-     * Length of the array should be a power of 2
+     * Computes Fourier transform (FFT) using radix 2 Cooley-Tukey algorithm.
      * Copyright © 2000–2017, Robert Sedgewick and Kevin Wayne.
      * Ref: https://introcs.cs.princeton.edu/java/97data/FFT.java.html
-     * @param x
-     * @return
+     * @param x An array of Complex numbers
+     * @return The fourier transformed array of Complex numbers
      */
     public static Complex[] fft(Complex[] x) {
         int n = x.length;

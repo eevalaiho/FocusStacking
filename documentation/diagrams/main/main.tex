@@ -1,0 +1,44 @@
+\documentclass[convert={density=300,size=1080x800,outext=.png}]{standalone}
+%
+% To convert to png use command:
+% pdftoppm program.pdf|pnmtopng > program.png
+%
+
+\usepackage[latin1]{inputenc}
+\usepackage{tikz}
+\usetikzlibrary{shapes,arrows}
+\begin{document}
+\pagestyle{empty}
+
+
+% Define block styles
+\tikzstyle{decision} = [diamond, draw, fill=blue!20,
+    text width=4.5em, text badly centered, node distance=1.5cm, inner sep=0pt]
+\tikzstyle{block} = [rectangle, draw, fill=blue!20, node distance=1.5cm,
+    text width=7.5em, text centered, rounded corners, minimum height=2em]
+\tikzstyle{line} = [draw, -latex']
+\tikzstyle{cloud} = [draw, ellipse,fill=red!20, minimum height=2em, node distance=1.5cm]
+
+\begin{tikzpicture}[node distance = 2cm, auto]
+    % Place nodes
+    \node [cloud]                       (start)         {start};
+    \node [block, below of=start]       (parseargs)     {parse arguments};
+    \node [block, below of=parseargs]   (loadimages)    {load images};
+    \node [block, below of=loadimages]  (preprocess)    {preprocess images};
+    \node [block, below of=preprocess]  (compsharp)     {compute sharpest pixels};
+    \node [block, below of=compsharp]   (makeimage)     {make sharp image};
+    \node [block, below of=makeimage]   (saveimage)     {save image};
+    \node [cloud, below of=saveimage]   (end)           {end};
+    % Draw edges
+    \path [line] (start) -- (parseargs);
+    \path [line] (parseargs) -- (loadimages);
+    \path [line] (loadimages) -- (preprocess);
+    \path [line] (preprocess) -- (compsharp);
+    \path [line] (compsharp) -- (makeimage);
+    \path [line] (makeimage) -- (saveimage);
+    \path [line] (saveimage) -- (end);
+
+\end{tikzpicture}
+
+
+\end{document}

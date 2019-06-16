@@ -12,19 +12,20 @@ public class Main {
     static String[] fileNames = null;
     static int[] windowSizes = null;
     static RGB[] channels = null;
-    static boolean debug = false;
+    static boolean debug = true;
     static String outputFileNameFormat = "";
 
     private Main() {}
 
     /**
-     * Driver program for image stacking implementation
-     * @param args Parameters for the program, use:
-     *             -d, --debug                    Set debug mode. In debug mode the id's of the sharpest images in each pixel position will be printed
-     *             -w, --windowSize               Set window size for fourier transform. Window size must be a power of two. Multiple sizes can be provided. A separate output image will be created for each window size. Example -w 8 16 32
-     *             -c, --channels                 Set color channel(s) to use for figuring out the sharpest pixels. Possible values RED, GREEN, BLUE. A separate output image will be created for each window size. Example -c BLUE
-     *             -f, --fileNames                Set names of the files to use. The files should reside in application/src/main/resources folder. Example -f pic1.png pic2.png pic3.png
-     *             -o, --outputFileNameFormat     Format of the output file. If none is provided a default format is used. Should contain format instruction %s for channel name and %d for window size. Example output_%s_%d.png
+     * The main method of the program
+     * @param args Parameters for the program, use:<ul>
+     *             <li>-d, --debug                    to set debug mode on<br /> In debug mode the id's of the sharpest images in each pixel position will be printed</li>
+     *             <li>-w, --windowSize               to set window size for fourier transform<br />Window size must be a power of two. Multiple sizes can be provided. A separate output image will be created for each window size. Example -w 8 16 32</li>
+     *             <li>-c, --channels                 to st color channel(s) to use for figuring out the sharpest pixels<br />Possible values RED, GREEN, BLUE. A separate output image will be created for each window size. Example -c BLUE</li>
+     *             <li>-f, --fileNames                to set names of the files to use<br />The files should reside in application/src/main/resources folder. Example -f pic1.png pic2.png pic3.png</li>
+     *             <li>-o, --outputFileNameFormat     to set the formatting string of the output file<br />If none is provided a default formatting string is used. Should contain format instruction %s for channel name and %d for window size. Example output_%s_%d.png</li>
+     *  </ul>
      */
     public static void main(String[] args) throws IllegalAccessException, InstantiationException, IOException {
 
@@ -35,8 +36,9 @@ public class Main {
 
         if (debug) {
             if (fileNames == null) {
-                fileNames = new String[]{"150x100-koralli-mirrored-top-blur.png", "150x100-koralli-mirrored-left-blur.png", "150x100-koralli-mirrored-right-blur.png"};
+                //fileNames = new String[]{"150x100-koralli-mirrored-top-blur.png", "150x100-koralli-mirrored-left-blur.png", "150x100-koralli-mirrored-right-blur.png"};
                 //fileNames = new String[]{"300x200-kaunokki-top-blur.png", "300x200-kaunokki-left-blur.png", "300x200-kaunokki-right-blur.png"};
+                fileNames = new String[]{"30x20-kaunokki-top-blur.png", "30x20-kaunokki-left-blur.png", "30x20-kaunokki-right-blur.png"};
             }
             if (windowSizes == null)
                 windowSizes = new int[]{16,32};

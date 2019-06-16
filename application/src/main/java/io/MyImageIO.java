@@ -7,9 +7,7 @@ import java.io.File;
 import java.io.IOException;
 
 /**
- * @author      Eeva-Maria Laiho <eeva-maria.laiho@helsinki.fi>
- * @version     0.3
- * @since       0.3
+ * A class for loading and saving images
  */
 public class MyImageIO {
 

@@ -1,5 +1,8 @@
 package io;
 
+/**
+ * Enumeration to represent RGB color channel
+ */
 public enum RGB {
 
     RED(16), GREEN(8), BLUE(0);
@@ -16,11 +19,10 @@ public enum RGB {
 
     /**
      * Get color channel value from int representation of pixel
-     *
+     * <pre>
      * AAAAAAAA RRRRRRRR GGGGGGGG BBBBBBBB
      * ^Alpha   ^Red     ^Green   ^Blue
-     *
-     * For reference see: https://stackoverflow.com/questions/16698372/isolating-red-green-blue-channel-in-java-bufferedimage
+     * </pre>
      *
      * @param rgb Pixel as RGB int representation
      * @param channel Color channel as io.RGB
@@ -30,7 +32,11 @@ public enum RGB {
         return rgb >> channel.getNumVal() & 0xff;
     }
 
-
+    /**
+     * Parse a string representation of the enumeration
+     * @param name Name of the color (RED, GREEN, BLUE)
+     * @return An enum corresponding to the name
+     */
     public static RGB parse(String name) {
         switch (name) {
             case "RED":

@@ -68,22 +68,4 @@ public class Util {
         }
         return util.Math.sqrt(sum);
     }
-
-//    /**
-//     * Compute maximum L2 norm of a 2-dimensional Complex array
-//     * @param table The array
-//     * @return Maximum L2-norm of the array
-//     */
-//    public static double MaxL2Norm(Complex[][] table) {
-//        double max = 0;
-//        for (int i = 0; i < table.length; i++) {
-//            for (int j = 0; j < table[0].length; j++) {
-//                double norm = table[i][j].l2norm();
-//                if (norm > max) {
-//                    max = norm;
-//                }
-//            }
-//        }
-//        return max;
-//    }
 }
