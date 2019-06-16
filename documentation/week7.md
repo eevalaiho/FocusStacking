@@ -4,9 +4,11 @@
 ## Mitä olen tehnyt tällä viikolla?
 
 Olen:
-* 
 
-Ajankäyttö: xh
+* Kääntänyt ja testannut ohjelman
+* Päivittänyt dokumentaatiota
+
+Ajankäyttö: 2 h
 
 ## Miten ohjelma on edistynyt?
 
