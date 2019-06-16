@@ -6,8 +6,8 @@ Ohjelman kulku on kuvattu pääpiirteittäin seuraavassa diagrammissa:
 
 ### Pääohjelma
 
-<img src="./diagrams/main.png" alt="Main program" width="50%"/>
+<img src="./diagrams/main.png" alt="Main program" width="250px"/>
 
 ### Tarkimman pikselin laskeminen
 
-<img src="./diagrams/sharpest.png" alt="Compute sharpest pixels" width="50%"/>
+<img src="./diagrams/sharpest.png" alt="Compute sharpest pixels" width="300px"/>
