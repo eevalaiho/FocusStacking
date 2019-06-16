@@ -10,4 +10,4 @@ Ohjelman kulku on kuvattu pääpiirteittäin seuraavassa diagrammissa:
 
 ### Tarkimman pikselin laskeminen
 
-<img src="./diagrams/sharpest.png" alt="Compute sharpest pixels" width="300px"/>
+<img src="./diagrams/sharpest.png" alt="Compute sharpest pixels" width="400px"/>
