@@ -6,9 +6,8 @@
 Olen:
 * Kirjoittanut viimeisetkin puuttuvat testit
 * Parametrisoinut main-metodin
-
 * Kirjoittanut dokumentaatiota
-* Tehnyt vertaisarvioinnin
+* Tehnyt vertaisarvioinnin: https://github.com/AaaDee/Regex-Ctrl-F/issues/3
 * Osallistunut demoon
 
 Ajankäyttö: 15h
