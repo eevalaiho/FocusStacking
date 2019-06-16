@@ -2,7 +2,12 @@
 
 Ohjelman kulku on kuvattu pääpiirteittäin seuraavassa diagrammissa:
 
-## Ohjelman kulkukaavio
+## Ohjelman kulkukaaviot
 
-![program flow](./images/program.png "Program flow")
+### Pääohjelma
 
+![main program](./diagrams/main.png "Main program")
+
+### Tarkimman pikselin laskeminen
+
+![compute sharpest pixel](./diagrams/sharpest.png "Compute sharpest pixel")
