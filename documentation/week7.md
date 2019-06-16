@@ -5,7 +5,8 @@
 
 Olen:
 
-* Kääntänyt ja testannut ohjelman
+* Kääntänyt ohjelman
+* Testannut
 * Päivittänyt dokumentaatiota
 
 Ajankäyttö: 2 h
