@@ -8,9 +8,9 @@ $ cd [download-location]/FocusStacking/application
 ```
 Ohjelma käynnistetään komennolla:
 ```
-java -jar build/libs/FocusStacking.jar
+java -jar build/libs/FocusStacking.jar --fileNames 30x20-kaunokki-left-blur.png 30x20-kaunokki-right-blur.png 30x20-kaunokki-top-blur.png
 ```
-Kun ohjelma käynnistetään ilman parametreja suorituksessa käytetään sovelluksen rakenteesta löytyviä kolmea kaunokinkuvaa, pikseleiden valinnassa sinistä värikanavaa ja Fourier-muunnoksessa 16 kuvapisteen ikkunaa. matriisin.
+Ohjelma olettaa, että ```fileNames``` -parametrillä välitetyt tiedostot löytyvät alihakemistosta ```application/src/main/resources```. 
 
 ### Debug-tila
 
