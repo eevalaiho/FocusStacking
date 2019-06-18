@@ -7,6 +7,7 @@ Käännetty ohjelmatiedosto sijaitsee projektin alihakemistossa: ```application/
 java -jar application/build/libs/FocusStacking.jar
 ```
 
+
 ## JavaDoc
 
 Ohjelman JavaDoc -dokumentaatio [https://eevalaiho.github.io/FocusStacking/javadoc/](https://eevalaiho.github.io/FocusStacking/javadoc/)
