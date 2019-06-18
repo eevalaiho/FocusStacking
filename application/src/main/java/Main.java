@@ -1,8 +1,8 @@
-import io.RGB;
-import util.MyArrayList;
-
 import java.io.IOException;
 import java.time.LocalDateTime;
+
+import io.RGB;
+import util.MyArrayList;
 
 /**
  * Driver program for image stacking implementation

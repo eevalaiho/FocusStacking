@@ -7,6 +7,10 @@
 
 # IDEA
 .idea
+application/.idea
+application/.idea/**
+application/.idea/**/
+application/.settings/**
 
 # User-specific stuff
 .idea/**/workspace.xml
