@@ -1,8 +1,12 @@
 # Käyttöohje
 
-## Ohjelman käynnistäminen
+## Ohjelman suorittaminen
 
-Ohjelma voidaan käynnistää ohjelman juurihakemistossa ```application``` komennolla:
+Ohjelma suoritetaan projektin alihakemistossa ```application```.
+```
+$ cd [download-location]/FocusStacking/application
+```
+Ohjelma käynnistetään komennolla:
 ```
 java -jar build/libs/FocusStacking.jar
 ```
