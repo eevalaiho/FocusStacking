@@ -1,4 +1,12 @@
+<<<<<<< HEAD
 apply plugin: 'java'
+=======
+plugins {
+    id 'java'
+}
+
+version '1.0-SNAPSHOT'
+>>>>>>> 7c26618c83abf5c81ab71743c0c3b5c28c2443fd
 
 sourceCompatibility = 1.8
 
