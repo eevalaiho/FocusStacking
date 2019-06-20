@@ -22,9 +22,10 @@
 \begin{tikzpicture}[node distance = 2cm, auto]
     \node [cloud]                       (start)         {start};
     \node [block, below of=start]       (create-window) {create sliding window};
+    \node [block, below of=create-window]        (set-k-0)       {set k=0};
     
     % For each sliding window
-    \node [block, below of=create-window]        (get-next-window)       {get next window};
+    \node [block, below of=set-k-0]        (get-next-window)       {get next window};
     \node [decision, below of=get-next-window, yshift=-0.4cm]  (exists1)   {exists?};
     \node [cloud, right of=exists1, xshift=2.5cm] (end1)         {end};
     
@@ -40,14 +41,15 @@
     
     % Draw edges
     \path [line] (start) -- (create-window);
-    \path [line] (create-window) -- (get-next-window);
+    \path [line] (create-window) -- (set-k-0);
+    \path [line] (set-k-0) -- (get-next-window);
     \path [line] (get-next-window) -- (exists1);
     \path [line] (exists1) -- node[anchor=east] {yes} (init-max-L2);
     \path [line] (exists1) -- node[anchor=north] {no} (end1);
     \path [line] (init-max-L2) -- (get-image-k);
     \path [line] (get-image-k) -- (exists2);
     \path [line] (exists2) -- node[anchor=east] {yes} (fft);
-    \path [line] (exists2) -- node {no} ++(-3.0cm,0) |- (get-next-window);
+    \path [line] (exists2) -- node {no} ++(-3.0cm,0) |- (set-k-0);
     \path [line] (fft) -- (l2norm);
     \path [line] (l2norm) -- (is-max);
     \path [line] (is-max) -- node {no} ++(-3.0cm,0) |- (inc-k);
