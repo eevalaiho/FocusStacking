@@ -1,0 +1,141 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: MyImage</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">io</a> ]
+</div>
+
+<h1>Coverage Summary for Class: MyImage (io)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">MyImage</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/ 1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (4/ 4)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (19/ 19)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;package io;
+<i>2</i>&nbsp;
+<i>3</i>&nbsp;import javax.imageio.ImageIO;
+<i>4</i>&nbsp;import java.awt.image.BufferedImage;
+<i>5</i>&nbsp;import java.io.File;
+<i>6</i>&nbsp;import java.io.IOException;
+<i>7</i>&nbsp;
+<i>8</i>&nbsp;/**
+<i>9</i>&nbsp; * A class to represent an image
+<i>10</i>&nbsp; */
+<i>11</i>&nbsp;public class MyImage {
+<i>12</i>&nbsp;
+<i>13</i>&nbsp;    private int imageType;
+<i>14</i>&nbsp;    private int[] pixels;
+<i>15</i>&nbsp;    private int width;
+<i>16</i>&nbsp;    private int height;
+<i>17</i>&nbsp;
+<i>18</i>&nbsp;    /**
+<i>19</i>&nbsp;     * Pixel width of the image
+<i>20</i>&nbsp;     */
+<b class="fc"><i>21</i>&nbsp;    public int getWidth() { return width; }</b>
+<i>22</i>&nbsp;    /**
+<i>23</i>&nbsp;     * Pixel height of the image
+<i>24</i>&nbsp;     */
+<b class="fc"><i>25</i>&nbsp;    public int getHeight() { return this.height; }</b>
+<i>26</i>&nbsp;    /**
+<i>27</i>&nbsp;     * Get pixels of an image
+<i>28</i>&nbsp;     * @return Pixels as an integer array
+<i>29</i>&nbsp;     */
+<b class="fc"><i>30</i>&nbsp;    public int[] getPixels() { return pixels; }</b>
+<i>31</i>&nbsp;    /**
+<i>32</i>&nbsp;     * Load the image 
+<i>33</i>&nbsp;     * @param path
+<i>34</i>&nbsp;     * @throws Exception
+<i>35</i>&nbsp;     */
+<b class="fc"><i>36</i>&nbsp;    public MyImage(String path) throws IOException {</b>
+<i>37</i>&nbsp;        // Load the image
+<b class="fc"><i>38</i>&nbsp;        BufferedImage image = null;</b>
+<i>39</i>&nbsp;        try {
+<b class="fc"><i>40</i>&nbsp;            image = ImageIO.read(new File(path));</b>
+<b class="fc"><i>41</i>&nbsp;        } catch (IOException e) {</b>
+<b class="fc"><i>42</i>&nbsp;            throw new IOException(&quot;Trying to read image &quot; + path, e);</b>
+<b class="fc"><i>43</i>&nbsp;        }</b>
+<b class="fc"><i>44</i>&nbsp;        this.width = image.getWidth();</b>
+<b class="fc"><i>45</i>&nbsp;        this.height = image.getHeight();</b>
+<b class="fc"><i>46</i>&nbsp;        this.imageType = image.getType();</b>
+<i>47</i>&nbsp;
+<i>48</i>&nbsp;        // Get pixels and green pixels
+<b class="fc"><i>49</i>&nbsp;        this.pixels = new int[this.width*this.height];</b>
+<b class="fc"><i>50</i>&nbsp;        for (int x = 0; x &lt; this.getWidth(); x++) {</b>
+<b class="fc"><i>51</i>&nbsp;            for (int y = 0; y &lt; this.getHeight(); y++) {</b>
+<b class="fc"><i>52</i>&nbsp;                int rgb = image.getRGB(x,y);</b>
+<b class="fc"><i>53</i>&nbsp;                int idx = x + this.width*y;</b>
+<b class="fc"><i>54</i>&nbsp;                this.pixels[idx] = rgb;</b>
+<i>55</i>&nbsp;            }
+<i>56</i>&nbsp;        }
+<b class="fc"><i>57</i>&nbsp;    }</b>
+<i>58</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2019-06-20 06:24</div>
+</div>
+</body>
+</html>

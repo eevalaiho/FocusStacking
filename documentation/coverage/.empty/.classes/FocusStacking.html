@@ -1,0 +1,207 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: FocusStacking</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">&lt;empty package name&gt;</a> ]
+</div>
+
+<h1>Coverage Summary for Class: FocusStacking (&lt;empty package name&gt;)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">FocusStacking</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/ 1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (5/ 5)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (46/ 46)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;import java.io.IOException;
+<i>2</i>&nbsp;
+<i>3</i>&nbsp;import domain.FFT;
+<i>4</i>&nbsp;import domain.SlidingWindow;
+<i>5</i>&nbsp;import io.RGB;
+<i>6</i>&nbsp;import io.MyImageIO;
+<i>7</i>&nbsp;import util.Complex;
+<i>8</i>&nbsp;import util.MyArrayList;
+<i>9</i>&nbsp;import static util.Util.*;
+<i>10</i>&nbsp;
+<i>11</i>&nbsp;/**
+<i>12</i>&nbsp; * Focus stacking implementation
+<i>13</i>&nbsp; */
+<i>14</i>&nbsp;public class FocusStacking {
+<i>15</i>&nbsp;
+<i>16</i>&nbsp;    private int windowSize;
+<i>17</i>&nbsp;    private RGB color;
+<b class="fc"><i>18</i>&nbsp;    private MyImageIO imageIO = null;</b>
+<b class="fc"><i>19</i>&nbsp;    MyArrayList&lt;double[][]&gt; channels = null;</b>
+<b class="fc"><i>20</i>&nbsp;    int[][] maxL2Norm_indexes = null;</b>
+<i>21</i>&nbsp;
+<b class="fc"><i>22</i>&nbsp;    public FocusStacking(RGB color, int windowSize) {</b>
+<b class="fc"><i>23</i>&nbsp;        this.windowSize = windowSize;</b>
+<b class="fc"><i>24</i>&nbsp;        this.color = color;</b>
+<b class="fc"><i>25</i>&nbsp;    }</b>
+<i>26</i>&nbsp;
+<i>27</i>&nbsp;    /**
+<i>28</i>&nbsp;     * Method to load images from disk
+<i>29</i>&nbsp;     * @param fileNames A String array containing names of the files to load.
+<i>30</i>&nbsp;     *                  The default directory for the files is /src/main/resources/.
+<i>31</i>&nbsp;     *                  The images should be of same size.
+<i>32</i>&nbsp;     * @throws IOException
+<i>33</i>&nbsp;     */
+<i>34</i>&nbsp;    public void loadImages(String[] fileNames) throws IOException {
+<b class="fc"><i>35</i>&nbsp;        this.imageIO = new MyImageIO();</b>
+<b class="fc"><i>36</i>&nbsp;        this.imageIO.loadImages(fileNames, this.color);</b>
+<i>37</i>&nbsp;
+<i>38</i>&nbsp;        // Get the green channels
+<b class="fc"><i>39</i>&nbsp;        this.channels = imageIO.getChannels();</b>
+<i>40</i>&nbsp;
+<i>41</i>&nbsp;        // Normalize the channels
+<b class="fc"><i>42</i>&nbsp;        for (int k = 0; k &lt; this.channels.getSize(); k++)</b>
+<b class="fc"><i>43</i>&nbsp;            channels.set(k, normalize(channels.get(k), 0, 255));</b>
+<i>44</i>&nbsp;
+<b class="fc"><i>45</i>&nbsp;    }</b>
+<i>46</i>&nbsp;
+<i>47</i>&nbsp;    /**
+<i>48</i>&nbsp;     * Compute the shrarpest image for each pixel position.
+<i>49</i>&nbsp;     * Constructs an integer matrix of the same size as the images that contains
+<i>50</i>&nbsp;     * the index numbers of the sharpest images on each pixel position.
+<i>51</i>&nbsp;     */
+<i>52</i>&nbsp;    public void computeSharpestPixels() {
+<i>53</i>&nbsp;
+<b class="fc"><i>54</i>&nbsp;        int width = this.imageIO.getWidth();</b>
+<b class="fc"><i>55</i>&nbsp;        int height = this.imageIO.getHeight();</b>
+<b class="fc"><i>56</i>&nbsp;        int n = this.channels.getSize();</b>
+<i>57</i>&nbsp;
+<b class="fc"><i>58</i>&nbsp;        maxL2Norm_indexes = new int[width][height];</b>
+<b class="fc"><i>59</i>&nbsp;        SlidingWindow slidingWindow = new SlidingWindow(windowSize, width, height);</b>
+<b class="fc"><i>60</i>&nbsp;        while(slidingWindow.hasNext()) {</b>
+<i>61</i>&nbsp;
+<b class="fc"><i>62</i>&nbsp;            double maxL2Norm = 0;</b>
+<b class="fc"><i>63</i>&nbsp;            for (int k = 0; k &lt; n; k++) {</b>
+<i>64</i>&nbsp;
+<i>65</i>&nbsp;                // Get the double-mirrored window ()
+<b class="fc"><i>66</i>&nbsp;                double[][] window = slidingWindow.getDoubleMirroredWindow(channels.get(k));</b>
+<b class="fc"><i>67</i>&nbsp;                int i = slidingWindow.getX();</b>
+<b class="fc"><i>68</i>&nbsp;                int j = slidingWindow.getY();</b>
+<i>69</i>&nbsp;
+<i>70</i>&nbsp;                // Compute FFT
+<b class="fc"><i>71</i>&nbsp;                Complex[][] fft = FFT.fft2(window);</b>
+<i>72</i>&nbsp;
+<i>73</i>&nbsp;                // Compute L^2 norm of this window and compare
+<b class="fc"><i>74</i>&nbsp;                double norm = l2Norm(fft);</b>
+<i>75</i>&nbsp;                //double l2Norm = MaxL2Norm(fft);
+<b class="fc"><i>76</i>&nbsp;                if (norm &gt; maxL2Norm) {</b>
+<b class="fc"><i>77</i>&nbsp;                    maxL2Norm = norm;</b>
+<b class="fc"><i>78</i>&nbsp;                    maxL2Norm_indexes[i][j] = k;</b>
+<i>79</i>&nbsp;                }
+<i>80</i>&nbsp;            }
+<i>81</i>&nbsp;
+<i>82</i>&nbsp;            // Next window
+<b class="fc"><i>83</i>&nbsp;            slidingWindow.moveNext();</b>
+<b class="fc"><i>84</i>&nbsp;        }</b>
+<i>85</i>&nbsp;
+<b class="fc"><i>86</i>&nbsp;    }</b>
+<i>87</i>&nbsp;
+<i>88</i>&nbsp;    /**
+<i>89</i>&nbsp;     * Constructs and saves the stacked image.
+<i>90</i>&nbsp;     * @param outputFileName Name of the output file
+<i>91</i>&nbsp;     * @throws IOException
+<i>92</i>&nbsp;     */
+<i>93</i>&nbsp;    public void saveImage(String outputFileName) throws IOException {
+<i>94</i>&nbsp;
+<b class="fc"><i>95</i>&nbsp;        int width = maxL2Norm_indexes.length;</b>
+<b class="fc"><i>96</i>&nbsp;        int height = maxL2Norm_indexes[0].length;</b>
+<i>97</i>&nbsp;
+<i>98</i>&nbsp;        // Create an array of the sharpest pixels
+<b class="fc"><i>99</i>&nbsp;        int[] sharpestPixels = new int[(width+1)*(height+1)];</b>
+<b class="fc"><i>100</i>&nbsp;        for (int i = 0; i &lt; width; i++) {</b>
+<b class="fc"><i>101</i>&nbsp;            for (int j = 0; j &lt; height; j++) {</b>
+<b class="fc"><i>102</i>&nbsp;                sharpestPixels[i+j*width] = imageIO.getPixels().get(maxL2Norm_indexes[i][j])[i][j];</b>
+<i>103</i>&nbsp;            }
+<i>104</i>&nbsp;        }
+<i>105</i>&nbsp;
+<i>106</i>&nbsp;        // Save the image
+<b class="fc"><i>107</i>&nbsp;        MyImageIO.saveImage(sharpestPixels, width, height, outputFileName);</b>
+<i>108</i>&nbsp;
+<b class="fc"><i>109</i>&nbsp;    }</b>
+<i>110</i>&nbsp;
+<i>111</i>&nbsp;    /**
+<i>112</i>&nbsp;     * Prints out a 2D int array of the sharpest pixel indexes
+<i>113</i>&nbsp;     * Utility method for debugging
+<i>114</i>&nbsp;     */
+<i>115</i>&nbsp;    public void printSharpestPixelIndexes() {
+<b class="fc"><i>116</i>&nbsp;        for (int i = 0; i &lt; maxL2Norm_indexes[0].length; i++) {</b>
+<b class="fc"><i>117</i>&nbsp;            System.out.print(maxL2Norm_indexes[0][i]);</b>
+<b class="fc"><i>118</i>&nbsp;            for (int j = 1; j &lt; maxL2Norm_indexes.length; j++) {</b>
+<b class="fc"><i>119</i>&nbsp;                System.out.print(&quot;,&quot;+maxL2Norm_indexes[j][i]);</b>
+<i>120</i>&nbsp;            }
+<b class="fc"><i>121</i>&nbsp;            System.out.println(&quot;&quot;);</b>
+<i>122</i>&nbsp;        }
+<b class="fc"><i>123</i>&nbsp;    }</b>
+<i>124</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2019-06-20 06:24</div>
+</div>
+</body>
+</html>

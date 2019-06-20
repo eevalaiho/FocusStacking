@@ -1,0 +1,238 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: MyImageIO</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">io</a> ]
+</div>
+
+<h1>Coverage Summary for Class: MyImageIO (io)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">MyImageIO</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/ 1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (11/ 11)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (51/ 51)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;package io;
+<i>2</i>&nbsp;
+<i>3</i>&nbsp;import util.MyArrayList;
+<i>4</i>&nbsp;import javax.imageio.ImageIO;
+<i>5</i>&nbsp;import java.awt.image.BufferedImage;
+<i>6</i>&nbsp;import java.io.File;
+<i>7</i>&nbsp;import java.io.IOException;
+<i>8</i>&nbsp;
+<i>9</i>&nbsp;/**
+<i>10</i>&nbsp; * A class for loading and saving images
+<i>11</i>&nbsp; */
+<i>12</i>&nbsp;public class MyImageIO {
+<i>13</i>&nbsp;
+<i>14</i>&nbsp;    private MyArrayList&lt;int[][]&gt; pixels;
+<i>15</i>&nbsp;    private MyArrayList&lt;double[][]&gt; colorChannels;
+<i>16</i>&nbsp;    private int width;
+<i>17</i>&nbsp;    private int height;
+<i>18</i>&nbsp;    private String resourcesRoot;
+<i>19</i>&nbsp;
+<i>20</i>&nbsp;    /**
+<i>21</i>&nbsp;     * Pixel width of the image
+<i>22</i>&nbsp;     */
+<b class="fc"><i>23</i>&nbsp;    public int getWidth() { return width; }</b>
+<i>24</i>&nbsp;    /**
+<i>25</i>&nbsp;     * Pixel height of the image
+<i>26</i>&nbsp;     */
+<b class="fc"><i>27</i>&nbsp;    public int getHeight() { return this.height; }</b>
+<i>28</i>&nbsp;    /**
+<i>29</i>&nbsp;     * @return Pixels as 3D array (width x height x image id)
+<i>30</i>&nbsp;     */
+<b class="fc"><i>31</i>&nbsp;    public MyArrayList&lt;int[][]&gt; getPixels() { return pixels; }</b>
+<i>32</i>&nbsp;    /**
+<i>33</i>&nbsp;     * @return Selected color channels as 3D array (width x height x image id)
+<i>34</i>&nbsp;     */
+<b class="fc"><i>35</i>&nbsp;    public MyArrayList&lt;double[][]&gt; getChannels() { return colorChannels; }</b>
+<i>36</i>&nbsp;    /**
+<i>37</i>&nbsp;     * Construct the class with default resources path
+<i>38</i>&nbsp;     */
+<i>39</i>&nbsp;    public MyImageIO() {
+<b class="fc"><i>40</i>&nbsp;        this(MyImageIO.getDefaultResourceRoot());</b>
+<b class="fc"><i>41</i>&nbsp;    }</b>
+<i>42</i>&nbsp;    /**
+<i>43</i>&nbsp;     * Construct the class
+<i>44</i>&nbsp;     * @param resourcesRoot Path to resources folder (where the images are)
+<i>45</i>&nbsp;     */
+<b class="fc"><i>46</i>&nbsp;    public MyImageIO(String resourcesRoot) {</b>
+<b class="fc"><i>47</i>&nbsp;        this.resourcesRoot = resourcesRoot;</b>
+<b class="fc"><i>48</i>&nbsp;        this.pixels = new MyArrayList&lt;&gt;();</b>
+<b class="fc"><i>49</i>&nbsp;        this.colorChannels = new MyArrayList&lt;&gt;();</b>
+<b class="fc"><i>50</i>&nbsp;    }</b>
+<i>51</i>&nbsp;    /**
+<i>52</i>&nbsp;     * Load the images and store them internally.
+<i>53</i>&nbsp;     * The green channels can be accessed through accessor. 
+<i>54</i>&nbsp;     * @param fileNames Names of the images
+<i>55</i>&nbsp;     * @param channel Color channel RED = 16, GREEN = 8, BLUE = 0
+<i>56</i>&nbsp;     * @throws IllegalArgumentException If images are not of same size
+<i>57</i>&nbsp;     * @throws IOException If image couldn&#39;t be loaded
+<i>58</i>&nbsp;     */
+<i>59</i>&nbsp;    public void loadImages(String[] fileNames, RGB channel) throws IllegalArgumentException, IOException {
+<i>60</i>&nbsp;
+<b class="fc"><i>61</i>&nbsp;        if (fileNames == null || fileNames.length == 0)</b>
+<b class="fc"><i>62</i>&nbsp;            throw new IllegalArgumentException(&quot;No files to process&quot;);</b>
+<i>63</i>&nbsp;
+<b class="fc"><i>64</i>&nbsp;        int i = 0;</b>
+<b class="fc"><i>65</i>&nbsp;        MyImage image = new MyImage(resourcesRoot + fileNames[i]);</b>
+<b class="fc"><i>66</i>&nbsp;        width = image.getWidth();</b>
+<b class="fc"><i>67</i>&nbsp;        height = image.getHeight();</b>
+<i>68</i>&nbsp;
+<b class="fc"><i>69</i>&nbsp;        while (image != null) {</b>
+<i>70</i>&nbsp;
+<i>71</i>&nbsp;            // Loop through the pixels, extract green channel
+<b class="fc"><i>72</i>&nbsp;            int[][] px = new int[width][height];</b>
+<b class="fc"><i>73</i>&nbsp;            double[][] gr = new double[width][height];</b>
+<b class="fc"><i>74</i>&nbsp;            for (int x = 0; x &lt; width; x++) {</b>
+<b class="fc"><i>75</i>&nbsp;                for (int y = 0; y &lt; height; y++) {</b>
+<b class="fc"><i>76</i>&nbsp;                    int idx = x + y*width;</b>
+<b class="fc"><i>77</i>&nbsp;                    int rgb = image.getPixels()[idx];</b>
+<b class="fc"><i>78</i>&nbsp;                    px[x][y] = rgb;</b>
+<b class="fc"><i>79</i>&nbsp;                    gr[x][y] = RGB.getChannelValue(rgb, channel);</b>
+<i>80</i>&nbsp;                }
+<i>81</i>&nbsp;            }
+<b class="fc"><i>82</i>&nbsp;            pixels.add(px);</b>
+<b class="fc"><i>83</i>&nbsp;            colorChannels.add(gr);</b>
+<i>84</i>&nbsp;
+<b class="fc"><i>85</i>&nbsp;            i++;</b>
+<b class="fc"><i>86</i>&nbsp;            if (i &gt;= fileNames.length) break;</b>
+<i>87</i>&nbsp;
+<i>88</i>&nbsp;            // Load next image
+<b class="fc"><i>89</i>&nbsp;            image = new MyImage(resourcesRoot + fileNames[i]);</b>
+<b class="fc"><i>90</i>&nbsp;            if (width != image.getWidth() || height != image.getHeight()) {</b>
+<b class="fc"><i>91</i>&nbsp;                throw new IllegalArgumentException(&quot;The images need to be of same size&quot;);</b>
+<i>92</i>&nbsp;            }
+<b class="fc"><i>93</i>&nbsp;        }</b>
+<b class="fc"><i>94</i>&nbsp;    }</b>
+<i>95</i>&nbsp;
+<i>96</i>&nbsp;    /**
+<i>97</i>&nbsp;     * Create and image object from pixel values and save to disk
+<i>98</i>&nbsp;     * @param pixels Pixels in integer format
+<i>99</i>&nbsp;     * @param width Width of the image
+<i>100</i>&nbsp;     * @param height Height of the image
+<i>101</i>&nbsp;     * @param path Path to save the image to
+<i>102</i>&nbsp;     * @param fileName Name of the output image
+<i>103</i>&nbsp;     */
+<i>104</i>&nbsp;    public static void saveImage(int[] pixels, int width, int height, String path, String fileName) throws IOException {
+<i>105</i>&nbsp;
+<i>106</i>&nbsp;        // Create the image object
+<b class="fc"><i>107</i>&nbsp;        BufferedImage image = new BufferedImage(width, height, java.awt.image.BufferedImage.TYPE_INT_ARGB);</b>
+<i>108</i>&nbsp;
+<i>109</i>&nbsp;        // Copy correct pixels to the image
+<b class="fc"><i>110</i>&nbsp;        for (int x = 0; x &lt; width; x++) {</b>
+<b class="fc"><i>111</i>&nbsp;            for (int y = 0; y &lt; height; y++) {</b>
+<b class="fc"><i>112</i>&nbsp;                image.setRGB(x, y, pixels[y*width + x]);</b>
+<i>113</i>&nbsp;            }
+<i>114</i>&nbsp;        }
+<i>115</i>&nbsp;
+<i>116</i>&nbsp;        // Create and write image file
+<b class="fc"><i>117</i>&nbsp;        File outputfile = new File(path + fileName);</b>
+<b class="fc"><i>118</i>&nbsp;        String extension = fileName.substring(fileName.lastIndexOf(&quot;.&quot;) + 1);</b>
+<b class="fc"><i>119</i>&nbsp;        ImageIO.write(image, extension, outputfile);</b>
+<b class="fc"><i>120</i>&nbsp;        System.out.println(&quot;Wrote file to &quot; + path + fileName);</b>
+<b class="fc"><i>121</i>&nbsp;    }</b>
+<i>122</i>&nbsp;
+<i>123</i>&nbsp;    /**
+<i>124</i>&nbsp;     * Create and image object from pixel values and save to disk
+<i>125</i>&nbsp;     * @param pixels Pixels in integer format
+<i>126</i>&nbsp;     * @param width Width of the image
+<i>127</i>&nbsp;     * @param height Height of the image
+<i>128</i>&nbsp;     * @param fileName Name of the output image
+<i>129</i>&nbsp;     * @throws IOException If saving the image does not succeed
+<i>130</i>&nbsp;     */
+<i>131</i>&nbsp;    public static void saveImage(int[] pixels, int width, int height, String fileName) throws IOException {
+<b class="fc"><i>132</i>&nbsp;        String path = MyImageIO.getDefaultResourceRoot();</b>
+<b class="fc"><i>133</i>&nbsp;        saveImage(pixels, width, height, path, fileName);</b>
+<b class="fc"><i>134</i>&nbsp;    }</b>
+<i>135</i>&nbsp;
+<i>136</i>&nbsp;    /**
+<i>137</i>&nbsp;     * Get the default resource root
+<i>138</i>&nbsp;     * @return Path to the root
+<i>139</i>&nbsp;     */
+<i>140</i>&nbsp;    private static String getDefaultResourceRoot() {
+<b class="fc"><i>141</i>&nbsp;        return getDefaultResourceRoot(&quot;.&quot;);</b>
+<i>142</i>&nbsp;    }
+<i>143</i>&nbsp;
+<i>144</i>&nbsp;    /**
+<i>145</i>&nbsp;     * Get the default resource root
+<i>146</i>&nbsp;     * @param root Starting point
+<i>147</i>&nbsp;     * @return Path to the root
+<i>148</i>&nbsp;     */
+<i>149</i>&nbsp;    private static String getDefaultResourceRoot(String root) {
+<i>150</i>&nbsp;        try {
+<b class="fc"><i>151</i>&nbsp;            return new File(root).getCanonicalPath() + &quot;/src/main/resources/&quot;;</b>
+<b class="fc"><i>152</i>&nbsp;        } catch (IOException e) {}</b>
+<b class="fc"><i>153</i>&nbsp;        return &quot;./src/main/resources/&quot;;</b>
+<i>154</i>&nbsp;    }
+<i>155</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2019-06-20 06:24</div>
+</div>
+</body>
+</html>

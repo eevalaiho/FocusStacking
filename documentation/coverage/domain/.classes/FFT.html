@@ -1,0 +1,181 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: FFT</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">domain</a> ]
+</div>
+
+<h1>Coverage Summary for Class: FFT (domain)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">FFT</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/ 1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (3/ 3)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (40/ 40)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;package domain;
+<i>2</i>&nbsp;
+<i>3</i>&nbsp;import util.Complex;
+<i>4</i>&nbsp;import util.MyArrayList;
+<i>5</i>&nbsp;
+<i>6</i>&nbsp;/**
+<i>7</i>&nbsp; * Utility methods for computing Fourier transform
+<i>8</i>&nbsp; */
+<i>9</i>&nbsp;public class FFT {
+<i>10</i>&nbsp;
+<b class="fc"><i>11</i>&nbsp;    private FFT() {}</b>
+<i>12</i>&nbsp;
+<i>13</i>&nbsp;    /**
+<i>14</i>&nbsp;     * Computes 2D Fourier transform (FFT) in two steps.
+<i>15</i>&nbsp;     * First it computes the one-dimensional FFT along rows.
+<i>16</i>&nbsp;     * Then it computes the FFT of the output along columns.
+<i>17</i>&nbsp;     * @param array A matrix of doubles
+<i>18</i>&nbsp;     * @return The result as a matrix of Complex numbers
+<i>19</i>&nbsp;     */
+<i>20</i>&nbsp;    public static Complex[][] fft2(double[][] array) throws IllegalArgumentException {
+<i>21</i>&nbsp;
+<b class="fc"><i>22</i>&nbsp;        if (array.length != array[0].length)</b>
+<b class="fc"><i>23</i>&nbsp;            throw new IllegalArgumentException(&quot;Array dimensions should equal&quot;);</b>
+<i>24</i>&nbsp;
+<b class="fc"><i>25</i>&nbsp;        if (array.length % 2 != 0)</b>
+<b class="fc"><i>26</i>&nbsp;            throw new IllegalArgumentException(&quot;Array dimensions should be a power of 2&quot;);</b>
+<i>27</i>&nbsp;
+<b class="fc"><i>28</i>&nbsp;        int size = array.length;</b>
+<i>29</i>&nbsp;
+<i>30</i>&nbsp;        // Row-wise fft
+<b class="fc"><i>31</i>&nbsp;        MyArrayList&lt;Complex[]&gt; fft_rows = new MyArrayList&lt;&gt;();</b>
+<b class="fc"><i>32</i>&nbsp;        for (int i = 0; i &lt; size; i++) {</b>
+<b class="fc"><i>33</i>&nbsp;            Complex[] row = new Complex[size];</b>
+<b class="fc"><i>34</i>&nbsp;            for (int j = 0; j &lt; size; j++) {</b>
+<b class="fc"><i>35</i>&nbsp;                row[j] = new Complex(array[i][j], 0.0);</b>
+<i>36</i>&nbsp;            }
+<b class="fc"><i>37</i>&nbsp;            fft_rows.add(fft(row));</b>
+<i>38</i>&nbsp;        }
+<i>39</i>&nbsp;
+<i>40</i>&nbsp;        // Column-wise fft
+<b class="fc"><i>41</i>&nbsp;        Complex[][] value = new Complex[size][size];</b>
+<b class="fc"><i>42</i>&nbsp;        for (int j = 0; j &lt; size; j++) {</b>
+<b class="fc"><i>43</i>&nbsp;            Complex[] column = new Complex[size];</b>
+<b class="fc"><i>44</i>&nbsp;            for (int i = 0; i &lt; size; i++) {</b>
+<b class="fc"><i>45</i>&nbsp;                column[i] = fft_rows.get(i)[j];</b>
+<i>46</i>&nbsp;            }
+<b class="fc"><i>47</i>&nbsp;            Complex[] fft_column = fft(column);</b>
+<b class="fc"><i>48</i>&nbsp;            for (int i = 0; i &lt; size; i++) {</b>
+<b class="fc"><i>49</i>&nbsp;                value[i][j] = fft_column[i];</b>
+<i>50</i>&nbsp;            }
+<i>51</i>&nbsp;        }
+<i>52</i>&nbsp;
+<b class="fc"><i>53</i>&nbsp;        return value;</b>
+<i>54</i>&nbsp;    }
+<i>55</i>&nbsp;
+<i>56</i>&nbsp;    /**
+<i>57</i>&nbsp;     * Computes Fourier transform (FFT) using radix 2 Cooley-Tukey algorithm.
+<i>58</i>&nbsp;     * Copyright © 2000–2017, Robert Sedgewick and Kevin Wayne.
+<i>59</i>&nbsp;     * Ref: https://introcs.cs.princeton.edu/java/97data/FFT.java.html
+<i>60</i>&nbsp;     * @param x An array of Complex numbers
+<i>61</i>&nbsp;     * @return The fourier transformed array of Complex numbers
+<i>62</i>&nbsp;     */
+<i>63</i>&nbsp;    public static Complex[] fft(Complex[] x) {
+<b class="fc"><i>64</i>&nbsp;        int n = x.length;</b>
+<i>65</i>&nbsp;
+<i>66</i>&nbsp;        // base case
+<b class="fc"><i>67</i>&nbsp;        if (n == 1) return new Complex[] { x[0] };</b>
+<i>68</i>&nbsp;
+<i>69</i>&nbsp;        // radix 2 Cooley-Tukey FFT
+<b class="fc"><i>70</i>&nbsp;        if (n % 2 != 0) {</b>
+<b class="fc"><i>71</i>&nbsp;            throw new IllegalArgumentException(&quot;n is not a power of 2&quot;);</b>
+<i>72</i>&nbsp;        }
+<i>73</i>&nbsp;
+<i>74</i>&nbsp;        // fft of even terms
+<b class="fc"><i>75</i>&nbsp;        Complex[] even = new Complex[n/2];</b>
+<b class="fc"><i>76</i>&nbsp;        for (int k = 0; k &lt; n/2; k++) {</b>
+<b class="fc"><i>77</i>&nbsp;            even[k] = x[2*k];</b>
+<i>78</i>&nbsp;        }
+<b class="fc"><i>79</i>&nbsp;        Complex[] q = fft(even);</b>
+<i>80</i>&nbsp;
+<i>81</i>&nbsp;        // fft of odd terms
+<b class="fc"><i>82</i>&nbsp;        Complex[] odd  = even;  // reuse the array</b>
+<b class="fc"><i>83</i>&nbsp;        for (int k = 0; k &lt; n/2; k++) {</b>
+<b class="fc"><i>84</i>&nbsp;            odd[k] = x[2*k + 1];</b>
+<i>85</i>&nbsp;        }
+<b class="fc"><i>86</i>&nbsp;        Complex[] r = fft(odd);</b>
+<i>87</i>&nbsp;
+<i>88</i>&nbsp;        // combine
+<b class="fc"><i>89</i>&nbsp;        Complex[] y = new Complex[n];</b>
+<b class="fc"><i>90</i>&nbsp;        for (int k = 0; k &lt; n/2; k++) {</b>
+<b class="fc"><i>91</i>&nbsp;            double kth = -2 * k * Math.PI / n;</b>
+<b class="fc"><i>92</i>&nbsp;            Complex wk = new Complex(Math.cos(kth), Math.sin(kth));</b>
+<b class="fc"><i>93</i>&nbsp;            y[k]       = q[k].plus(wk.times(r[k]));</b>
+<b class="fc"><i>94</i>&nbsp;            y[k + n/2] = q[k].minus(wk.times(r[k]));</b>
+<i>95</i>&nbsp;        }
+<b class="fc"><i>96</i>&nbsp;        return y;</b>
+<i>97</i>&nbsp;    }
+<i>98</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2019-06-20 06:24</div>
+</div>
+</body>
+</html>

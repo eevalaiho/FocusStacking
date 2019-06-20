@@ -1,0 +1,189 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: SlidingWindow</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">domain</a> ]
+</div>
+
+<h1>Coverage Summary for Class: SlidingWindow (domain)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">SlidingWindow</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/ 1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (7/ 7)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (35/ 35)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;package domain;
+<i>2</i>&nbsp;
+<i>3</i>&nbsp;/**
+<i>4</i>&nbsp; * A class for implementing a sliding window
+<i>5</i>&nbsp; */
+<i>6</i>&nbsp;public class SlidingWindow {
+<i>7</i>&nbsp;
+<b class="fc"><i>8</i>&nbsp;    final double DEFAULT = 0.0;</b>
+<b class="fc"><i>9</i>&nbsp;    int x = 0;</b>
+<b class="fc"><i>10</i>&nbsp;    int y = 0;</b>
+<b class="fc"><i>11</i>&nbsp;    int size = 0;</b>
+<b class="fc"><i>12</i>&nbsp;    int arrayWidth = 0;</b>
+<b class="fc"><i>13</i>&nbsp;    int arrayHeight = 0;</b>
+<i>14</i>&nbsp;
+<i>15</i>&nbsp;    /**
+<i>16</i>&nbsp;     * Get current x
+<i>17</i>&nbsp;     * @return
+<i>18</i>&nbsp;     */
+<i>19</i>&nbsp;    public int getX() {
+<b class="fc"><i>20</i>&nbsp;        return x ;</b>
+<i>21</i>&nbsp;    }
+<i>22</i>&nbsp;
+<i>23</i>&nbsp;    /**
+<i>24</i>&nbsp;     * Get current y
+<i>25</i>&nbsp;     * @return
+<i>26</i>&nbsp;     */
+<i>27</i>&nbsp;    public int getY() {
+<b class="fc"><i>28</i>&nbsp;        return y;</b>
+<i>29</i>&nbsp;    }
+<i>30</i>&nbsp;
+<i>31</i>&nbsp;    /**
+<i>32</i>&nbsp;     * Construct the SlidingWindow
+<i>33</i>&nbsp;     * @param size Size of the window
+<i>34</i>&nbsp;     * @param arrayWidth Width of the array
+<i>35</i>&nbsp;     * @param arrayHeight Height of the array
+<i>36</i>&nbsp;     */
+<b class="fc"><i>37</i>&nbsp;    public SlidingWindow(int size, int arrayWidth, int arrayHeight) {</b>
+<b class="fc"><i>38</i>&nbsp;        this.size = size;</b>
+<b class="fc"><i>39</i>&nbsp;        this.arrayWidth = arrayWidth;</b>
+<b class="fc"><i>40</i>&nbsp;        this.arrayHeight = arrayHeight;</b>
+<b class="fc"><i>41</i>&nbsp;    }</b>
+<i>42</i>&nbsp;
+<i>43</i>&nbsp;    /**
+<i>44</i>&nbsp;     * Determine if there&#39;s a next value
+<i>45</i>&nbsp;     * @return True if there is
+<i>46</i>&nbsp;     */
+<i>47</i>&nbsp;    public boolean hasNext() {
+<b class="fc"><i>48</i>&nbsp;        return this.x+1 &lt; arrayWidth || this.y+1 &lt; arrayHeight;</b>
+<i>49</i>&nbsp;    }
+<i>50</i>&nbsp;
+<i>51</i>&nbsp;    /**
+<i>52</i>&nbsp;     * Slides the window forward
+<i>53</i>&nbsp;     */
+<i>54</i>&nbsp;    public void moveNext() {
+<b class="fc"><i>55</i>&nbsp;        this.x ++;</b>
+<b class="fc"><i>56</i>&nbsp;        if (this.x &gt;= arrayWidth) {</b>
+<b class="fc"><i>57</i>&nbsp;            this.x = 0;</b>
+<b class="fc"><i>58</i>&nbsp;            this.y ++;</b>
+<i>59</i>&nbsp;        }
+<b class="fc"><i>60</i>&nbsp;    }</b>
+<i>61</i>&nbsp;
+<i>62</i>&nbsp;    /**
+<i>63</i>&nbsp;     * Get the window doubly mirrored
+<i>64</i>&nbsp;     *
+<i>65</i>&nbsp;     * &lt;pre&gt;
+<i>66</i>&nbsp;     * ab    becomes    abba
+<i>67</i>&nbsp;     * cd               cddc
+<i>68</i>&nbsp;     *                  cddc
+<i>69</i>&nbsp;     *                  abba
+<i>70</i>&nbsp;     * &lt;/pre&gt;
+<i>71</i>&nbsp;     * @param array
+<i>72</i>&nbsp;     * @return A double[][] that is 4-times the size of the window
+<i>73</i>&nbsp;     */
+<i>74</i>&nbsp;    public double[][] getDoubleMirroredWindow(double[][] array) {
+<b class="fc"><i>75</i>&nbsp;        double[][] value = new double[2*size][2*size];</b>
+<b class="fc"><i>76</i>&nbsp;        for (int i = 0; i &lt; size; i++) {</b>
+<b class="fc"><i>77</i>&nbsp;            for (int j = 0; j &lt; size; j++) {</b>
+<b class="fc"><i>78</i>&nbsp;                value[i][j] = getValue(array,x-size/2+i, y-size/2+j);</b>
+<b class="fc"><i>79</i>&nbsp;                value[2*size-1-i][j] = value[i][2*size-1-j] = value[2*size-1-i][2*size-1-j] = value[i][j];</b>
+<i>80</i>&nbsp;                //System.out.println(&quot;(&quot;+i+&quot;,&quot;+j+&quot;), (&quot;+(2*size-1-i)+&quot;,&quot;+j+&quot;), (&quot;+i+&quot;,&quot;+(2*size-1-j)+&quot;), (&quot;+(2*size-1-i)+&quot;,&quot;+(2*size-1-j)+&quot;) = &quot; + value[i][j]);
+<i>81</i>&nbsp;            }
+<i>82</i>&nbsp;        }
+<b class="fc"><i>83</i>&nbsp;        return value;</b>
+<i>84</i>&nbsp;    }
+<i>85</i>&nbsp;
+<i>86</i>&nbsp;    /**
+<i>87</i>&nbsp;     * Gets a value from the array in position (x,y).
+<i>88</i>&nbsp;     * If either x or y are out of bounds will return the closest value from the array.
+<i>89</i>&nbsp;     * @param x
+<i>90</i>&nbsp;     * @param y
+<i>91</i>&nbsp;     * @return
+<i>92</i>&nbsp;     */
+<i>93</i>&nbsp;    private double getValue(double[][] array, int x, int y) {
+<b class="fc"><i>94</i>&nbsp;        if (x &lt; 0)</b>
+<b class="fc"><i>95</i>&nbsp;            x = 0;</b>
+<b class="fc"><i>96</i>&nbsp;        else if (x &gt; array[0].length - 1)</b>
+<b class="fc"><i>97</i>&nbsp;            x = array[0].length - 1;</b>
+<b class="fc"><i>98</i>&nbsp;        if (y &lt; 0)</b>
+<b class="fc"><i>99</i>&nbsp;            y = 0;</b>
+<b class="fc"><i>100</i>&nbsp;        else if (y &gt; array.length - 1)</b>
+<b class="fc"><i>101</i>&nbsp;            y = array.length - 1;</b>
+<i>102</i>&nbsp;
+<b class="fc"><i>103</i>&nbsp;        double value = array[y][x];</b>
+<b class="fc"><i>104</i>&nbsp;        return value;</b>
+<i>105</i>&nbsp;    }
+<i>106</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2019-06-20 06:24</div>
+</div>
+</body>
+</html>
