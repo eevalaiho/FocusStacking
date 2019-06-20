@@ -91,11 +91,15 @@ https://eevalaiho.github.io/FocusStacking/javadoc/util/Math.html
 
 ### MyArrayList
 
+MyArrayList -luokka on oma toteutus ArrayList -tietorakenteesta. Luokka sisältää ainoastaan keskeiset ja projektissa tarvitut ArrayList -tietorakenteen metodit ja esimerkiksi Java:n ArrayList -luokan clear() -metodia ei ole toteutettu. 
+
 #### Javadoc
 
 https://eevalaiho.github.io/FocusStacking/javadoc/util/MyArrayList.html
 
 ### Util
+
+Util-luokkaan on toteutettu staattisia apumetodeja liukulukumatriisin normalisointiin välille \[0, 1] (```normalize```) ja minimi- ja maksimiarvon laskentaan (```normalize```) sekä kompleksilukumatriisin L2-normin laskentaan (```l2Norm```). 
 
 #### Javadoc
 
