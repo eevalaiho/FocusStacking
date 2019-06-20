@@ -1,24 +1,23 @@
 # Toteutus
 
-## Ohjelman rakenne
-
-### Oletuspaketti
+## Oletuspaketti
 
 Oletuspakettiin sisältyy kaksi luokkaa: pääohjelmaluokka <a href="#Main">```Main```</a> ja ohjelman varsinaisen toiminnallisuuden toteuttava <a href="#FocusStacking">```FocusStacking```</a> -luokka. 
 
 <a name="Main"></a>
-#### Main.class
+### Main.class
 
 Main-luokkaan on toteutettu ohjemakutsuun vastaava oletusmetodi ```main``` ja sen lisäksi metodeja parametrien käsittelyyn (```parseArguments``` ja ```argumentsToString```) sekä ohjelman varsinaisen toiminnallisuuden käynnistävä ```makeImageStack``` -metodi. 
 
 Pääohjelman ```main``` kulku on kuvattu seuraavassa kaaviossa:
+
 <a name="paaohjelma"></a>
 <img src="./diagrams/main.png" alt="Main program" width="250px"/>
 
 Luokkaan on tuotu ohjelman ulkopuolisia kirjastoja ```java.io.IOException``` ohjelman virheiden käsittelyä ja hallintaa varten  sekä ```java.time.LocalDateTime``` uloskirjoitettavan tiedoston uniikkia nimeämistä varten.
 
 <a name="FocusStacking"></a>
-#### FocusStacking.class
+### FocusStacking.class
 
 FocusStacking-luokkaan on toteutettu metodeja kuvatiedostojen lataamiseen ja tallentamiseen (```loadImages```, ```saveImages```), kuvien tarkimpien pikselien laskemiseen (```computeSharpestPixels```) ja tarkimpien pikselien matriisin tulostamiseen ohjelman toiminnallisuuden testaamista ja todentamista varten (```printSharpestPixelIndexes```).
 
@@ -30,10 +29,10 @@ Luokkaan on tuotu ohjelman ulkopuolisia kirjastoja ```java.io.IOException``` ohj
 
 Luokkaan on tuotu ohjelman ulkopuolisia kirjastoja ```java.io.IOException``` ohjelman virheiden käsittelyä ja hallintaa varten.
 
-### IO
+## IO
 
-### Util
+## Util
 
-### Math
+## Math
 
 
