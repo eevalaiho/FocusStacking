@@ -19,7 +19,6 @@ Pääohjelman ```main``` kulku on kuvattu seuraavassa kaaviossa:
 Luokkaan on tuotu ulkopuolisia kirjastoja ```java.io.IOException``` ohjelman virheiden käsittelyä ja hallintaa varten  sekä ```java.time.LocalDateTime``` uloskirjoitettavan tiedoston uniikkia nimeämistä varten.
 
 #### Javadoc
-
 https://eevalaiho.github.io/FocusStacking/javadoc/Main.html
 
 <a name="FocusStacking"></a>
@@ -36,7 +35,6 @@ Metodi ```computeSharpestPixels``` sisältää harjoitustyön ydintoiminnallisuu
 Luokkaan on tuotu projektin ulkopuolisia kirjastoja ```java.io.IOException``` ohjelman virheiden käsittelyä ja hallintaa varten.
 
 #### Javadoc
-
 https://eevalaiho.github.io/FocusStacking/javadoc/FocusStacking.html
 
 ## Domain
@@ -44,36 +42,42 @@ https://eevalaiho.github.io/FocusStacking/javadoc/FocusStacking.html
 ### FFT
 
 #### Javadoc
-
 https://eevalaiho.github.io/FocusStacking/javadoc/domain/FFT.html
 
 ### SlidingWindow
 
 #### Javadoc
-
 https://eevalaiho.github.io/FocusStacking/javadoc/domain/SlidingWindow.html
 
 ## IO
 
 ### MyImage
 
-#### Javadoc
+MyImage -luokka on yksittäisen kuvan representaatio. Luokkaa käytetään IO-kirjaston sisäisesti MyImageIO -luokasta.
 
+#### Ulkopuoliset kirjastot
+
+Luokkaan on tuotu projektin ulkopuolisia kirjastoja ```javax.imageio.ImageIO```, ```java.awt.image.BufferedImage``` ja ```java.io.File``` kuvien lataamista, käsittelyä ja tallentamista varten sekä ```java.io.IOException``` ohjelman virheiden käsittelyä ja hallintaa varten.
+
+#### Javadoc
 https://eevalaiho.github.io/FocusStacking/javadoc/io/MyImage.html
 
 ### MyImageIO
 
+MyImageIO -luokan tehtävänä on tarjota FocusStacking-luokan tarvitsemat metodit kuvien lataamiseen, esikäsittelyyn, niiden tietojen kyselyyn ja tarkennetun kuvan tallentamiseen. 
+
+#### Ulkopuoliset kirjastot
+
+Luokkaan on tuotu projektin ulkopuolisia kirjastoja ```javax.imageio.ImageIO```, ```java.awt.image.BufferedImage``` ja ```java.io.File``` kuvien lataamista, käsittelyä ja tallentamista varten sekä ```java.io.IOException``` ohjelman virheiden käsittelyä ja hallintaa varten.
+
 #### Javadoc
-
 https://eevalaiho.github.io/FocusStacking/javadoc/io/MyImageIO.html
-
 
 ### RGB
 
 RGB -enumeraatio on tietorakenne RGB-kuvan värikanavien käsittelyä varten. Enumeraatioon on toteutettu staattiset metodit värikanavan arvon irrottamiseen RGB:n integer-esityksestä (```getChannelValue```) ja värin merkkijonoesityksen parserointiin (```parse```). 
 
 #### Javadoc
-
 https://eevalaiho.github.io/FocusStacking/javadoc/io/RGB.html
 
 
@@ -84,7 +88,6 @@ https://eevalaiho.github.io/FocusStacking/javadoc/io/RGB.html
 Complex -luokka on oma toteutus Complex -tietorakenteesta. Luokka sisältää ainoastaan keskeiset ja projektissa tarvitut Complex -tietorakenteen metodit. Toteutuksessa on käytetty referenssinä Robert Sedgewick:n ja Kevin Wayne:n toteutusta https://introcs.cs.princeton.edu/java/32class/Complex.java.html. 
 
 #### Javadoc
-
 https://eevalaiho.github.io/FocusStacking/javadoc/util/Complex.html
 
 ### Math
@@ -92,7 +95,6 @@ https://eevalaiho.github.io/FocusStacking/javadoc/util/Complex.html
 Math-luokkaan on toteutettu apumetodeja matemaattisten funktioiden laskemiseen: neliöjuuri (```sqrt```), itseisarvo  (```abs```) ja hypotenuusa (```hypot```). 
 
 #### Javadoc
-
 https://eevalaiho.github.io/FocusStacking/javadoc/util/Math.html
 
 ### MyArrayList
@@ -100,7 +102,6 @@ https://eevalaiho.github.io/FocusStacking/javadoc/util/Math.html
 MyArrayList -luokka on oma toteutus ArrayList -tietorakenteesta. Luokka sisältää ainoastaan keskeiset ja projektissa tarvitut ArrayList -tietorakenteen metodit ja esimerkiksi Java:n ArrayList -luokan clear() -metodia ei ole toteutettu. 
 
 #### Javadoc
-
 https://eevalaiho.github.io/FocusStacking/javadoc/util/MyArrayList.html
 
 ### Util
@@ -108,5 +109,4 @@ https://eevalaiho.github.io/FocusStacking/javadoc/util/MyArrayList.html
 Util-luokkaan on toteutettu staattisia apumetodeja liukulukumatriisin normalisointiin välille \[0, 1] (```normalize```) ja minimi- ja maksimiarvon laskentaan (```normalize```) sekä kompleksilukumatriisin L2-normin laskentaan (```l2Norm```). 
 
 #### Javadoc
-
 https://eevalaiho.github.io/FocusStacking/javadoc/util/Util.html
