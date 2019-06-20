@@ -70,7 +70,7 @@ https://eevalaiho.github.io/FocusStacking/javadoc/io/MyImageIO.html
 
 ### RGB
 
-RGB -enumeraatio on tietorakenne RGB-kuvan värikanavien käsittelyä varten. Enumeraatioon on toteutetu metodit värikanavan arvon 
+staattiset RGB -enumeraatio on tietorakenne RGB-kuvan värikanavien käsittelyä varten. Enumeraatioon on toteutettu metodit värikanavan arvon irrottamiseen Javan RGB:n integer-esityksestä (```getChannelValue```) ja värin merkkijonoesityksen parserointiin (```parse```). 
 
 #### Javadoc
 
