@@ -70,6 +70,8 @@ https://eevalaiho.github.io/FocusStacking/javadoc/io/MyImageIO.html
 
 ### RGB
 
+RGB -enumeraatio on tietorakenne RGB-kuvan värikanavien käsittelyä varten. Enumeraatioon on toteutetu metodit värikanavan arvon 
+
 #### Javadoc
 
 https://eevalaiho.github.io/FocusStacking/javadoc/io/RGB.html
