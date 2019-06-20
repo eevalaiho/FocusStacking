@@ -79,6 +79,8 @@ https://eevalaiho.github.io/FocusStacking/javadoc/io/RGB.html
 
 ### Complex
 
+Complex -luokka on oma toteutus Complex -tietorakenteesta. Luokka sisältää ainoastaan keskeiset ja projektissa tarvitut Complex -tietorakenteen metodit. Luokan toteutuksessa on käytetty referenssinä Robert Sedgewick:n ja Kevin Wayne:n toteutusta https://introcs.cs.princeton.edu/java/32class/Complex.java.html. 
+
 #### Javadoc
 
 https://eevalaiho.github.io/FocusStacking/javadoc/util/Complex.html
