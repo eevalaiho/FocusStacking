@@ -9,7 +9,7 @@ Olen:
 * Testannut ja tehnyt pieniä korjauksia
 * Päivittänyt dokumentaatiota
 
-Ajankäyttö: 8 h
+Ajankäyttö: 10 h
 
 ## Miten ohjelma on edistynyt?
 
