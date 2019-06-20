@@ -41,12 +41,14 @@ https://eevalaiho.github.io/FocusStacking/javadoc/FocusStacking.html
 
 ### FFT
 
+FFT-luokkaan on toteutettu metodit yksi- ```fft``` ja kaksiulotteisen ```fft2``` Fourier-muunnoksen laskemiseen. Yksiulotteinen Fourier-muunnos lasketaan Cooley-Tukey algoritmilla ja toteutuksen referenssinä on käytetty Robert Sedgewick ja Kevin Wayne:n toteutusta: https://introcs.cs.princeton.edu/java/97data/FFT.java.html. Kaksiulotteinen Fourier-muunnos lasketaan siten, että ensin lasketaan yksiulotteinen Fourier-muunnos riveittäin ja sen jälkeen tuloksena saadulle kompleksilukumatriisille yksiulotteinen Fourier-muunnos sarakkeittain.
+
 #### Javadoc
 https://eevalaiho.github.io/FocusStacking/javadoc/domain/FFT.html
 
 ### SlidingWindow
 
-SlidindWindow -luokkaan on toteutettu FocusStacking -algoritmin käyttämä ikkunatoiminnallisuus. Luokan instanssi instantioidaan antamalla ikkunan koko ja kuvapistematriisin leveys ja korkeus. Ikkunaa voi siirtää eteenpäin ```hasNext``` ja ```moveNext``` -metodien avulla (ainoastaan eteenpäin siirtyminen on tarpeellista). Fourier-muunnoksessa tarvittava kahteen suuntaan peilattu ikkuna saadaan metodilla ```getDoublyMirroredWindow```. 
+SlidindWindow-luokkaan on toteutettu FocusStacking -algoritmin käyttämä ikkunatoiminnallisuus. Luokan instanssi instantioidaan antamalla ikkunan koko ja kuvapistematriisin leveys ja korkeus. Ikkunaa voi siirtää eteenpäin ```hasNext``` ja ```moveNext``` -metodien avulla (ainoastaan eteenpäin siirtyminen on tarpeellista). Fourier-muunnoksessa tarvittava kahteen suuntaan peilattu ikkuna saadaan metodilla ```getDoublyMirroredWindow```. 
 
 #### Javadoc
 https://eevalaiho.github.io/FocusStacking/javadoc/domain/SlidingWindow.html
@@ -77,7 +79,7 @@ https://eevalaiho.github.io/FocusStacking/javadoc/io/MyImageIO.html
 
 ### RGB
 
-RGB -enumeraatio on tietorakenne RGB-kuvan värikanavien käsittelyä varten. Enumeraatioon on toteutettu staattiset metodit värikanavan arvon irrottamiseen RGB:n integer-esityksestä (```getChannelValue```) ja värin merkkijonoesityksen parserointiin (```parse```). 
+RGB-enumeraatio on tietorakenne RGB-kuvan värikanavien käsittelyä varten. Enumeraatioon on toteutettu staattiset metodit värikanavan arvon irrottamiseen RGB:n integer-esityksestä (```getChannelValue```) ja värin merkkijonoesityksen parserointiin (```parse```). 
 
 #### Javadoc
 https://eevalaiho.github.io/FocusStacking/javadoc/io/RGB.html
@@ -101,7 +103,7 @@ https://eevalaiho.github.io/FocusStacking/javadoc/util/Math.html
 
 ### MyArrayList
 
-MyArrayList -luokka on oma toteutus ArrayList -tietorakenteesta. Luokka sisältää ainoastaan keskeiset ja projektissa tarvitut ArrayList -tietorakenteen metodit ja esimerkiksi Java:n ArrayList -luokan clear() -metodia ei ole toteutettu. 
+MyArrayList-luokka on oma toteutus ArrayList -tietorakenteesta. Luokka sisältää ainoastaan keskeiset ja projektissa tarvitut ArrayList -tietorakenteen metodit ja esimerkiksi Java:n ArrayList -luokan clear() -metodia ei ole toteutettu. 
 
 #### Javadoc
 https://eevalaiho.github.io/FocusStacking/javadoc/util/MyArrayList.html
