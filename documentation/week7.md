@@ -1,17 +1,19 @@
 
-# Viikkoraportti 7 (19.6.2019)
+# Viikkoraportti 7 (20.6.2019)
 
 ## Mitä olen tehnyt tällä viikolla?
 
 Olen:
 
 * Kääntänyt ohjelman
-* Testannut
+* Testannut ja tehnyt pieniä korjauksia
 * Päivittänyt dokumentaatiota
 
-Ajankäyttö: 2 h
+Ajankäyttö: 10 h
 
 ## Miten ohjelma on edistynyt?
+
+Eipä juuri. Pieniä viilauksia, kun käänsin jar:ksi.
 
 ## Mitä opin tällä viikolla / tänään?
 
