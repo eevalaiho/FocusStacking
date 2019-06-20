@@ -8,7 +8,7 @@ $ cd [download-location]/FocusStacking/application
 ```
 Ohjelma käynnistetään komennolla:
 ```
-java -jar build/libs/FocusStacking.jar --fileNames 30x20-kaunokki-left-blur.png 30x20-kaunokki-right-blur.png 30x20-kaunokki-top-blur.png
+java -jar FocusStacking.jar --fileNames 30x20-kaunokki-left-blur.png 30x20-kaunokki-right-blur.png 30x20-kaunokki-top-blur.png
 ```
 Ohjelma olettaa, että ```fileNames``` -parametrillä välitetyt tiedostot löytyvät alihakemistosta ```application/src/main/resources```. 
 
@@ -16,7 +16,7 @@ Ohjelma olettaa, että ```fileNames``` -parametrillä välitetyt tiedostot löyt
 
 Debug-tila on hyödyllinen ohjelman toiminnan todentamisessa. Se asetetaan päälle ```--debug``` tai ```-d``` -parametreilla:
 ```
-java -jar build/libs/FocusStacking.jar --debug
+java -jar FocusStacking.jar --debug
 ```
 Debug-tilassa ohjelma tulostaa konsoliin enemmän tietoa: ohjelman suorituksessa käytetyt parametrit ja tarkimpien pikselien valinnassa käytetyn matriisin.
 
@@ -24,11 +24,11 @@ Debug-tilassa ohjelma tulostaa konsoliin enemmän tietoa: ohjelman suorituksessa
 
 Fourier-muunnoksessa käytetyn ikkunan koko voidaan asettaa parametrilla ```--windowSizes``` tai ```-w```. Lukuarvon tulee olla kahden potenssi. 
 ```
-java -jar build/libs/FocusStacking.jar --windowSizes 16
+java -jar FocusStacking.jar --windowSizes 16 -d
 ```
 Ikkunakokoja voi määritellä useita, jolloin tarkan kuvan laskeminen suoritetaan jokaisella annetulla kuvakoolla erikseen.
 ```
-java -jar build/libs/FocusStacking.jar --windowSizes 16 32
+java -jar FocusStacking.jar --windowSizes 16 32 -d
 ```
 
 Ikkunan koko vaikuttaa ohjelman suoritusaikaan polynomisesti, joten ohjelman suoritus suuremmilla ikkunakooilla (64, 128, ...) on hidasta.  
@@ -39,20 +39,13 @@ Jos ikkunan kokoa ei ole annettu, käytetään oletusarvoa 16.
 
 Fourier-muunnoksessa käytettävä värikanava voidaan asettaa parametrilla ```--channels``` tai ```-c```. Arvon tulee olla merkkijono "RED", "GREEN" tai "BLUE". 
 ```
-java -jar build/libs/FocusStacking.jar --channels RED
+java -jar FocusStacking.jar --channels RED -d
 ```
 Värikanavia voi määritellä useita, jolloin tarkan kuvan laskeminen suoritetaan jokaisella annetulla värikanavalla erikseen.
 ```
-java -jar build/libs/FocusStacking.jar --channels RED BLUE
+java -jar FocusStacking.jar --channels RED BLUE -d
 ```
-Jos värikanavaa kokoa ei ole annettu, käytetään oletusarvoa BLUE.
-
-### Tarkan kuvatiedoston nimen formaatti
-
-Ikkunan koko 
-
-     *             <li>-o, --outputFileNameFormat     to set the formatting string of the output file<br />If none is provided a default formatting string is used. Should contain format instruction %s for channel name and %d for window size. Example output_%s_%d.png</li>
-     
+Jos värikanavaa kokoa ei ole annettu, käytetään oletusarvoa BLUE.    
 
 
 ## JavaDoc
