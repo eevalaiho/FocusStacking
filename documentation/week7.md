@@ -6,7 +6,7 @@
 Olen:
 
 * Kääntänyt ohjelman
-* Testannut
+* Testannut ja tehnyt pieniä korjauksia
 * Päivittänyt dokumentaatiota
 
 Ajankäyttö: 8 h
