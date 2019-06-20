@@ -14,6 +14,8 @@ Pääohjelman ```main``` kulku on kuvattu seuraavassa kaaviossa:
 <a name="paaohjelma"></a>
 <img src="./diagrams/main.png" alt="Main program" width="250px"/>
 
+Javadoc: <a href="https://eevalaiho.github.io/FocusStacking/javadoc/Main.html">https://eevalaiho.github.io/FocusStacking/javadoc/Main.html</a>
+
 #### Ulkopuoliset kirjastot
 
 Luokkaan on tuotu ulkopuolisia kirjastoja ```java.io.IOException``` ohjelman virheiden käsittelyä ja hallintaa varten  sekä ```java.time.LocalDateTime``` uloskirjoitettavan tiedoston uniikkia nimeämistä varten.
