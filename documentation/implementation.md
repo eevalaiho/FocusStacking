@@ -85,6 +85,8 @@ https://eevalaiho.github.io/FocusStacking/javadoc/util/Complex.html
 
 ### Math
 
+Math-luokkaan on toteutettu apumetodeja matemaattisten funktioiden laskemiseen: neliöjuuri (```sqrt```), itseisarvo  (```abs```) ja hypotenuusa (```hypot```). 
+
 #### Javadoc
 
 https://eevalaiho.github.io/FocusStacking/javadoc/util/Math.html
