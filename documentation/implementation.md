@@ -14,7 +14,9 @@ Pääohjelman ```main``` kulku on kuvattu seuraavassa kaaviossa:
 <a name="paaohjelma"></a>
 <img src="./diagrams/main.png" alt="Main program" width="250px"/>
 
-Luokkaan on tuotu ohjelman ulkopuolisia kirjastoja ```java.io.IOException``` ohjelman virheiden käsittelyä ja hallintaa varten  sekä ```java.time.LocalDateTime``` uloskirjoitettavan tiedoston uniikkia nimeämistä varten.
+#### Ulkopuoliset kirjastot
+
+Luokkaan on tuotu ulkopuolisia kirjastoja ```java.io.IOException``` ohjelman virheiden käsittelyä ja hallintaa varten  sekä ```java.time.LocalDateTime``` uloskirjoitettavan tiedoston uniikkia nimeämistä varten.
 
 <a name="FocusStacking"></a>
 ### FocusStacking.class
@@ -25,9 +27,9 @@ Metodi ```computeSharpestPixels``` sisältää harjoitustyön ydintoiminnallisuu
 <a name="tarkimman"></a>
 <img src="./diagrams/sharpest.png" alt="Compute sharpest pixels" width="500px"/>
 
-Luokkaan on tuotu ohjelman ulkopuolisia kirjastoja ```java.io.IOException``` ohjelman virheiden käsittelyä ja hallintaa varten  sekä ```java.time.LocalDateTime``` uloskirjoitettavan tiedoston uniikkia nimeämistä varten.
+#### Ulkopuoliset kirjastot
 
-Luokkaan on tuotu ohjelman ulkopuolisia kirjastoja ```java.io.IOException``` ohjelman virheiden käsittelyä ja hallintaa varten.
+Luokkaan on tuotu projektin ulkopuolisia kirjastoja ```java.io.IOException``` ohjelman virheiden käsittelyä ja hallintaa varten.
 
 ## IO
 
