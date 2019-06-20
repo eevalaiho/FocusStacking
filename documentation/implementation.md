@@ -20,7 +20,7 @@ Luokkaan on tuotu ulkopuolisia kirjastoja ```java.io.IOException``` ohjelman vir
 
 #### Javadoc
 
-<a href="https://eevalaiho.github.io/FocusStacking/javadoc/Main.html">https://eevalaiho.github.io/FocusStacking/javadoc/Main.html</a>
+https://eevalaiho.github.io/FocusStacking/javadoc/Main.html
 
 <a name="FocusStacking"></a>
 ### FocusStacking.class
@@ -37,8 +37,7 @@ Luokkaan on tuotu projektin ulkopuolisia kirjastoja ```java.io.IOException``` oh
 
 #### Javadoc
 
-[https://eevalaiho.github.io/FocusStacking/javadoc/FocusStacking.html]
-<a href="https://eevalaiho.github.io/FocusStacking/javadoc/FocusStacking.html">https://eevalaiho.github.io/FocusStacking/javadoc/FocusStacking.html</a>
+https://eevalaiho.github.io/FocusStacking/javadoc/FocusStacking.html
 
 ## Domain
 
