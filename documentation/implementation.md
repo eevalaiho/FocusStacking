@@ -31,10 +31,27 @@ Metodi ```computeSharpestPixels``` sisältää harjoitustyön ydintoiminnallisuu
 
 Luokkaan on tuotu projektin ulkopuolisia kirjastoja ```java.io.IOException``` ohjelman virheiden käsittelyä ja hallintaa varten.
 
+## Domain
+
+### FFT
+
+### SlidingWindow
+
 ## IO
+
+### MyImage
+
+### MyImageIO
+
+### RGB
 
 ## Util
 
-## Math
+### Complex
 
+### Math
+
+### MyArrayList
+
+### Util
 
