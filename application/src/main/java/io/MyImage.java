@@ -36,7 +36,11 @@ public class MyImage {
     public MyImage(String path) throws IOException {
         // Load the image
         BufferedImage image = null;
-        image = ImageIO.read(new File(path));
+        try {
+            image = ImageIO.read(new File(path));
+        } catch (IOException e) {
+            throw new IOException("Trying to read image " + path, e);
+        }
         this.width = image.getWidth();
         this.height = image.getHeight();
         this.imageType = image.getType();

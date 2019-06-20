@@ -12,7 +12,7 @@ public class Main {
     static String[] fileNames = null;
     static int[] windowSizes = null;
     static RGB[] channels = null;
-    static boolean debug = true;
+    static boolean debug = false;
     static String outputFileNameFormat = "";
 
     private Main() {}
@@ -27,29 +27,41 @@ public class Main {
      *             <li>-o, --outputFileNameFormat     to set the formatting string of the output file<br />If none is provided a default formatting string is used. Should contain format instruction %s for channel name and %d for window size. Example output_%s_%d.png</li>
      *  </ul>
      */
-    public static void main(String[] args) throws IllegalAccessException, InstantiationException, IOException {
+    public static void main(String[] args) throws IOException {
 
         System.out.println("Started");
 
-        if (args != null && args.length > 0)
+        if (args != null && args.length > 0) {
             parseArguments(args);
+        }
 
-        if (debug) {
-            if (fileNames == null) {
+        if (fileNames == null) {
+            if (debug) {
                 //fileNames = new String[]{"150x100-koralli-mirrored-top-blur.png", "150x100-koralli-mirrored-left-blur.png", "150x100-koralli-mirrored-right-blur.png"};
                 //fileNames = new String[]{"300x200-kaunokki-top-blur.png", "300x200-kaunokki-left-blur.png", "300x200-kaunokki-right-blur.png"};
                 fileNames = new String[]{"30x20-kaunokki-top-blur.png", "30x20-kaunokki-left-blur.png", "30x20-kaunokki-right-blur.png"};
             }
-            if (windowSizes == null)
-                windowSizes = new int[]{16,32};
-            if (channels == null)
-                channels = new RGB[]{RGB.BLUE, RGB.GREEN, RGB.RED};
+            else {
+                System.out.println("File names not provided, exiting");
+                return;
+            }
+        }
+        if (windowSizes == null) {
+            System.out.println("Window sizes not provided, using 16");
+            windowSizes = new int[]{16};
+        }
+        if (channels == null) {
+            System.out.println("Channels not provided, using BLUE");
+            channels = new RGB[]{RGB.BLUE};
         }
 
+        if (debug)
+            System.out.println(argumentsToString());
+
         // Main program loop
-        for (int windowSize: windowSizes) {
+        for (int windowSize : windowSizes) {
             System.out.println("Using window of size " + windowSize);
-            for (RGB channel: channels) {
+            for (RGB channel : channels) {
                 System.out.println("Stacking channel " + channel.name());
                 if (outputFileNameFormat == "")
                     outputFileNameFormat = "output_%s_%d_" + LocalDateTime.now().toString() + ".png";
@@ -82,7 +94,7 @@ public class Main {
      * @throws InstantiationException
      * @throws IllegalAccessException
      */
-    private static void parseArguments(String[] args) throws InstantiationException, IllegalAccessException {
+    private static void parseArguments(String[] args) throws IllegalArgumentException {
 
         MyArrayList<String> list_fileNames = new MyArrayList<>();
         MyArrayList<RGB> list_channels = new MyArrayList<>();
@@ -110,7 +122,7 @@ public class Main {
                             channels[k] = list_channels.get(k);
                         break;
                     case "-w":
-                    case "--windowSize":
+                    case "--windowSizes":
                         for (int j = i+1; j < args.length; j++) {
                             if (args[j].startsWith("-")) {
                                 break;
@@ -140,13 +152,43 @@ public class Main {
                         outputFileNameFormat = args[i+1];
                         i++;
                         break;
-                    //default:
-                    //   throw new IllegalArgumentException("Illegal argument " + args[i]);
                 }
             }
             else {
                 throw new IllegalArgumentException("Illegal argument " + args[i]);
             }
         }
+    }
+
+    /**
+     * Concatenate program parameters as a String
+     * For debugging purposes
+     * @return A string of parametes
+     */
+    private static String argumentsToString() {
+        String value = "Running the program with parameters:\n";
+
+        value += "File names: [";
+        for (String x : fileNames) {
+            value += x + ", ";
+        }
+        value = value.substring(0, value.length()-2) + "]\n";
+
+        value += "Channels: [";
+        for (RGB x : channels) {
+            value += x + ", ";
+        }
+        value = value.substring(0, value.length()-2) + "]\n";
+
+        value += "Window sizes: [";
+        for (int x : windowSizes) {
+            value += x + ", ";
+        }
+        value = value.substring(0, value.length()-2) + "]\n";
+
+        value += "Output file name format: " + outputFileNameFormat;
+        value += "\nDebug: " + debug;
+
+        return value;
     }
 }

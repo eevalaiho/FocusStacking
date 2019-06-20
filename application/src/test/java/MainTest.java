@@ -15,7 +15,7 @@ public class MainTest {
 
 
     @Test
-    public void main() throws IllegalAccessException, InvocationTargetException, InstantiationException, NoSuchMethodException, NoSuchFieldException {
+    public void main() throws IllegalAccessException, InvocationTargetException, InstantiationException, NoSuchMethodException {
 
         String[] args = new String[] {"-c", "RED", "-w", "8", "-f", "30x20-kaunokki-top-blur.png", "30x20-kaunokki-left-blur.png", "30x20-kaunokki-right-blur.png", "-o", "../../test/resources/test_output_%s_%d.png", "-d"};
         Object[] args2 = {args};
@@ -34,14 +34,40 @@ public class MainTest {
 
         String[] arr_outStr = outContent.toString().split("\n");
 
-        assertEquals(25, arr_outStr.length);
-        assertEquals("Using window of size 8", arr_outStr[1]);
-        assertEquals("Stacking channel RED", arr_outStr[2]);
-        assertEquals("2,2,2,2,2,2,0,1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0", arr_outStr[3]);
-        assertEquals("1,1,1,1,1,1,1,1,2,2,2,2,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0", arr_outStr[22]);
+        assertEquals(31, arr_outStr.length);
+        assertEquals("Using window of size 8", arr_outStr[7]);
+        assertEquals("Stacking channel RED", arr_outStr[8]);
+        assertEquals("2,2,2,2,2,2,0,1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0", arr_outStr[9]);
+        assertEquals("1,1,1,1,1,1,1,1,2,2,2,2,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0", arr_outStr[28]);
 
 
         assertTrue((new File("./src/test/resources/", "test_output_RED_8.png")).exists());
+    }
+
+    @Test
+    public void main_withDebug() throws IllegalAccessException, InvocationTargetException, InstantiationException, NoSuchMethodException {
+        String[] args = new String[] {"-d"};
+        Object[] args2 = {args};
+
+        ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(outContent));
+
+        Constructor ctor = Main.class.getDeclaredConstructors()[0];
+        ctor.setAccessible(true);
+        Main main = (Main)ctor.newInstance();
+
+        // Call main method
+        TestUtilities.callPrivateMethod(main.getClass(), new Class[] { args.getClass() }, "main", main, args2);
+
+        System.setOut(System.out);
+
+        String[] arr_outStr = outContent.toString().split("\n");
+
+        assertEquals(33, arr_outStr.length);
+        assertEquals("Window sizes not provided, using 16", arr_outStr[1]);
+        assertEquals("Channels not provided, using BLUE", arr_outStr[2]);
+        //assertEquals("2,2,2,2,2,2,0,1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0", arr_outStr[11]);
+        //assertEquals("1,1,1,1,1,1,1,1,2,2,2,2,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0", arr_outStr[30]);
     }
 
     @Test
