@@ -63,7 +63,7 @@ public class FocusStacking {
             for (int k = 0; k < n; k++) {
 
                 // Get the double-mirrored window ()
-                double[][] window = slidingWindow.getDoubleMirroredWindow(channels.get(k));
+                double[][] window = slidingWindow.getDoublyMirroredWindow(channels.get(k));
                 int i = slidingWindow.getX();
                 int j = slidingWindow.getY();
 

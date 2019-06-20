@@ -1,10 +1,11 @@
 package io;
 
-import util.MyArrayList;
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+
+import util.MyArrayList;
 
 /**
  * A class for loading and saving images

@@ -71,7 +71,7 @@ public class SlidingWindow {
      * @param array
      * @return A double[][] that is 4-times the size of the window
      */
-    public double[][] getDoubleMirroredWindow(double[][] array) {
+    public double[][] getDoublyMirroredWindow(double[][] array) {
         double[][] value = new double[2*size][2*size];
         for (int i = 0; i < size; i++) {
             for (int j = 0; j < size; j++) {

@@ -56,7 +56,7 @@ public class SlidingWindowTest {
 
         // Test
         double[][] expected = new double[][]{{1, 1, 1, 1}, {1, 1, 1, 1}, {1, 1, 1, 1}, {1, 1, 1, 1}};
-        assertArrayEquals(expected, window.getDoubleMirroredWindow(array));
+        assertArrayEquals(expected, window.getDoublyMirroredWindow(array));
     }
 
     @Test
@@ -67,7 +67,7 @@ public class SlidingWindowTest {
         for (int i = 0; i < 5; i++)
             window.moveNext();
         double[][] expected2 = new double[][]{{1, 2, 2, 1}, {2, 3, 3, 2}, {2, 3, 3, 2}, {1, 2, 2, 1}};
-        assertArrayEquals(expected2, window.getDoubleMirroredWindow(array));
+        assertArrayEquals(expected2, window.getDoublyMirroredWindow(array));
     }
 
     @Test
@@ -78,7 +78,7 @@ public class SlidingWindowTest {
         for (int i = 0; i < 11; i++)
             window.moveNext();
         double[][] expected = new double[][]{{4, 5, 5, 4}, {5, 6, 6, 5}, {5, 6, 6, 5}, {4, 5, 5, 4}};
-        double[][] actual = window.getDoubleMirroredWindow(array);
+        double[][] actual = window.getDoublyMirroredWindow(array);
         assertArrayEquals(expected, actual);
     }
 
