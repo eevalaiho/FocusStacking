@@ -45,13 +45,13 @@ https://eevalaiho.github.io/FocusStacking/javadoc/FocusStacking.html
 
 #### Javadoc
 
-https://eevalaiho.github.io/FocusStacking/javadoc/FFT.html
+https://eevalaiho.github.io/FocusStacking/javadoc/domain/FFT.html
 
 ### SlidingWindow
 
 #### Javadoc
 
-https://eevalaiho.github.io/FocusStacking/javadoc/SlidingWindow.html
+https://eevalaiho.github.io/FocusStacking/javadoc/domain/SlidingWindow.html
 
 ## IO
 
@@ -59,20 +59,20 @@ https://eevalaiho.github.io/FocusStacking/javadoc/SlidingWindow.html
 
 #### Javadoc
 
-https://eevalaiho.github.io/FocusStacking/javadoc/MyImage.html
+https://eevalaiho.github.io/FocusStacking/javadoc/io/MyImage.html
 
 ### MyImageIO
 
 #### Javadoc
 
-https://eevalaiho.github.io/FocusStacking/javadoc/MyImageIO.html
+https://eevalaiho.github.io/FocusStacking/javadoc/io/MyImageIO.html
 
 
 ### RGB
 
 #### Javadoc
 
-https://eevalaiho.github.io/FocusStacking/javadoc/RGB.html
+https://eevalaiho.github.io/FocusStacking/javadoc/io/RGB.html
 
 
 ## Util
@@ -81,22 +81,22 @@ https://eevalaiho.github.io/FocusStacking/javadoc/RGB.html
 
 #### Javadoc
 
-https://eevalaiho.github.io/FocusStacking/javadoc/Complex.html
+https://eevalaiho.github.io/FocusStacking/javadoc/util/Complex.html
 
 ### Math
 
 #### Javadoc
 
-https://eevalaiho.github.io/FocusStacking/javadoc/Math.html
+https://eevalaiho.github.io/FocusStacking/javadoc/util/Math.html
 
 ### MyArrayList
 
 #### Javadoc
 
-https://eevalaiho.github.io/FocusStacking/javadoc/MyArrayList.html
+https://eevalaiho.github.io/FocusStacking/javadoc/util/MyArrayList.html
 
 ### Util
 
 #### Javadoc
 
-https://eevalaiho.github.io/FocusStacking/javadoc/Util.html
+https://eevalaiho.github.io/FocusStacking/javadoc/util/Util.html
