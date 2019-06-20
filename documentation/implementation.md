@@ -1,10 +1,21 @@
 # Toteutus
 
+## Ohjelman rakenne
+
+### Pääohjelma
+
+
+
+### IO
+
+### Util
+
+### Math
+
+
 ## Ohjelman kulku
 
-Ohjelman kulku on kuvattu seuraavissa kaavioissa.
-* <a href="#paaohjelma">Pääohjelma</a>
-* <a href="#tarkin">Tarkimman pikselin laskeminen</a>
+Ohjelman kulku (pääohjelma, tarkimman pikselin laskeminen) on kuvattu pääpiirteittäin seuraavissa kaavioissa.
 
 <a name="paaohjelma"></a>
 ### Pääohjelma
