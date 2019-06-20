@@ -24,11 +24,11 @@ Debug-tilassa ohjelma tulostaa konsoliin enemmän tietoa: ohjelman suorituksessa
 
 Fourier-muunnoksessa käytetyn ikkunan koko voidaan asettaa parametrilla ```--windowSizes``` tai ```-w```. Lukuarvon tulee olla kahden potenssi. 
 ```
-java -jar FocusStacking.jar --windowSizes 16
+java -jar FocusStacking.jar --windowSizes 16 -d
 ```
 Ikkunakokoja voi määritellä useita, jolloin tarkan kuvan laskeminen suoritetaan jokaisella annetulla kuvakoolla erikseen.
 ```
-java -jar FocusStacking.jar --windowSizes 16 32
+java -jar FocusStacking.jar --windowSizes 16 32 -d
 ```
 
 Ikkunan koko vaikuttaa ohjelman suoritusaikaan polynomisesti, joten ohjelman suoritus suuremmilla ikkunakooilla (64, 128, ...) on hidasta.  
@@ -39,11 +39,11 @@ Jos ikkunan kokoa ei ole annettu, käytetään oletusarvoa 16.
 
 Fourier-muunnoksessa käytettävä värikanava voidaan asettaa parametrilla ```--channels``` tai ```-c```. Arvon tulee olla merkkijono "RED", "GREEN" tai "BLUE". 
 ```
-java -jar FocusStacking.jar --channels RED
+java -jar FocusStacking.jar --channels RED -d
 ```
 Värikanavia voi määritellä useita, jolloin tarkan kuvan laskeminen suoritetaan jokaisella annetulla värikanavalla erikseen.
 ```
-java -jar FocusStacking.jar --channels RED BLUE
+java -jar FocusStacking.jar --channels RED BLUE -d
 ```
 Jos värikanavaa kokoa ei ole annettu, käytetään oletusarvoa BLUE.    
 
