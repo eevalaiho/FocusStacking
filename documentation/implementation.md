@@ -46,6 +46,8 @@ https://eevalaiho.github.io/FocusStacking/javadoc/domain/FFT.html
 
 ### SlidingWindow
 
+SlidindWindow -luokkaan on toteutettu FocusStacking -algoritmin käyttämä ikkunatoiminnallisuus. Luokan instanssi instantioidaan antamalla ikkunan koko ja kuvapistematriisin leveys ja korkeus. Ikkunaa voi siirtää eteenpäin ```hasNext``` ja ```moveNext``` -metodien avulla (ainoastaan eteenpäin siirtyminen on tarpeellista). Fourier-muunnoksessa tarvittava kahteen suuntaan peilattu ikkuna saadaan metodilla ```getDoublyMirroredWindow```. 
+
 #### Javadoc
 https://eevalaiho.github.io/FocusStacking/javadoc/domain/SlidingWindow.html
 
