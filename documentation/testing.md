@@ -45,7 +45,7 @@ Ohjelman suorituskykytestauksessa testattiin ikkunakoon ja kuvakoon vaikutusta o
 
 ### Kuvan koko
 
-<iframe src="/eevalaiho/FocusStacking/blob/master/documentation/performance/imageSize/Overview.html" frameborder="0" width="1080px" height="1080px"></iframe>
+<iframe src="/eevalaiho/FocusStacking/blob/master/documentation/performance/imageSize/Overview.html" frameborder="0"></iframe>
 
 
 
