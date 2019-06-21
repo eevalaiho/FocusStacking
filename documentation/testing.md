@@ -45,10 +45,12 @@ Ohjelman suorituskykytestauksessa testattiin ikkunakoon ja kuvakoon vaikutusta o
 
 ### Kuvan koko
 
-<iframe src="performance/imageSize/Overview.html" frameborder="0"></iframe>
-
+![Image size effect on performance](./performance/imageSize/jprofiler_images/telemetry.png "Image size effect on performance")
 
 
 ### Ikkunan koko
-* Ikkunan koko: https://eevalaiho.github.io/FocusStacking/performance/windowSize/Overview.html
+
+![Window size effect on performance](./performance/windowSize/jprofiler_images/telemetry.png "Window size effect on performance")
+
+
 
