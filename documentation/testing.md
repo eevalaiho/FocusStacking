@@ -45,12 +45,16 @@ Ohjelman suorituskykytestauksessa testattiin ikkunakoon ja kuvakoon vaikutusta o
 
 ### Kuvan koko
 
-![Image size effect on performance](./performance/imageSize/jprofiler_images/telemetry.png "Image size effect on performance")
+Kuvakoon vaikutusta ohjelman suoritukseen kuluvaan aikaan testatiin kuvako'oilla 30x20, 150x100 ja 300x200. Metodit kirjoitettiin samaan testiluokkaan ja kunkin metodin suorituksen jälkeen kutsuttiin Java:n sleep-metodia, että eri testimetodit voitiin helpommin eroottaa suorituskykyraportilta. Raportti alla:
+
+![Effect of image size on performance](./performance/imageSize/jprofiler_images/telemetry.png "Effect of image size on performance")
+
+
 
 
 ### Ikkunan koko
 
-![Window size effect on performance](./performance/windowSize/jprofiler_images/telemetry.png "Window size effect on performance")
+![Effect of window size on performance](./performance/windowSize/jprofiler_images/telemetry.png "Effect of window size on performance")
 
 
 
