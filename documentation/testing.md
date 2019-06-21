@@ -2,7 +2,7 @@
 
 ## Yksikkötestaus
 
-Testikattavuus: [https://eevalaiho.github.io/FocusStacking/coverage/index.html](https://eevalaiho.github.io/FocusStacking/coverage/index.html)
+Testikattavuus: https://eevalaiho.github.io/FocusStacking/coverage/index.html
 
 
 ## Järjestelmätestaus
@@ -37,4 +37,26 @@ Kun sinistä värikanavaa käytetän eri ikkunakoilla (8, 16, 32, 64) ohjelma tu
 ![Output 64](./images/150x100_koralli_output_BLUE_64.png "Output 64")
 
 Kuvista huomataan, että ikkunan koon kasvattaminen näyttäisi silmämääräisesti parantavan algoritmin tarkkuutta ikkunakokoon 32px asti. 
+
+
+## Suorituskyytestaus
+
+Ohjelman suorituskykytestauksessa testattiin ikkunakoon ja kuvakoon vaikutusta ohjelman suoritukseen kuluvaan aikaan. 
+
+### Kuvan koko
+
+Kuvakoon vaikutusta ohjelman suoritukseen kuluvaan aikaan testatiin kuvako'oilla 30x20, 150x100 ja 300x200. Testeissä käytettiin ikkunakokoa 16 ja punaista värikanavaa. Metodit kirjoitettiin samaan testiluokkaan ja kunkin metodin suorituksen jälkeen kutsuttiin Java:n sleep-metodia, että eri testimetodit voitiin helpommin eroottaa suorituskykyraportilta. 
+
+Raportti alla:
+![Effect of image size on performance](./performance/imageSize/jprofiler_images/telemetry.png "Effect of image size on performance")
+
+Raportista voidaan huomata, että kuvakoon kasvaessa ohjelman suoritusaika kasvaa merkittävästi.
+
+### Ikkunan koko
+
+Ikkunakoon vaikutusta ohjelman suoritukseen kuluvaan aikaan testatiin ikkunako'oilla 8, 16 ja 32. Testeissä käytettiin kuvakokoa 150x100 ja punaista värikanavaa. Metodit kirjoitettiin samaan testiluokkaan ja kunkin metodin suorituksen jälkeen kutsuttiin Java:n sleep-metodia, että eri testimetodit voitiin helpommin eroottaa suorituskykyraportilta. 
+
+![Effect of window size on performance](./performance/windowSize/jprofiler_images/telemetry.png "Effect of window size on performance")
+
+Raportista voidaan huomata, että ikkunakoon kasvaessa ohjelman suoritusaika kasvaa merkittävästi.
 
