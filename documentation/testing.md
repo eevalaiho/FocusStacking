@@ -47,10 +47,11 @@ Ohjelman suorituskykytestauksessa testattiin ikkunakoon ja kuvakoon vaikutusta o
 
 Kuvakoon vaikutusta ohjelman suoritukseen kuluvaan aikaan testatiin kuvako'oilla 30x20, 150x100 ja 300x200. Testeissä käytettiin ikkunakokoa 16 ja punaista värikanavaa. Metodit kirjoitettiin samaan testiluokkaan ja kunkin metodin suorituksen jälkeen kutsuttiin Java:n sleep-metodia, että eri testimetodit voitiin helpommin eroottaa suorituskykyraportilta. 
 
-Raportti alla:
 ![Effect of image size on performance](./performance/imageSize/jprofiler_images/telemetry.png "Effect of image size on performance")
 
-Raportista voidaan huomata, että kuvakoon kasvaessa ohjelman suoritusaika kasvaa merkittävästi.
+Testi suoritettiin ensin 30x20 (n. 0-0,05min), sitten 150x100 (n. 0,1min-0,65min) ja viimeksi 300x200 (n. 0,7min-3min) kuvakoolla. 
+
+Raportista voidaan huomata, että kuvakoon kasvaessa ohjelman suoritusaika kasvaa merkittävästi. Määrittelyvaiheen suorituskykyanalyysin perusteella tämä oli odotettavissa. 
 
 ### Ikkunan koko
 
@@ -58,5 +59,6 @@ Ikkunakoon vaikutusta ohjelman suoritukseen kuluvaan aikaan testatiin ikkunako'o
 
 ![Effect of window size on performance](./performance/windowSize/jprofiler_images/telemetry.png "Effect of window size on performance")
 
-Raportista voidaan huomata, että ikkunakoon kasvaessa ohjelman suoritusaika kasvaa merkittävästi.
+Testi suoritettiin ensin 8 (n. 0-0,15min), sitten 32 (n. 0,2min-3,3min) ja viimeksi 16 (n. 3,35min-4min) ikkunakoolla. 
 
+Raportista voidaan huomata, että ikkunakoon kasvaessa ohjelman suoritusaika kasvaa merkittävästi. Määrittelyvaiheen suorituskykyanalyysin perusteella tämä oli odotettavissa. 
