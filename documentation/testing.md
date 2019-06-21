@@ -2,7 +2,7 @@
 
 ## Yksikkötestaus
 
-Testikattavuus: [https://eevalaiho.github.io/FocusStacking/coverage/index.html](https://eevalaiho.github.io/FocusStacking/coverage/index.html)
+Testikattavuus: https://eevalaiho.github.io/FocusStacking/coverage/index.html
 
 
 ## Järjestelmätestaus
@@ -37,4 +37,12 @@ Kun sinistä värikanavaa käytetän eri ikkunakoilla (8, 16, 32, 64) ohjelma tu
 ![Output 64](./images/150x100_koralli_output_BLUE_64.png "Output 64")
 
 Kuvista huomataan, että ikkunan koon kasvattaminen näyttäisi silmämääräisesti parantavan algoritmin tarkkuutta ikkunakokoon 32px asti. 
+
+
+## Suorituskyytestaus
+
+Ohjelman suorituskykytestauksessa testattiin ikkunakoon ja kuvakoon vaikutusta ohjelman suoritukseen kuluvaan aikaan. Suorituskykytestauksen yhteenvetoraportit:
+
+* Kuvan koko: https://eevalaiho.github.io/FocusStacking/performance/imageSize/Overview.html
+* Ikkunan koko: https://eevalaiho.github.io/FocusStacking/performance/windowSize/Overview.html
 
