@@ -45,11 +45,9 @@ Ohjelman suorituskykytestauksessa testattiin ikkunakoon ja kuvakoon vaikutusta o
 
 ### Kuvan koko
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/Onv9nhPIBp0" frameborder="0" allowfullscreen> </iframe>
+<iframe src="/eevalaiho/FocusStacking/blob/master/documentation/performance/imageSize/Overview.html" frameborder="0" width="1080px" height="1080px"></iframe>
 
-<iframe src="https://eevalaiho.github.io/FocusStacking/performance/imageSize/Overview.html" />
-  
-<iframe width="560" height="315" src="https://eevalaiho.github.io/FocusStacking/performance/imageSize/Overview.html" frameborder="0" allowfullscreen></iframe>
+
 
 ### Ikkunan koko
 * Ikkunan koko: https://eevalaiho.github.io/FocusStacking/performance/windowSize/Overview.html
