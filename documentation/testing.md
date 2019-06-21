@@ -39,7 +39,7 @@ Kun sinistä värikanavaa käytetän eri ikkunakoilla (8, 16, 32, 64) ohjelma tu
 Kuvista huomataan, että ikkunan koon kasvattaminen näyttäisi silmämääräisesti parantavan algoritmin tarkkuutta ikkunakokoon 32px asti. 
 
 
-## Suorituskyytestaus
+## Suorituskykytestaus
 
 Ohjelman suorituskykytestauksessa testattiin ikkunakoon ja kuvakoon vaikutusta ohjelman suoritukseen kuluvaan aikaan. 
 
