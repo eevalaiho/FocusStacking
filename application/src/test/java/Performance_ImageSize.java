@@ -11,7 +11,7 @@ public class Performance_ImageSize {
 
     @Test
     public void test_30x20_w16_cRED() throws IllegalAccessException, InvocationTargetException, InstantiationException, NoSuchMethodException, InterruptedException {
-        String[] args = new String[] {"-c", "RED", "-w", "16", "-f", "30x20-kaunokki-top-blur.png", "30x20-kaunokki-left-blur.png", "30x20-kaunokki-right-blur.png", "-o", "../../test/resources/test_output_%s_%d.png", "-d"};
+        String[] args = new String[] {"-c", "RED", "-w", "16", "-f", "30x20-kaunokki-top-blur.png", "30x20-kaunokki-left-blur.png", "30x20-kaunokki-right-blur.png", "-o", "../../test/resources/test_output_30x20_w16_cRED_%s_%d.png", "-d"};
         Object[] args2 = {args};
 
         ByteArrayOutputStream outContent = new ByteArrayOutputStream();
@@ -30,7 +30,7 @@ public class Performance_ImageSize {
 
     @Test
     public void test_150x100_w16_cRED() throws IllegalAccessException, InvocationTargetException, InstantiationException, NoSuchMethodException, InterruptedException {
-        String[] args = new String[] {"-c", "RED", "-w", "16", "-f", "150x100-koralli-mirrored-top-blur.png", "150x100-koralli-mirrored-left-blur.png", "150x100-koralli-mirrored-right-blur.png", "-o", "../../test/resources/test_output_%s_%d.png", "-d"};
+        String[] args = new String[] {"-c", "RED", "-w", "16", "-f", "150x100-koralli-mirrored-top-blur.png", "150x100-koralli-mirrored-left-blur.png", "150x100-koralli-mirrored-right-blur.png", "-o", "../../test/resources/test_output_150x100_w16_cRED_%s_%d.png", "-d"};
         Object[] args2 = {args};
 
         ByteArrayOutputStream outContent = new ByteArrayOutputStream();
@@ -48,7 +48,7 @@ public class Performance_ImageSize {
 
     @Test
     public void test_300x200_w16_cRED() throws IllegalAccessException, InvocationTargetException, InstantiationException, NoSuchMethodException, InterruptedException {
-        String[] args = new String[] {"-c", "RED", "-w", "16", "-f", "300x200-kaunokki-top-blur.png", "300x200-kaunokki-left-blur.png", "300x200-kaunokki-right-blur.png", "-o", "../../test/resources/test_output_%s_%d.png", "-d"};
+        String[] args = new String[] {"-c", "RED", "-w", "16", "-f", "300x200-kaunokki-top-blur.png", "300x200-kaunokki-left-blur.png", "300x200-kaunokki-right-blur.png", "-o", "../../test/resources/test_output_300x200_w16_cRED_%s_%d.png", "-d"};
         Object[] args2 = {args};
 
         ByteArrayOutputStream outContent = new ByteArrayOutputStream();
