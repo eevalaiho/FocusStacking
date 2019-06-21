@@ -41,8 +41,12 @@ Kuvista huomataan, että ikkunan koon kasvattaminen näyttäisi silmämääräis
 
 ## Suorituskyytestaus
 
-Ohjelman suorituskykytestauksessa testattiin ikkunakoon ja kuvakoon vaikutusta ohjelman suoritukseen kuluvaan aikaan. Suorituskykytestauksen yhteenvetoraportit:
+Ohjelman suorituskykytestauksessa testattiin ikkunakoon ja kuvakoon vaikutusta ohjelman suoritukseen kuluvaan aikaan. 
 
-* Kuvan koko: https://eevalaiho.github.io/FocusStacking/performance/imageSize/Overview.html
+### Kuvan koko
+
+<iframe width="560" height="315" src="https://eevalaiho.github.io/FocusStacking/performance/imageSize/Overview.html" frameborder="0" allowfullscreen></iframe>
+
+### Ikkunan koko
 * Ikkunan koko: https://eevalaiho.github.io/FocusStacking/performance/windowSize/Overview.html
 
