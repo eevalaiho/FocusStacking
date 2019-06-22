@@ -1,5 +1,7 @@
 # Testaus
 
+Huom! Järjestelmätestauksen kuvat päivitetty vielä 22.6, koska eivät täysin vastanneet lopullista toteutusta. Alkuperäinen (DL mennessä toteutettu) testausdokumentti:  [testing_old.md](./testing_old.md)
+
 ## Yksikkötestaus
 
 Testikattavuus: https://eevalaiho.github.io/FocusStacking/coverage/index.html
@@ -21,9 +23,9 @@ Tämän jälkeen kuvasta on edelleen muokattu kolme testikuvaa, joissa on sumenn
 
 Tarkkojen pikselien valinnassa käytetty värikanava vaikuttaa ohjelman tuottamiin kuviin. Seuraavat kuvat on tuotettu 32 pikselin ikkunakoolla (punainen, vihreä, sininen):
 
-![Punainen](./images/150x100_koralli_output_RED_32.png "Punainen")
-![Vihreä](./images/150x100_koralli_output_GREEN_32.png "Vihreä")
-![Sininen](./images/150x100_koralli_output_BLUE_32.png "Sininen")
+![Punainen](./images/150x100_RED_32.png "Punainen")
+![Vihreä](./images/150x100_GREEN_32.png "Vihreä")
+![Sininen](./images/150x100_BLUE_32.png "Sininen")
 
 Kuvista voi havaita silmämääräisesti, että eri värikanavaa käyttämällä kuvaan valikoituu pikseleitä eri kuvista. Tällä kuvalla sininen värikanava tuottaa silmämääräisesti parhaan tuloksen. 
 
@@ -31,10 +33,10 @@ Kuvista voi havaita silmämääräisesti, että eri värikanavaa käyttämällä
 
 Kun sinistä värikanavaa käytetän eri ikkunakoilla (8, 16, 32, 64) ohjelma tuottaa seuraavat kuvat:
 
-![Output 8](./images/150x100_koralli_output_BLUE_8.png "Output 8")
-![Output 16](./images/150x100_koralli_output_BLUE_16.png "Output 16")
-![Output 32](./images/150x100_koralli_output_BLUE_32.png "Output 32")
-![Output 64](./images/150x100_koralli_output_BLUE_64.png "Output 64")
+![Output 8](./images/150x100_BLUE_8.png "Output 8")
+![Output 16](./images/150x100_BLUE_16.png "Output 16")
+![Output 32](./images/150x100_BLUE_32.png "Output 32")
+![Output 64](./images/150x100_BLUE_64.png "Output 64")
 
 Kuvista huomataan, että ikkunan koon kasvattaminen näyttäisi silmämääräisesti parantavan algoritmin tarkkuutta ikkunakokoon 32px asti. 
 
