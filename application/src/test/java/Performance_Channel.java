@@ -7,11 +7,11 @@ import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 
 
-public class Performance_ImageSize {
+public class Performance_Channel {
 
     @Test
-    public void test_30x20_w16_cBLUE() throws IllegalAccessException, InvocationTargetException, InstantiationException, NoSuchMethodException, InterruptedException {
-        String[] args = new String[] {"-c", "BLUE", "-w", "16", "-f", "30x20-kaunokki-top-blur.png", "30x20-kaunokki-left-blur.png", "30x20-kaunokki-right-blur.png", "-o", "../../test/resources/test_output_30x20_w16_cBLUE_%s_%d.png", "-d"};
+    public void test_150x100_w32_cRED() throws IllegalAccessException, InvocationTargetException, InstantiationException, NoSuchMethodException, InterruptedException {
+        String[] args = new String[] {"-c", "RED", "-w", "32", "-f", "150x100-koralli-mirrored-top-blur.png", "150x100-koralli-mirrored-left-blur.png", "150x100-koralli-mirrored-right-blur.png", "-o", "../../test/resources/test_150x100_w32_cRED_%s_%d.png", "-d"};
         Object[] args2 = {args};
 
         ByteArrayOutputStream outContent = new ByteArrayOutputStream();
@@ -29,8 +29,8 @@ public class Performance_ImageSize {
     }
 
     @Test
-    public void test_150x100_w16_cBLUE() throws IllegalAccessException, InvocationTargetException, InstantiationException, NoSuchMethodException, InterruptedException {
-        String[] args = new String[] {"-c", "BLUE", "-w", "16", "-f", "150x100-koralli-mirrored-top-blur.png", "150x100-koralli-mirrored-left-blur.png", "150x100-koralli-mirrored-right-blur.png", "-o", "../../test/resources/test_output_150x100_w16_cBLUE_%s_%d.png", "-d"};
+    public void test_150x100_w32_cGREEN() throws IllegalAccessException, InvocationTargetException, InstantiationException, NoSuchMethodException, InterruptedException {
+        String[] args = new String[] {"-c", "GREEN", "-w", "32", "-f", "150x100-koralli-mirrored-top-blur.png", "150x100-koralli-mirrored-left-blur.png", "150x100-koralli-mirrored-right-blur.png", "-o", "../../test/resources/test_150x100_w32_cGREEN_%s_%d.png", "-d"};
         Object[] args2 = {args};
 
         ByteArrayOutputStream outContent = new ByteArrayOutputStream();
@@ -47,8 +47,8 @@ public class Performance_ImageSize {
     }
 
     @Test
-    public void test_300x200_w16_cBLUE() throws IllegalAccessException, InvocationTargetException, InstantiationException, NoSuchMethodException, InterruptedException {
-        String[] args = new String[] {"-c", "BLUE", "-w", "16", "-f", "300x200-kaunokki-top-blur.png", "300x200-kaunokki-left-blur.png", "300x200-kaunokki-right-blur.png", "-o", "../../test/resources/test_output_300x200_w16_cBLUE_%s_%d.png", "-d"};
+    public void test_150x100_w32_cBLUE() throws IllegalAccessException, InvocationTargetException, InstantiationException, NoSuchMethodException, InterruptedException {
+        String[] args = new String[] {"-c", "BLUE", "-w", "32", "-f", "150x100-koralli-mirrored-top-blur.png", "150x100-koralli-mirrored-left-blur.png", "150x100-koralli-mirrored-right-blur.png", "-o", "../../test/resources/test_150x100_w32_cBLUE_%s_%d.png", "-d"};
         Object[] args2 = {args};
 
         ByteArrayOutputStream outContent = new ByteArrayOutputStream();

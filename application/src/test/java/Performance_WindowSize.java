@@ -9,10 +9,9 @@ import java.lang.reflect.InvocationTargetException;
 
 public class Performance_WindowSize {
 
-
     @Test
-    public void test_150x100_w8_cRED() throws IllegalAccessException, InvocationTargetException, InstantiationException, NoSuchMethodException, InterruptedException {
-        String[] args = new String[] {"-c", "RED", "-w", "8", "-f", "150x100-koralli-mirrored-top-blur.png", "150x100-koralli-mirrored-left-blur.png", "150x100-koralli-mirrored-right-blur.png", "-o", "../../test/resources/test_output_150x100_w8_cRED_%s_%d.png", "-d"};
+    public void test_150x100_w8_cBLUE() throws IllegalAccessException, InvocationTargetException, InstantiationException, NoSuchMethodException, InterruptedException {
+        String[] args = new String[] {"-c", "BLUE", "-w", "8", "-f", "150x100-koralli-mirrored-top-blur.png", "150x100-koralli-mirrored-left-blur.png", "150x100-koralli-mirrored-right-blur.png", "-o", "../../test/resources/test_output_150x100_w8_cBLUE_%s_%d.png", "-d"};
         Object[] args2 = {args};
 
         ByteArrayOutputStream outContent = new ByteArrayOutputStream();
@@ -30,8 +29,8 @@ public class Performance_WindowSize {
 
 
     @Test
-    public void test_150x100_w16_cRED() throws IllegalAccessException, InvocationTargetException, InstantiationException, NoSuchMethodException, InterruptedException {
-        String[] args = new String[] {"-c", "RED", "-w", "16", "-f", "150x100-koralli-mirrored-top-blur.png", "150x100-koralli-mirrored-left-blur.png", "150x100-koralli-mirrored-right-blur.png", "-o", "../../test/resources/test_output_150x100_w16_cRED_%s_%d.png", "-d"};
+    public void test_150x100_w16_cBLUE() throws IllegalAccessException, InvocationTargetException, InstantiationException, NoSuchMethodException, InterruptedException {
+        String[] args = new String[] {"-c", "BLUE", "-w", "16", "-f", "150x100-koralli-mirrored-top-blur.png", "150x100-koralli-mirrored-left-blur.png", "150x100-koralli-mirrored-right-blur.png", "-o", "../../test/resources/test_output_150x100_w16_cBLUE_%s_%d.png", "-d"};
         Object[] args2 = {args};
 
         ByteArrayOutputStream outContent = new ByteArrayOutputStream();
@@ -48,8 +47,8 @@ public class Performance_WindowSize {
     }
 
     @Test
-    public void test_150x100_w32_cRED() throws IllegalAccessException, InvocationTargetException, InstantiationException, NoSuchMethodException, InterruptedException {
-        String[] args = new String[] {"-c", "RED", "-w", "32", "-f", "150x100-koralli-mirrored-top-blur.png", "150x100-koralli-mirrored-left-blur.png", "150x100-koralli-mirrored-right-blur.png", "-o", "../../test/resources/test_output_150x100_w32_cRED_%s_%d.png", "-d"};
+    public void test_150x100_w32_cBLUE() throws IllegalAccessException, InvocationTargetException, InstantiationException, NoSuchMethodException, InterruptedException {
+        String[] args = new String[] {"-c", "BLUE", "-w", "32", "-f", "150x100-koralli-mirrored-top-blur.png", "150x100-koralli-mirrored-left-blur.png", "150x100-koralli-mirrored-right-blur.png", "-o", "../../test/resources/test_output_150x100_w32_cBLUE_%s_%d.png", "-d"};
         Object[] args2 = {args};
 
         ByteArrayOutputStream outContent = new ByteArrayOutputStream();
@@ -64,11 +63,10 @@ public class Performance_WindowSize {
 
         Thread.sleep(5000);
     }
-
-    /*
+/*
     @Test
-    public void test_150x100_w64_cRED() throws IllegalAccessException, InvocationTargetException, InstantiationException, NoSuchMethodException, InterruptedException {
-        String[] args = new String[] {"-c", "RED", "-w", "64", "-f", "150x100-koralli-mirrored-top-blur.png", "150x100-koralli-mirrored-left-blur.png", "150x100-koralli-mirrored-right-blur.png", "-o", "../../test/resources/test_output_150x100_w64_cRED_%s_%d.png", "-d"};
+    public void test_150x100_w64_cBLUE() throws IllegalAccessException, InvocationTargetException, InstantiationException, NoSuchMethodException, InterruptedException {
+        String[] args = new String[] {"-c", "BLUE", "-w", "64", "-f", "150x100-koralli-mirrored-top-blur.png", "150x100-koralli-mirrored-left-blur.png", "150x100-koralli-mirrored-right-blur.png", "-o", "../../test/resources/test_output_150x100_w64_cBLUE_%s_%d.png", "-d"};
         Object[] args2 = {args};
 
         ByteArrayOutputStream outContent = new ByteArrayOutputStream();
@@ -83,5 +81,5 @@ public class Performance_WindowSize {
 
         Thread.sleep(5000);
     }
-    */
+ */
 }
